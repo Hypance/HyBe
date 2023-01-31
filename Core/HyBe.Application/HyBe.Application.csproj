@@ -1,0 +1,119 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HyBe.Domain\HyBe.Domain.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Services\" />
+    <None Remove="Services\Repositories\" />
+    <None Remove="Features\" />
+    <None Remove="Features\Backtest\" />
+    <None Remove="Features\Backtest\Commands\" />
+    <None Remove="Features\Backtest\Queries\" />
+    <None Remove="Features\Backtest\Profiles\" />
+    <None Remove="Features\Backtest\Dtos\" />
+    <None Remove="Features\Backtest\Models\" />
+    <None Remove="Features\Bot\" />
+    <None Remove="Features\Candlestick\" />
+    <None Remove="Features\Formation\" />
+    <None Remove="Features\Indicator\" />
+    <None Remove="Features\Strategy\" />
+    <None Remove="Features\Symbol\" />
+    <None Remove="Features\Bot\Commands\" />
+    <None Remove="Features\Bot\Dtos\" />
+    <None Remove="Features\Bot\Models\" />
+    <None Remove="Features\Bot\Profiles\" />
+    <None Remove="Features\Bot\Queries\" />
+    <None Remove="Features\Candlestick\Commands\" />
+    <None Remove="Features\Candlestick\Dtos\" />
+    <None Remove="Features\Candlestick\Models\" />
+    <None Remove="Features\Candlestick\Profiles\" />
+    <None Remove="Features\Candlestick\Queries\" />
+    <None Remove="Features\Formation\Commands\" />
+    <None Remove="Features\Formation\Dtos\" />
+    <None Remove="Features\Formation\Models\" />
+    <None Remove="Features\Formation\Profiles\" />
+    <None Remove="Features\Formation\Queries\" />
+    <None Remove="Features\Indicator\Commands\" />
+    <None Remove="Features\Indicator\Dtos\" />
+    <None Remove="Features\Indicator\Models\" />
+    <None Remove="Features\Indicator\Profiles\" />
+    <None Remove="Features\Indicator\Queries\" />
+    <None Remove="Features\Strategy\Commands\" />
+    <None Remove="Features\Strategy\Dtos\" />
+    <None Remove="Features\Strategy\Models\" />
+    <None Remove="Features\Strategy\Profiles\" />
+    <None Remove="Features\Strategy\Queries\" />
+    <None Remove="Features\Symbol\Commands\" />
+    <None Remove="Features\Symbol\Dtos\" />
+    <None Remove="Features\Symbol\Models\" />
+    <None Remove="Features\Symbol\Profiles\" />
+    <None Remove="Features\Symbol\Queries\" />
+    <None Remove="Common\" />
+    <None Remove="Common\Behaviors\" />
+    <None Remove="Features\Backtest\Queries\GetListBacktest\" />
+    <None Remove="Features\Backtest\Queries\GetByIdBacktest\" />
+    <None Remove="Features\Backtest\Commands\CreateBacktest\" />
+    <None Remove="Features\Backtest\Commands\UpdateBacktest\" />
+    <None Remove="Features\Backtest\Commands\DeleteBacktest\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Abstractions\" />
+    <Folder Include="Features\" />
+    <Folder Include="Features\Backtests\" />
+    <Folder Include="Features\Backtests\Commands\" />
+    <Folder Include="Features\Backtests\Queries\" />
+    <Folder Include="Features\Backtests\Profiles\" />
+    <Folder Include="Features\Backtests\Dtos\" />
+    <Folder Include="Features\Backtests\Models\" />
+    <Folder Include="Features\Bot\" />
+    <Folder Include="Features\Candlestick\" />
+    <Folder Include="Features\Formation\" />
+    <Folder Include="Features\Indicator\" />
+    <Folder Include="Features\Strategy\" />
+    <Folder Include="Features\Symbol\" />
+    <Folder Include="Features\Bot\Commands\" />
+    <Folder Include="Features\Bot\Dtos\" />
+    <Folder Include="Features\Bot\Models\" />
+    <Folder Include="Features\Bot\Profiles\" />
+    <Folder Include="Features\Bot\Queries\" />
+    <Folder Include="Features\Candlestick\Commands\" />
+    <Folder Include="Features\Candlestick\Dtos\" />
+    <Folder Include="Features\Candlestick\Models\" />
+    <Folder Include="Features\Candlestick\Profiles\" />
+    <Folder Include="Features\Candlestick\Queries\" />
+    <Folder Include="Features\Formation\Commands\" />
+    <Folder Include="Features\Formation\Dtos\" />
+    <Folder Include="Features\Formation\Models\" />
+    <Folder Include="Features\Formation\Profiles\" />
+    <Folder Include="Features\Formation\Queries\" />
+    <Folder Include="Features\Indicator\Commands\" />
+    <Folder Include="Features\Indicator\Dtos\" />
+    <Folder Include="Features\Indicator\Models\" />
+    <Folder Include="Features\Indicator\Profiles\" />
+    <Folder Include="Features\Indicator\Queries\" />
+    <Folder Include="Features\Strategy\Commands\" />
+    <Folder Include="Features\Strategy\Dtos\" />
+    <Folder Include="Features\Strategy\Models\" />
+    <Folder Include="Features\Strategy\Profiles\" />
+    <Folder Include="Features\Strategy\Queries\" />
+    <Folder Include="Features\Symbol\Commands\" />
+    <Folder Include="Features\Symbol\Dtos\" />
+    <Folder Include="Features\Symbol\Models\" />
+    <Folder Include="Features\Symbol\Profiles\" />
+    <Folder Include="Features\Symbol\Queries\" />
+    <Folder Include="Common\" />
+    <Folder Include="Common\Behaviors\" />
+    <Folder Include="Features\Backtests\Queries\GetListBacktest\" />
+    <Folder Include="Features\Backtests\Queries\GetByIdBacktest\" />
+    <Folder Include="Features\Backtests\Commands\CreateBacktest\" />
+    <Folder Include="Features\Backtests\Commands\UpdateBacktest\" />
+    <Folder Include="Features\Backtests\Commands\DeleteBacktest\" />
+  </ItemGroup>
+</Project>

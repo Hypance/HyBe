@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Entities\" />
+    <None Remove="Entities\Backtests\" />
+    <None Remove="Entities\Bots\" />
+    <None Remove="Enums\" />
+    <None Remove="Entities\Formations\" />
+    <None Remove="Entities\Indicators\" />
+    <None Remove="Entities\Strategies\" />
+    <None Remove="Entities\Symbols\" />
+    <None Remove="Contracts\" />
+    <None Remove="Contracts\Backtests\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Entities\" />
+    <Folder Include="Entities\Backtests\" />
+    <Folder Include="Entities\Bots\" />
+    <Folder Include="Enums\" />
+    <Folder Include="Entities\Formations\" />
+    <Folder Include="Entities\Indicators\" />
+    <Folder Include="Entities\Strategies\" />
+    <Folder Include="Entities\Symbols\" />
+    <Folder Include="Contracts\" />
+    <Folder Include="Contracts\Backtests\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HyBe.SharedKernel\HyBe.SharedKernel.csproj" />
+  </ItemGroup>
+</Project>
