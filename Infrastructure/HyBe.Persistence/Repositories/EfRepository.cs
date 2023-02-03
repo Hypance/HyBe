@@ -39,7 +39,7 @@ public class EfRepository<T> : IRepository<T> where T : BaseEntity
             {
                 return new SuccessDataResult<T>(query);
             }
-            return new ErrorDataResult<T>();
+            return new ErrorDataResult<T>("Data is not found!..");
         }
         catch (System.Exception ex)
         {
