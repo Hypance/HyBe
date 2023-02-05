@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Features\Symbolss\**" />
+    <EmbeddedResource Remove="Features\Symbolss\**" />
+    <None Remove="Features\Symbolss\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\HyBe.Domain\HyBe.Domain.csproj" />
   </ItemGroup>
   <ItemGroup>
@@ -50,11 +56,6 @@
     <None Remove="Features\Strategy\Models\" />
     <None Remove="Features\Strategy\Profiles\" />
     <None Remove="Features\Strategy\Queries\" />
-    <None Remove="Features\Symbol\Commands\" />
-    <None Remove="Features\Symbol\Dtos\" />
-    <None Remove="Features\Symbol\Models\" />
-    <None Remove="Features\Symbol\Profiles\" />
-    <None Remove="Features\Symbol\Queries\" />
     <None Remove="Common\" />
     <None Remove="Common\Behaviors\" />
     <None Remove="Features\Backtest\Queries\GetListBacktest\" />
@@ -65,7 +66,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Abstractions\" />
-    <Folder Include="Features\" />
     <Folder Include="Features\Backtests\" />
     <Folder Include="Features\Backtests\Commands\" />
     <Folder Include="Features\Backtests\Queries\" />
@@ -77,7 +77,6 @@
     <Folder Include="Features\Formation\" />
     <Folder Include="Features\Indicator\" />
     <Folder Include="Features\Strategy\" />
-    <Folder Include="Features\Symbol\" />
     <Folder Include="Features\Bot\Commands\" />
     <Folder Include="Features\Bot\Dtos\" />
     <Folder Include="Features\Bot\Models\" />
@@ -103,11 +102,6 @@
     <Folder Include="Features\Strategy\Models\" />
     <Folder Include="Features\Strategy\Profiles\" />
     <Folder Include="Features\Strategy\Queries\" />
-    <Folder Include="Features\Symbol\Commands\" />
-    <Folder Include="Features\Symbol\Dtos\" />
-    <Folder Include="Features\Symbol\Models\" />
-    <Folder Include="Features\Symbol\Profiles\" />
-    <Folder Include="Features\Symbol\Queries\" />
     <Folder Include="Common\" />
     <Folder Include="Common\Behaviors\" />
     <Folder Include="Features\Backtests\Queries\GetListBacktest\" />

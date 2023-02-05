@@ -1,12 +1,13 @@
-﻿
-using HyBe.SharedKernel.Domain;
+﻿using System;
+using HyBe.Domain.Enums;
 
-namespace HyBe.Domain.Entities.Symbols;
+namespace HyBe.Domain.Contracts.Symbols;
 
-public class Symbol : BaseEntity
+public class GetListSymbolResponse
 {
     public string Name { get; set; }
     public decimal MinQuantity { get; set; }
     public decimal MaxQuantity { get; set; }
     public bool IsActive { get; set; }
 }
+

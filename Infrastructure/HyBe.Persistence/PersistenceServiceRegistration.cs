@@ -17,6 +17,7 @@ public static class PersistenceServiceRegistration
         services.AddDbContext<HypanceDbContext>(options => options.UseNpgsql(configuration.GetConnectionString("HypanceConnectionString")));
         services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
         services.AddScoped<IBacktestService, BacktestService>();
+        services.AddScoped<ISymbolService, SymbolService>();
         services.AddScoped<IDomainEventDispatcher, DomainEventDispatcher>();
         return services;
     }
