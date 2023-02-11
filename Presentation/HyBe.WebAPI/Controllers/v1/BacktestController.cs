@@ -76,7 +76,7 @@ namespace HyBe.WebAPI.Controllers.v1
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update([FromQuery] UpdateBacktestRequest request)
+        public async Task<IActionResult> Update([FromBody] UpdateBacktestRequest request)
         {
             try
             {
@@ -91,7 +91,7 @@ namespace HyBe.WebAPI.Controllers.v1
         }
 
         [HttpDelete]
-        public async Task<IActionResult> Delete([FromQuery] DeleteBacktestRequest request)
+        public async Task<IActionResult> Delete([FromBody] DeleteBacktestRequest request)
         {
             try
             {
