@@ -65,23 +65,17 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Abstractions\" />
-    <Folder Include="Features\" />
-    <Folder Include="Features\Backtests\" />
-    <Folder Include="Features\Backtests\Commands\" />
     <Folder Include="Features\Backtests\Queries\" />
     <Folder Include="Features\Backtests\Profiles\" />
     <Folder Include="Features\Backtests\Dtos\" />
     <Folder Include="Features\Backtests\Models\" />
-    <Folder Include="Features\Bot\" />
     <Folder Include="Features\Candlestick\" />
     <Folder Include="Features\Formation\" />
     <Folder Include="Features\Indicator\" />
     <Folder Include="Features\Strategy\" />
     <Folder Include="Features\Symbol\" />
-    <Folder Include="Features\Bot\Commands\" />
     <Folder Include="Features\Bot\Dtos\" />
     <Folder Include="Features\Bot\Models\" />
-    <Folder Include="Features\Bot\Profiles\" />
     <Folder Include="Features\Bot\Queries\" />
     <Folder Include="Features\Candlestick\Commands\" />
     <Folder Include="Features\Candlestick\Dtos\" />
@@ -113,7 +107,6 @@
     <Folder Include="Features\Backtests\Queries\GetListBacktest\" />
     <Folder Include="Features\Backtests\Queries\GetByIdBacktest\" />
     <Folder Include="Features\Backtests\Commands\CreateBacktest\" />
-    <Folder Include="Features\Backtests\Commands\UpdateBacktest\" />
     <Folder Include="Features\Backtests\Commands\DeleteBacktest\" />
   </ItemGroup>
 </Project>
