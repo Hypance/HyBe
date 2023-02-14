@@ -5,13 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HyBe.Application.Features.Bot.Queries.GetListBot
+namespace HyBe.Application.Features.Bots.Queries.GetByIdBot
 {
-    public class GetListBotQuery
+    public class GetByIdBotQuery
     {
-        public GetListBotRequest Request { get; set; }
+        public GetByIdBotRequest Request { get; set; }
 
-        public GetListBotQuery(GetListBotRequest request)
+        public GetByIdBotQuery(GetByIdBotRequest request)
         {
             Request = request;
         }

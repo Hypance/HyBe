@@ -4,10 +4,9 @@ using MediatR;
 using System;
 using AutoMapper;
 using HyBe.Domain.Contracts.Bots;
-using HyBe.Domain.Entities.Bots;
+using HyBe.Domain.Entities;
 
-
-namespace HyBe.Application.Features.Bot.Commands.CreateBot
+namespace HyBe.Application.Features.Bots.Commands.CreateBot
 {
     public class CreateBotCommandHandler : IRequestHandler<CreateBotCommand, IResult>
     {
@@ -29,7 +28,7 @@ namespace HyBe.Application.Features.Bot.Commands.CreateBot
 
         public async Task<IResult> Handle(CreateBotCommand query, CancellationToken cancellationToken)
         {
-            var botMapper = _mapper.Map<Domain.Entities.Bots.Bot>(query.Request);
+            var botMapper = _mapper.Map<Bot>(query.Request);
             var result = _botService.Add(botMapper);
             if (result.Success)
                 return new SuccessResult();

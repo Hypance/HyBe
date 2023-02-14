@@ -4,7 +4,7 @@ using MediatR;
 using System;
 
 
-namespace HyBe.Application.Features.Bot.Commands.DeleteBot
+namespace HyBe.Application.Features.Bots.Commands.DeleteBot
 {
     public class DeleteBotCommand : IRequest<IResult>
     {

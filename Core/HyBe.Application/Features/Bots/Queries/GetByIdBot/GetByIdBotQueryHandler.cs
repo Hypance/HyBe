@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HyBe.Application.Features.Bot.Queries.GetByIdBot
+namespace HyBe.Application.Features.Bots.Queries.GetByIdBot
 {
     public class GetByIdBotQueryHandler
     {

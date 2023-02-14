@@ -2,6 +2,7 @@
 using HyBe.Application.Abstractions.Services;
 using HyBe.Application.Features.Backtests.Queries;
 using HyBe.Domain.Contracts.Backtests;
+using HyBe.Domain.Contracts.Bots;
 using HyBe.SharedKernel.Utilities;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HyBe.Application.Features.Bot.Queries.GetListBot
+namespace HyBe.Application.Features.Bots.Queries.GetListBot
 {
     public class GetListBotQueryHandler
     {

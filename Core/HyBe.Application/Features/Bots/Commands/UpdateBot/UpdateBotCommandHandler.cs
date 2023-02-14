@@ -2,9 +2,10 @@
 using HyBe.Application.Abstractions.Services;
 using HyBe.SharedKernel.Utilities;
 using MediatR;
-using HyBe.Domain.Contracts.Bots;
 
-namespace HyBe.Application.Features.Bot.Commands.UpdateBot
+using HyBe.Domain.Entities;
+
+namespace HyBe.Application.Features.Bots.Commands.UpdateBot
 {
     public class UpdateBotCommandHandler : IRequestHandler<UpdateBotCommand, IResult>
     {
@@ -24,7 +25,7 @@ namespace HyBe.Application.Features.Bot.Commands.UpdateBot
         #region Methods
         public async Task<IResult> Handle(UpdateBotCommand query, CancellationToken cancellationToken)
         {
-            var botMapper = _mapper.Map<Domain.Entities.Bots.Bot>(query.Request);
+            var botMapper = _mapper.Map<Bot>(query.Request);
             var result = _botService.Update(botMapper);
             if (result.Success)
                 return new SuccessResult();

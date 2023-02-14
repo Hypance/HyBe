@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
 using HyBe.Application.Abstractions.Services;
-using HyBe.Application.Features.Bot.Commands.DeleteBot;
+using HyBe.Application.Features.Bots.Commands.DeleteBot;
 using HyBe.SharedKernel.Utilities;
 using MediatR;
 using System;
 
-namespace HyBe.Application.Features.Bot.Commands.DeleteBot
+namespace HyBe.Application.Features.Bots.Commands.DeleteBot
 {
     public class DeleteBotCommandHandler : IRequestHandler<DeleteBotCommand, IResult>
     {

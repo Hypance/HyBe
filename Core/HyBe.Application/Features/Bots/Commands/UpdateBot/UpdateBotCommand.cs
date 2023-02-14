@@ -3,7 +3,7 @@ using HyBe.SharedKernel.Utilities;
 using MediatR;
 using System;
 
-namespace HyBe.Application.Features.Bot.Commands.UpdateBot
+namespace HyBe.Application.Features.Bots.Commands.UpdateBot
 {
     public class UpdateBotCommand : IRequest<IResult>
     {

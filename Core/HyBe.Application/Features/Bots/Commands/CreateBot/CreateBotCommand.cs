@@ -4,7 +4,7 @@ using System;
 using HyBe.Domain.Contracts.Bots;
 
 
-namespace HyBe.Application.Features.Bot.Commands.CreateBot
+namespace HyBe.Application.Features.Bots.Commands.CreateBot
 {
     public class CreateBotCommand : IRequest<IResult>
     {
