@@ -1,5 +1,9 @@
 ﻿using AutoMapper;
-using HyBe.Application.Features.Backtests.Queries;
+using HyBe.Application.Features.Bots.Commands.DeleteBot;
+using HyBe.Application.Features.Bots.Commands.UpdateBot;
+using HyBe.Application.Features.Bots.Queries;
+using HyBe.Application.Features.Bots.Queries.GetByIdBot;
+using HyBe.Application.Features.Bots.Queries.GetListBot;
 using HyBe.Domain.Contracts.Bots;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -29,7 +33,7 @@ namespace HyBe.WebAPI.Controllers.v1
         {
             try
             {
-                var query = _mapper.Map<GetListBacktestQuery>(request);
+                var query = _mapper.Map<GetListBotQuery>(request);
                 var result = await _mediatr.Send(query);
                 return Ok(result);
             }
@@ -43,7 +47,7 @@ namespace HyBe.WebAPI.Controllers.v1
         {
             try
             {
-                var query = _mapper.Map<GetByIdBacktestQuery>(request);
+                var query = _mapper.Map<GetByIdBotQuery>(request);
                 var result = await _mediatr.Send(query);
                 return Ok(result);
             }
@@ -53,12 +57,12 @@ namespace HyBe.WebAPI.Controllers.v1
             }
         }
         [HttpPost]
-        public async Task<IActionResult> Create([FromQuery] CreateBotRequest request)
+        public async Task<IActionResult> Create([FromBody] CreateBotRequest request)
         {
             try
             {
-                var query = _mapper.Map<CreateBacktestCommand>(request);
-                var result = await _mediatr.Send(request);
+                var query = _mapper.Map<CreateBotCommand>(request);
+                var result = await _mediatr.Send(query);
                 return Ok(result);
             }
             catch (Exception ex)
@@ -67,11 +71,11 @@ namespace HyBe.WebAPI.Controllers.v1
             }
         }
         [HttpPut]
-        public async Task<IActionResult> Update([FromQuery] UpdateBotRequest request)
+        public async Task<IActionResult> Update([FromBody] UpdateBotRequest request)
         {
             try
             {
-                var query = _mapper.Map<CreateBacktestCommand>(request);
+                var query = _mapper.Map<UpdateBotCommand>(request);
                 var result = await _mediatr.Send(query);
                 return Ok(result);
             }
@@ -81,11 +85,11 @@ namespace HyBe.WebAPI.Controllers.v1
             }
         }
         [HttpDelete]
-        public async Task<IActionResult> Delete([FromQuery] DeleteBotRequest request)
+        public async Task<IActionResult> Delete([FromBody] DeleteBotRequest request)
         {
             try
             {
-                var query = _mapper.Map<DeleteBacktestCommand>(request);
+                var query = _mapper.Map<DeleteBotCommand>(request);
                 var result = await _mediatr.Send(query);
                 return Ok(result);
             }
