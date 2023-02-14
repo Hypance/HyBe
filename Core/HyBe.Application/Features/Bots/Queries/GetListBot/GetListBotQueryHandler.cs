@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
 using HyBe.Application.Abstractions.Services;
-using HyBe.Application.Features.Backtests.Queries;
-using HyBe.Domain.Contracts.Backtests;
+using HyBe.Application.Features.Bots.Commands.UpdateBot;
+using HyBe.Application.Features.Bots.Queries;
+using HyBe.Application.Features.Bots.Queries.GetByIdBot;
 using HyBe.Domain.Contracts.Bots;
 using HyBe.SharedKernel.Utilities;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace HyBe.Application.Features.Bots.Queries.GetListBot
 {
-    public class GetListBotQueryHandler
+    public class GetListBotQueryHandler : IRequestHandler<GetListBotQuery, IResult>
     {
 
         #region Fileds
