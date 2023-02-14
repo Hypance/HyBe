@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using HyBe.Application.Abstractions.Services;
+using HyBe.Application.Features.Bots.Commands.DeleteBot;
 using HyBe.Domain.Contracts.Bots;
 using HyBe.SharedKernel.Utilities;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace HyBe.Application.Features.Bots.Queries.GetByIdBot
 {
-    public class GetByIdBotQueryHandler
+    public class GetByIdBotQueryHandler : IRequestHandler<GetByIdBotQuery, IResult>
     {
         #region Fields
         private readonly IBotService _botService;
