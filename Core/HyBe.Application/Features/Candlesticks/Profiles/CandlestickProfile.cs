@@ -9,10 +9,10 @@ public class CandlestickProfile : Profile
 {
     public CandlestickProfile()
     {
-        CreateMap<GetListCandlestickResponse, Candlestick>();
-        CreateMap<GetByIdCandlestickResponse, Candlestick>();
-        CreateMap<Candlestick, CreateCandlestickRequest>();
-        CreateMap<Candlestick, UpdateCandlestickRequest>();
+        CreateMap<Candlestick, GetListCandlestickResponse>();
+        CreateMap<Candlestick, GetByIdCandlestickResponse>();
+        CreateMap<CreateCandlestickRequest, Candlestick>();
+        CreateMap<UpdateCandlestickRequest, Candlestick>();
     }
 }
 
