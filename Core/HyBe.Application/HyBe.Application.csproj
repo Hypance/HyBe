@@ -7,6 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Features\Backtests - Kopya %282%29\**" />
+    <Compile Remove="Features\Backtests - Kopyala\**" />
+    <EmbeddedResource Remove="Features\Backtests - Kopya %282%29\**" />
+    <EmbeddedResource Remove="Features\Backtests - Kopyala\**" />
+    <None Remove="Features\Backtests - Kopya %282%29\**" />
+    <None Remove="Features\Backtests - Kopyala\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\HyBe.Domain\HyBe.Domain.csproj" />
   </ItemGroup>
   <ItemGroup>
@@ -64,8 +73,6 @@
     <None Remove="Features\Backtest\Commands\DeleteBacktest\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Abstractions\" />
-    <Folder Include="Features\" />
     <Folder Include="Features\Backtests\" />
     <Folder Include="Features\Backtests\Commands\" />
     <Folder Include="Features\Backtests\Queries\" />
@@ -76,7 +83,6 @@
     <Folder Include="Features\Candlestick\" />
     <Folder Include="Features\Formation\" />
     <Folder Include="Features\Indicator\" />
-    <Folder Include="Features\Strategy\" />
     <Folder Include="Features\Symbol\" />
     <Folder Include="Features\Bot\Commands\" />
     <Folder Include="Features\Bot\Dtos\" />
@@ -98,11 +104,8 @@
     <Folder Include="Features\Indicator\Models\" />
     <Folder Include="Features\Indicator\Profiles\" />
     <Folder Include="Features\Indicator\Queries\" />
-    <Folder Include="Features\Strategy\Commands\" />
     <Folder Include="Features\Strategy\Dtos\" />
     <Folder Include="Features\Strategy\Models\" />
-    <Folder Include="Features\Strategy\Profiles\" />
-    <Folder Include="Features\Strategy\Queries\" />
     <Folder Include="Features\Symbol\Commands\" />
     <Folder Include="Features\Symbol\Dtos\" />
     <Folder Include="Features\Symbol\Models\" />
