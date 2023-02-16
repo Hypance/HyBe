@@ -18,6 +18,7 @@ public static class PersistenceServiceRegistration
         services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
         services.AddScoped<IBacktestService, BacktestService>();
         services.AddScoped<ICandlestickServices, CandlestickServices>();
+        services.AddScoped<IBotService, BotService>();
         services.AddScoped<IDomainEventDispatcher, DomainEventDispatcher>();
         return services;
     }

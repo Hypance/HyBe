@@ -30,7 +30,7 @@ public class UpdateBacktestCommandHandler : IRequestHandler<UpdateBacktestComman
         var result = _backtestService.Update(backtestMapper);
         if (result.Success)
             return new SuccessResult();
-        return new ErrorResult();
+        return new ErrorResult(result.Message);
     }
     #endregion
 }
