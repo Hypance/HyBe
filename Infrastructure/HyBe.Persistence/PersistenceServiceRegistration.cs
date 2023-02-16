@@ -21,4 +21,3 @@ public static class PersistenceServiceRegistration
         services.AddScoped<IDomainEventDispatcher, DomainEventDispatcher>();
         return services;
     }
-}
