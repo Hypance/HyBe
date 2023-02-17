@@ -7,7 +7,5 @@ namespace HyBe.Application.Abstractions.Services
 {
     public interface IIndicatorSignalService : IRepository<IndicatorSignal>
     {
-        object Add(Mapper indicatorSignalMapper);
-        object Get(Func<object, bool> value);
     }
 }
