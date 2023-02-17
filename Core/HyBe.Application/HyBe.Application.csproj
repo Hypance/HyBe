@@ -65,7 +65,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Abstractions\" />
-    <Folder Include="Features\" />
     <Folder Include="Features\Backtests\" />
     <Folder Include="Features\Backtests\Commands\" />
     <Folder Include="Features\Backtests\Queries\" />
@@ -75,6 +74,8 @@
     <Folder Include="Features\Bot\" />
     <Folder Include="Features\Candlestick\" />
     <Folder Include="Features\Formation\" />
+    <Folder Include="Features\IndicatorSignals\Dtos\" />
+    <Folder Include="Features\IndicatorSignals\Models\" />
     <Folder Include="Features\Indicator\" />
     <Folder Include="Features\Strategy\" />
     <Folder Include="Features\Symbol\" />

@@ -27,8 +27,10 @@
     <Folder Include="Entities\Indicators\" />
     <Folder Include="Entities\Strategies\" />
     <Folder Include="Entities\Symbols\" />
-    <Folder Include="Contracts\" />
     <Folder Include="Contracts\Backtests\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\.editorconfig" Link=".editorconfig" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HyBe.SharedKernel\HyBe.SharedKernel.csproj" />
