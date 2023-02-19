@@ -1,4 +1,4 @@
-﻿using HyBe.Application.Abstractions.Services;
+using HyBe.Application.Abstractions.Services;
 using HyBe.Persistence.Contexts;
 using HyBe.Persistence.Repositories;
 using HyBe.Persistence.Services;
