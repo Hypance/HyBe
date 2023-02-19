@@ -1,9 +1,10 @@
 ﻿using HyBe.Domain.Enums;
 using HyBe.SharedKernel.Domain;
 
-namespace HyBe.Domain.Entities.Symbols;
-public class Candlestick : BaseEntity
+namespace HyBe.Domain.Contracts.Candlesticks;
+public class UpdateCandlestickRequest
 {
+    public Guid Id { get; set; }
     public string Name { get; set; }
     public DateTimeOffset OpenTime { get; set; }
     public decimal OpenPrice { get; set; }
@@ -15,4 +16,5 @@ public class Candlestick : BaseEntity
     public Interval Interval { get; set; }
     public string Symbol { get; set; }
     public bool IsActive { get; set; }
+
 }
