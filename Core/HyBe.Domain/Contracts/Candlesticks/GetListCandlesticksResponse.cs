@@ -1,8 +1,8 @@
 ﻿using HyBe.Domain.Enums;
 using HyBe.SharedKernel.Domain;
 
-namespace HyBe.Domain.Entities.Symbols;
-public class Candlestick : BaseEntity
+namespace HyBe.Domain.Contracts.Candlesticks;
+public class GetListCandlestickResponse
 {
     public string Name { get; set; }
     public DateTimeOffset OpenTime { get; set; }
