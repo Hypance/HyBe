@@ -12,8 +12,8 @@ public class IndicatorSignalProfile : Profile
 {
     public IndicatorSignalProfile()
     {
-        CreateMap<GetListIndicatorSignalResponse, Domain.Entities.Indicators.IndicatorSignal>();
-        CreateMap<GetByIdIndicatorSignalResponse, Domain.Entities.Indicators.IndicatorSignal>();
+        CreateMap<IndicatorSignal, GetListIndicatorSignalResponse>();
+        CreateMap<IndicatorSignal, GetByIdIndicatorSignalResponse>();
         CreateMap<CreateIndicatorSignalRequest, Domain.Entities.Indicators.IndicatorSignal>();
         CreateMap<UpdateIndicatorSignalRequest, Domain.Entities.Indicators.IndicatorSignal>();
     }

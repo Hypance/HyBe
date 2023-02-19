@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace HyBe.Application.Features.IndicatorSignals.Queries.GetByIdIndicatorSignal;
+
 public class GetByIdIndicatorSignalQuery : IRequest<IResult>
 {
     public GetByIdIndicatorSignalRequest Request { get; set; }
