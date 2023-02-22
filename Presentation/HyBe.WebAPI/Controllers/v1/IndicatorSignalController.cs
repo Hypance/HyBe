@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
+using HyBe.Domain.Contracts.IndicatorSignals;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
 using HyBe.Application.Features.IndicatorSignals.Commands.CreateIndicatorSignal;
 using HyBe.Application.Features.IndicatorSignals.Commands.DeleteIndicatorSignal;
 using HyBe.Application.Features.IndicatorSignals.Commands.UpdateIndicatorSignal;
 using HyBe.Application.Features.IndicatorSignals.Queries.GetByIdIndicatorSignal;
 using HyBe.Application.Features.IndicatorSignals.Queries.GetListIndicatorSignal;
-using HyBe.Domain.Contracts.IndicatorSignal;
-using MediatR;
-using Microsoft.AspNetCore.Mvc;
 
 namespace HyBe.WebAPI.Controllers.v1
 {

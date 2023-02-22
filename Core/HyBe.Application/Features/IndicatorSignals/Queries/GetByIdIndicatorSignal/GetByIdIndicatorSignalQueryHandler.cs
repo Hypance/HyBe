@@ -6,17 +6,16 @@ using System.Threading.Tasks;
 using AutoMapper;
 using HyBe.Application.Abstractions.Services;
 using HyBe.Application.Features.IndicatorSignals.Queries;
-using HyBe.Domain.Contracts.IndicatorSignal;
+using HyBe.Application.Features.IndicatorSignals.Queries.GetByIdIndicatorSignal;
+using HyBe.Domain.Contracts.IndicatorSignals;
 using HyBe.SharedKernel.Utilities;
 using MediatR;
 
-namespace HyBe.Application.Features.IndicatorSignals.Queries.GetByIdIndicatorSignal;
+namespace HyBe.Application.Features.IndicatorSignals.Queries;
 public class GetByIdIndicatorSignalQueryHandler : IRequestHandler<GetByIdIndicatorSignalQuery, IResult>
 {
-    #region Fileds
     private readonly IIndicatorSignalService _indicatorSignalService;
     private readonly IMapper _mapper;
-    #endregion
 
     #region Constructor
     public GetByIdIndicatorSignalQueryHandler(IIndicatorSignalService indicatorSignalService, IMapper mapper)

@@ -1,4 +1,4 @@
-﻿using HyBe.Domain.Contracts.IndicatorSignal;
+﻿using HyBe.Domain.Contracts.IndicatorSignals;
 using HyBe.SharedKernel.Utilities;
 using MediatR;
 using System;

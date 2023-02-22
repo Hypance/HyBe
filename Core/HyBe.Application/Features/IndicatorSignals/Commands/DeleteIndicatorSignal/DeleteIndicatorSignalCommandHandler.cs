@@ -4,7 +4,7 @@ using HyBe.Application.Abstractions.Services;
 using HyBe.SharedKernel.Utilities;
 using HyBe.Domain.Entities.Indicators;
 using MediatR;
-using HyBe.Domain.Contracts.IndicatorSignal;
+using HyBe.Domain.Contracts.IndicatorSignals;
 
 namespace HyBe.Application.Features.IndicatorSignals.Commands.DeleteIndicatorSignal;
 

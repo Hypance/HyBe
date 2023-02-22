@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HyBe.Domain.Contracts.IndicatorSignal;
+namespace HyBe.Domain.Contracts.IndicatorSignals;
 
 public class GetListIndicatorSignalRequest
 {
-    public Guid Id { get; set; }
 }

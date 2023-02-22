@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HyBe.Domain.Contracts.IndicatorSignal;
+namespace HyBe.Domain.Contracts.IndicatorSignals;
 
-public class GetByIdIndicatorSignalResponse
+public class CreateIndicatorSignalRequest
 {
     public string IndicatorName { get; set; }
     public string SymbolName { get; set; }
