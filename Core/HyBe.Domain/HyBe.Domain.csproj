@@ -27,7 +27,6 @@
     <Folder Include="Entities\Indicators\" />
     <Folder Include="Entities\Strategies\" />
     <Folder Include="Entities\Symbols\" />
-    <Folder Include="Contracts\" />
     <Folder Include="Contracts\Backtests\" />
   </ItemGroup>
   <ItemGroup>
