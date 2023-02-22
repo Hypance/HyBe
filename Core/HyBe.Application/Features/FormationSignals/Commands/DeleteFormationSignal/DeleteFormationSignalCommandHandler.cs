@@ -13,14 +13,14 @@ namespace HyBe.Application.Features.FormationSignals.Commands.DeleteFormationSig
     public class DeleteFormationSignalCommandHandler : IRequestHandler<DeleteFormationSignalCommand, IResult>
     {
         #region Fields
-        private readonly IFormationSignalService _FormationSignalService;
+        private readonly IFormationSignalService _formationSignalService;
         private readonly IMapper _mapper;
         #endregion
 
         #region Constructor
         public DeleteFormationSignalCommandHandler(IFormationSignalService FormationSignalService, IMapper mapper)
         {
-            _FormationSignalService = FormationSignalService;
+            _formationSignalService = FormationSignalService;
             _mapper = mapper;
         }
         #endregion
@@ -28,7 +28,7 @@ namespace HyBe.Application.Features.FormationSignals.Commands.DeleteFormationSig
         #region Methods
         public async Task<IResult> Handle(DeleteFormationSignalCommand query, CancellationToken cancellationToken)
         {
-            var result = _FormationSignalService.Delete(query.Request.Id);
+            var result = _formationSignalService.Delete(query.Request.Id);
             if (result.Success)
                 return new SuccessResult();
             return new ErrorResult(result.Message);

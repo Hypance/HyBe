@@ -15,14 +15,14 @@ namespace HyBe.Application.Features.FormationSignals.Commands.CreateFormationSig
     public class CreateFormationSignalCommandHandler : IRequestHandler<CreateFormationSignalCommand, IResult>
     {
         #region Fields
-        private readonly IFormationSignalService _FormationSignalService;
+        private readonly IFormationSignalService _formationSignalService;
         private readonly IMapper _mapper;
         #endregion
 
         #region Constructor
         public CreateFormationSignalCommandHandler(IFormationSignalService FormationSignalService, IMapper mapper)
         {
-            _FormationSignalService = FormationSignalService;
+            _formationSignalService = FormationSignalService;
             _mapper = mapper;
         }
         #endregion
@@ -31,7 +31,7 @@ namespace HyBe.Application.Features.FormationSignals.Commands.CreateFormationSig
         public async Task<IResult> Handle(CreateFormationSignalCommand query, CancellationToken cancellationToken)
         {
             var FormationSignalMapper = _mapper.Map<FormationSignal>(query.Request);
-            var result = _FormationSignalService.Add(FormationSignalMapper);
+            var result = _formationSignalService.Add(FormationSignalMapper);
             if (result.Success)
                 return new SuccessResult();
             return new ErrorResult(result.Message);
