@@ -28,6 +28,9 @@
     <Folder Include="Contracts\Backtests\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\HyBe.SharedKernel\HyBe.SharedKernel.csproj" />
   </ItemGroup>
 </Project>

@@ -67,6 +67,9 @@
     <Folder Include="Features\Backtests\Dtos\" />
     <Folder Include="Features\Backtests\Models\" />
     <Folder Include="Features\Candlestick\" />
+    <Folder Include="Features\Formation\" />
+    <Folder Include="Features\IndicatorSignals\Dtos\" />
+    <Folder Include="Features\IndicatorSignals\Models\" />
     <Folder Include="Features\Indicator\" />
     <Folder Include="Features\Strategy\" />
     <Folder Include="Features\Symbol\" />
