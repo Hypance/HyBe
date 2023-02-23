@@ -20,6 +20,7 @@ public static class PersistenceServiceRegistration
         services.AddScoped<ICandlestickServices, CandlestickServices>();
         services.AddScoped<IBotService, BotService>();
         services.AddScoped<IFormationSignalService, FormationSignalService>();
+        services.AddScoped<IFormationService, FormationService>();
         services.AddScoped<IDomainEventDispatcher, DomainEventDispatcher>();
         return services;
     }
