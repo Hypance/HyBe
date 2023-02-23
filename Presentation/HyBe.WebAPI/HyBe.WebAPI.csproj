@@ -30,4 +30,7 @@
     <None Remove="Controllers\v1\" />
     <None Remove="Microsoft.EntityFrameworkCore.Design" />
   </ItemGroup>
+	<ItemGroup>
+		<Folder Include="Controllers\v1\" />
+	</ItemGroup>
 </Project>
