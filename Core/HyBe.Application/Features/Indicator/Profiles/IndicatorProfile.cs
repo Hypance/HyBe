@@ -9,10 +9,10 @@ public class IndicatorProfile : Profile
 {
     public IndicatorProfile()
     {
-        CreateMap<GetListIndicatorResponse, Indicator>();
-        CreateMap<GetByIdIndicatorResponse, Indicator>();
-        CreateMap<Indicator, CreateIndicatorRequest>();
-        CreateMap<Indicator, UpdateIndicatorRequest>();
+        CreateMap<Indicator , GetListIndicatorResponse>().ReverseMap();
+        CreateMap<Indicator , GetByIdIndicatorResponse>().ReverseMap();
+        CreateMap<CreateIndicatorRequest, Indicator>().ReverseMap();
+        CreateMap<UpdateIndicatorRequest, Indicator>().ReverseMap();
     }
 }
 
