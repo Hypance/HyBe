@@ -35,11 +35,6 @@
     <None Remove="Features\Bots\Models\" />
     <None Remove="Features\Bots\Profiles\" />
     <None Remove="Features\Bots\Queries\" />
-    <None Remove="Features\Formation\Commands\" />
-    <None Remove="Features\Formation\Dtos\" />
-    <None Remove="Features\Formation\Models\" />
-    <None Remove="Features\Formation\Profiles\" />
-    <None Remove="Features\Formation\Queries\" />
     <None Remove="Features\Indicator\Commands\" />
     <None Remove="Features\Indicator\Dtos\" />
     <None Remove="Features\Indicator\Models\" />
@@ -72,7 +67,6 @@
     <Folder Include="Features\Backtests\Dtos\" />
     <Folder Include="Features\Backtests\Models\" />
     <Folder Include="Features\Candlestick\" />
-    <Folder Include="Features\Formation\" />
     <Folder Include="Features\Indicator\" />
     <Folder Include="Features\Strategy\" />
     <Folder Include="Features\Symbol\" />
@@ -80,11 +74,6 @@
     <Folder Include="Features\Candlesticks\Models\" />
     <Folder Include="Features\Bots\Dtos\" />
     <Folder Include="Features\Bots\Models\" />
-    <Folder Include="Features\Formation\Commands\" />
-    <Folder Include="Features\Formation\Dtos\" />
-    <Folder Include="Features\Formation\Models\" />
-    <Folder Include="Features\Formation\Profiles\" />
-    <Folder Include="Features\Formation\Queries\" />
     <Folder Include="Features\Indicator\Commands\" />
     <Folder Include="Features\Indicator\Dtos\" />
     <Folder Include="Features\Indicator\Models\" />
