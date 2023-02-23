@@ -1,4 +1,4 @@
-﻿using HyBe.Application.Abstractions.Services;
+using HyBe.Application.Abstractions.Services;
 using HyBe.Persistence.Contexts;
 using HyBe.Persistence.Repositories;
 using HyBe.Persistence.Services;
@@ -18,6 +18,10 @@ public static class PersistenceServiceRegistration
         services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
         services.AddScoped<IBacktestService, BacktestService>();
         services.AddScoped<IIndicatorService, IndicatorService>();
+        services.AddScoped<ICandlestickServices, CandlestickServices>();
+        services.AddScoped<IBotService, BotService>();
+        services.AddScoped<IFormationSignalService, FormationSignalService>();
+        services.AddScoped<IIndicatorSignalService, IndicatorSignalService>();
         services.AddScoped<IDomainEventDispatcher, DomainEventDispatcher>();
         return services;
     }

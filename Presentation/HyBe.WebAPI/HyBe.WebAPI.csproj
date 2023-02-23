@@ -21,6 +21,7 @@
     <ProjectReference Include="..\..\Core\HyBe.Application\HyBe.Application.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
+    <ProjectReference Include="..\..\Core\HyBe.Domain\HyBe.Domain.csproj" />
     <ProjectReference Include="..\..\Infrastructure\HyBe.Persistence\HyBe.Persistence.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
@@ -29,7 +30,4 @@
     <None Remove="Controllers\v1\" />
     <None Remove="Microsoft.EntityFrameworkCore.Design" />
   </ItemGroup>
-	<ItemGroup>
-		<Folder Include="Controllers\v1\" />
-	</ItemGroup>
 </Project>

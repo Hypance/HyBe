@@ -33,7 +33,7 @@ public class GetListBacktestQueryHandler : IRequestHandler<GetListBacktestQuery,
             var backtestMapper = _mapper.Map<List<GetListBacktestResponse>>(result.Data);
             return new SuccessDataResult<List<GetListBacktestResponse>>(backtestMapper);
         }
-        return new ErrorDataResult<List<GetListBacktestResponse>>();
+        return new ErrorDataResult<List<GetListBacktestResponse>>(result.Message);
     }
     #endregion
 }
