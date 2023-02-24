@@ -3,7 +3,7 @@ using HyBe.Application.Abstractions.Services;
 using HyBe.SharedKernel.Utilities;
 using MediatR;
 using HyBe.Domain.Entities;
-using Hypance.Core.Domain.Wallets;
+using HyBe.Domain.Entities.Wallets;
 
 namespace HyBe.Application.Features.Wallets.Commands.UpdateWallet
 {

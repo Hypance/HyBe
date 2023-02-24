@@ -5,10 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hypance.Core.Domain.Wallets
+namespace HyBe.Domain.Entities.Wallets;
+
+public class Wallet : BaseEntity
 {
-    public class Wallet : BaseEntity
-    {
-        public decimal Balance { get; set; }
-    }
+    public decimal Balance { get; set; }
 }

@@ -2,7 +2,7 @@
 using AutoMapper;
 using HyBe.Domain.Contracts.Wallets;
 using HyBe.Domain.Entities;
-using Hypance.Core.Domain.Wallets;
+using HyBe.Domain.Entities.Wallets;
 
 namespace HyBe.Application.Features.Wallets.Profiles;
 

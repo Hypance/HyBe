@@ -1,5 +1,5 @@
 ﻿using HyBe.SharedKernel.Repositories;
-using Hypance.Core.Domain.Wallets;
+using HyBe.Domain.Entities.Wallets;
 using System;
 using System.Collections.Generic;
 using System.Linq;

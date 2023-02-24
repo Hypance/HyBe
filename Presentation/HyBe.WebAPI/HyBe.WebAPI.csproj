@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -20,11 +20,8 @@
     <None Remove="Controllers\v1\" />
     <None Remove="Microsoft.EntityFrameworkCore.Design" />
   </ItemGroup>
-	<ItemGroup>
-		<Folder Include="Controllers\v1\" />
-	</ItemGroup>
-	<ItemGroup>
-	  <ProjectReference Include="..\..\Core\HyBe.Application\HyBe.Application.csproj" />
-	  <ProjectReference Include="..\..\Infrastructure\HyBe.Persistence\HyBe.Persistence.csproj" />
-	</ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\HyBe.Application\HyBe.Application.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\HyBe.Persistence\HyBe.Persistence.csproj" />
+  </ItemGroup>
 </Project>

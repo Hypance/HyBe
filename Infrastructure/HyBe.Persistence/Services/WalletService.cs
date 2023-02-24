@@ -1,8 +1,8 @@
 ﻿using HyBe.Application.Abstractions.Services;
 using HyBe.Domain.Entities.Symbols;
+using HyBe.Domain.Entities.Wallets;
 using HyBe.Persistence.Contexts;
 using HyBe.Persistence.Repositories;
-using Hypance.Core.Domain.Wallets;
 using System;
 using System.Collections.Generic;
 using System.Linq;

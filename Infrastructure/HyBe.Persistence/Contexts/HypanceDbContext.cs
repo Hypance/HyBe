@@ -8,7 +8,7 @@ using HyBe.Domain.Entities.Strategies;
 using HyBe.Domain.Entities.Symbols;
 using HyBe.SharedKernel.Domain;
 using HyBe.SharedKernel.Events;
-using Hypance.Core.Domain.Wallets;
+using HyBe.Domain.Entities.Wallets;
 using Microsoft.EntityFrameworkCore;
 
 namespace HyBe.Persistence.Contexts;

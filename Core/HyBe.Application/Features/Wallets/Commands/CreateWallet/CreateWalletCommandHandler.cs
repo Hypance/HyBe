@@ -3,7 +3,7 @@ using HyBe.Application.Abstractions.Services;
 using HyBe.SharedKernel.Utilities;
 using MediatR;
 using HyBe.Domain.Entities;
-using Hypance.Core.Domain.Wallets;
+using HyBe.Domain.Entities.Wallets;
 using HyBe.Application.Features.Wallets.Commands;
 
 namespace HyBe.Application.Features.Wallets.Queries;
