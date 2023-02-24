@@ -59,7 +59,6 @@
     <None Remove="Features\Backtest\Commands\DeleteBacktest\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Abstractions\" />
     <Folder Include="Features\Backtests\" />
     <Folder Include="Features\Backtests\Commands\" />
     <Folder Include="Features\Backtests\Queries\" />
