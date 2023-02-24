@@ -1,10 +1,28 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Features\Candlestick\**" />
+    <Compile Remove="Features\Formation\**" />
+    <Compile Remove="Features\Indicators\Dtos\**" />
+    <Compile Remove="Features\Indicators\Models\**" />
+    <Compile Remove="Features\Strategy\**" />
+    <EmbeddedResource Remove="Features\Candlestick\**" />
+    <EmbeddedResource Remove="Features\Formation\**" />
+    <EmbeddedResource Remove="Features\Indicators\Dtos\**" />
+    <EmbeddedResource Remove="Features\Indicators\Models\**" />
+    <EmbeddedResource Remove="Features\Strategy\**" />
+    <None Remove="Features\Candlestick\**" />
+    <None Remove="Features\Formation\**" />
+    <None Remove="Features\Indicators\Dtos\**" />
+    <None Remove="Features\Indicators\Models\**" />
+    <None Remove="Features\Strategy\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\HyBe.Domain\HyBe.Domain.csproj" />
@@ -22,7 +40,7 @@
     <None Remove="Features\Bot\" />
     <None Remove="Features\Candlestick\" />
     <None Remove="Features\Formation\" />
-    <None Remove="Features\Indicator\" />
+    <None Remove="Features\Indicators\" />
     <None Remove="Features\Strategy\" />
     <None Remove="Features\Symbol\" />
     <None Remove="Features\Candlesticks\Commands\" />
@@ -35,16 +53,11 @@
     <None Remove="Features\Bots\Models\" />
     <None Remove="Features\Bots\Profiles\" />
     <None Remove="Features\Bots\Queries\" />
-    <None Remove="Features\Indicator\Commands\" />
-    <None Remove="Features\Indicator\Dtos\" />
-    <None Remove="Features\Indicator\Models\" />
-    <None Remove="Features\Indicator\Profiles\" />
-    <None Remove="Features\Indicator\Queries\" />
-    <None Remove="Features\Strategy\Commands\" />
-    <None Remove="Features\Strategy\Dtos\" />
-    <None Remove="Features\Strategy\Models\" />
-    <None Remove="Features\Strategy\Profiles\" />
-    <None Remove="Features\Strategy\Queries\" />
+    <None Remove="Features\Indicators\Commands\" />
+    <None Remove="Features\Indicators\Dtos\" />
+    <None Remove="Features\Indicators\Models\" />
+    <None Remove="Features\Indicators\Profiles\" />
+    <None Remove="Features\Indicators\Queries\" />
     <None Remove="Features\Symbol\Commands\" />
     <None Remove="Features\Symbol\Dtos\" />
     <None Remove="Features\Symbol\Models\" />
@@ -67,25 +80,15 @@
     <Folder Include="Features\Backtests\Models\" />
     <Folder Include="Features\Candlestick\" />
     <Folder Include="Features\Formation\" />
+    <Folder Include="Features\Strategy\" />
     <Folder Include="Features\IndicatorSignals\Dtos\" />
     <Folder Include="Features\IndicatorSignals\Models\" />
-    <Folder Include="Features\Indicator\" />
-    <Folder Include="Features\Strategy\" />
+    <Folder Include="Features\Indicators\" />
     <Folder Include="Features\Symbol\" />
     <Folder Include="Features\Candlesticks\Dtos\" />
     <Folder Include="Features\Candlesticks\Models\" />
     <Folder Include="Features\Bots\Dtos\" />
     <Folder Include="Features\Bots\Models\" />
-    <Folder Include="Features\Indicator\Commands\" />
-    <Folder Include="Features\Indicator\Dtos\" />
-    <Folder Include="Features\Indicator\Models\" />
-    <Folder Include="Features\Indicator\Profiles\" />
-    <Folder Include="Features\Indicator\Queries\" />
-    <Folder Include="Features\Strategy\Commands\" />
-    <Folder Include="Features\Strategy\Dtos\" />
-    <Folder Include="Features\Strategy\Models\" />
-    <Folder Include="Features\Strategy\Profiles\" />
-    <Folder Include="Features\Strategy\Queries\" />
     <Folder Include="Features\Symbol\Commands\" />
     <Folder Include="Features\Symbol\Dtos\" />
     <Folder Include="Features\Symbol\Models\" />
