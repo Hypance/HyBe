@@ -6,9 +6,9 @@ using HyBe.Domain.Entities.Indicators;
 using MediatR;
 using HyBe.Domain.Contracts.Indicators;
 
-namespace HyBe.Application.Features.Indicators.Queries;
+namespace HyBe.Application.Features.Indicators.Commands;
 
-public class DeleteIndicatorCommandHandler : IRequestHandler<DeleteIndicatorCommand, IResult>
+public class CreateIndicatorCommandHandler : IRequestHandler<CreateIndicatorCommand, IResult>
 {
     #region Fileds
     private readonly IIndicatorService _indicatorService;
@@ -16,7 +16,7 @@ public class DeleteIndicatorCommandHandler : IRequestHandler<DeleteIndicatorComm
     #endregion
 
     #region Constructor
-    public DeleteIndicatorCommandHandler(IIndicatorService indicatorService, IMapper mapper)
+    public CreateIndicatorCommandHandler(IIndicatorService indicatorService, IMapper mapper)
     {
         _indicatorService = indicatorService;
         _mapper = mapper;
@@ -24,9 +24,10 @@ public class DeleteIndicatorCommandHandler : IRequestHandler<DeleteIndicatorComm
     #endregion
 
     #region Methods
-    public async Task<IResult> Handle(DeleteIndicatorCommand query, CancellationToken cancellationToken)
+    public async Task<IResult> Handle(CreateIndicatorCommand query, CancellationToken cancellationToken)
     {
-        var result = _indicatorService.Delete(query.Request.Id);
+        var indicatorMapper = _mapper.Map<Indicator>(query.Request);
+        var result = _indicatorService.Add(indicatorMapper);
         if (result.Success)
             return new SuccessResult();
         return new ErrorResult();

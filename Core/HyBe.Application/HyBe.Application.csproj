@@ -40,11 +40,6 @@
     <None Remove="Features\Formation\Models\" />
     <None Remove="Features\Formation\Profiles\" />
     <None Remove="Features\Formation\Queries\" />
-    <None Remove="Features\Indicators\Commands\" />
-    <None Remove="Features\Indicators\Dtos\" />
-    <None Remove="Features\Indicators\Models\" />
-    <None Remove="Features\Indicators\Profiles\" />
-    <None Remove="Features\Indicators\Queries\" />
     <None Remove="Features\Strategy\Commands\" />
     <None Remove="Features\Strategy\Dtos\" />
     <None Remove="Features\Strategy\Models\" />
@@ -64,7 +59,6 @@
     <None Remove="Features\Backtest\Commands\DeleteBacktest\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Abstractions\" />
     <Folder Include="Features\Backtests\" />
     <Folder Include="Features\Backtests\Commands\" />
     <Folder Include="Features\Backtests\Queries\" />
@@ -75,7 +69,7 @@
     <Folder Include="Features\Formation\" />
     <Folder Include="Features\IndicatorSignals\Dtos\" />
     <Folder Include="Features\IndicatorSignals\Models\" />
-    <Folder Include="Features\Indicator\" />
+    <Folder Include="Features\Indicators\" />
     <Folder Include="Features\Strategy\" />
     <Folder Include="Features\Symbol\" />
     <Folder Include="Features\Candlesticks\Dtos\" />
@@ -87,8 +81,8 @@
     <Folder Include="Features\Formation\Models\" />
     <Folder Include="Features\Formation\Profiles\" />
     <Folder Include="Features\Formation\Queries\" />
-    <Folder Include="Features\Indicator\Dtos\" />
-    <Folder Include="Features\Indicator\Models\" />
+    <Folder Include="Features\Indicators\Dtos\" />
+    <Folder Include="Features\Indicators\Models\" />
     <Folder Include="Features\Strategy\Commands\" />
     <Folder Include="Features\Strategy\Dtos\" />
     <Folder Include="Features\Strategy\Models\" />

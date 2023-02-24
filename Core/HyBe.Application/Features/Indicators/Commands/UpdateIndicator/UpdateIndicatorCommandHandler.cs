@@ -6,7 +6,7 @@ using HyBe.Domain.Entities.Indicators;
 using MediatR;
 using HyBe.Domain.Contracts.Indicators;
 
-namespace HyBe.Application.Features.Indicators.Queries;
+namespace HyBe.Application.Features.Indicators.Commands;
 
 public class UpdateIndicatorCommandHandler : IRequestHandler<UpdateIndicatorCommand, IResult>
 {

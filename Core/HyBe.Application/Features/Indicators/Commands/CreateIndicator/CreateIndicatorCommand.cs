@@ -3,7 +3,8 @@ using HyBe.Domain.Contracts.Indicators;
 using HyBe.SharedKernel.Utilities;
 using MediatR;
 
-namespace HyBe.Application.Features.Indicators.Queries;
+
+namespace HyBe.Application.Features.Indicators.Commands;
 
 public class CreateIndicatorCommand : IRequest<IResult>
 {

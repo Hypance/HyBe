@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using HyBe.Application.Features.Indicators.Commands;
 using HyBe.Application.Features.Indicators.Queries;
 using HyBe.Domain.Contracts.Indicators;
 using HyBe.SharedKernel.Utilities;
