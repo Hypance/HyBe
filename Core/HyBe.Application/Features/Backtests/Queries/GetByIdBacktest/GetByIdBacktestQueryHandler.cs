@@ -33,7 +33,7 @@ public class GetByIdBacktestQueryHandler : IRequestHandler<GetByIdBacktestQuery,
             var backtestMapper = _mapper.Map<GetByIdBacktestResponse>(result.Data);
             return new SuccessDataResult<GetByIdBacktestResponse>(backtestMapper);
         }
-        return new ErrorDataResult<GetByIdBacktestResponse>();
+        return new ErrorDataResult<GetByIdBacktestResponse>(result.Message);
     }
     #endregion
 }

@@ -30,7 +30,7 @@ public class CreateBacktestCommandHandler : IRequestHandler<CreateBacktestComman
         var result = _backtestService.Add(backtestMapper);
         if (result.Success)
             return new SuccessResult();
-        return new ErrorResult();
+        return new ErrorResult(result.Message);
     }
     #endregion
 }

@@ -13,7 +13,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Contexts\" />
-    <Folder Include="Services\" />
     <Folder Include="Repositories\" />
   </ItemGroup>
   <ItemGroup>

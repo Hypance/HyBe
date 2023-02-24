@@ -29,7 +29,7 @@ public class DeleteBacktestCommandHandler : IRequestHandler<DeleteBacktestComman
         var result = _backtestService.Delete(query.Request.Id);
         if (result.Success)
             return new SuccessResult();
-        return new ErrorResult();
+        return new ErrorResult(result.Message);
     }
     #endregion
 }

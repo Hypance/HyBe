@@ -11,6 +11,6 @@ public class Backtest : BaseEntity
     public int[]? Symbols { get; set; }
     public int[]? Strategy { get; set; }
     public int[]? Formation { get; set; }
-    public DateTime Start { get; set; }
-    public DateTime Finish { get; set; }
+    public DateTimeOffset Start { get; set; }
+    public DateTimeOffset Finish { get; set; }
 }
