@@ -1,12 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using HyBe.Domain.Entities.Identity;
 
 namespace HyBe.Application.Abstractions.Token
 {
     public interface ITokenHandler
     {
-        
+        DTOs.Token CreateAccessToken(int second, AppUser appUser);
+        string CreateRefreshToken();
     }
 }
