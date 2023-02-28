@@ -1,7 +1,8 @@
 ﻿using System;
-namespace HyBe.Domain.Contracts.Backtests;
 
-public class GetListBacktestRequest
+namespace HyBe.Domain.Contracts.Strategies;
+
+public class GetListStrategyRequest
 {
    
 }

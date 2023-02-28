@@ -1,10 +1,11 @@
 ﻿using System;
 using AutoMapper;
 using HyBe.Application.Abstractions.Services;
+using HyBe.Application.Features.Strategies.Queries;
+using HyBe.Domain.Contracts.Strategies;
 using HyBe.SharedKernel.Utilities;
-using HyBe.Domain.Entities.Strategys;
 using MediatR;
-using HyBe.Domain.Contracts.Strategys;
+
 
 namespace HyBe.Application.Features.Strategys.Queries;
 

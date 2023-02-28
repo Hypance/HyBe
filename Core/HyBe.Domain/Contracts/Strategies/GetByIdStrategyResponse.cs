@@ -1,4 +1,5 @@
 ﻿using System;
+using HyBe.Domain.Entities.Strategies;
 using HyBe.Domain.Enums;
 
 namespace HyBe.Domain.Contracts.Strategies;

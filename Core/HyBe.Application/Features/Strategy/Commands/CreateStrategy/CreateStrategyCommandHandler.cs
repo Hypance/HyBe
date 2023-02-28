@@ -5,6 +5,7 @@ using HyBe.SharedKernel.Utilities;
 using HyBe.Domain.Entities.Strategies;
 using MediatR;
 using HyBe.Domain.Contracts.Strategies;
+using HyBe.Application.Features.Strategies.Queries;
 
 namespace HyBe.Application.Features.Strategys.Queries;
 

@@ -4,7 +4,7 @@ using HyBe.Application.Abstractions.Services;
 using HyBe.SharedKernel.Utilities;
 using HyBe.Domain.Entities.Strategies;
 using MediatR;
-using HyBe.Domain.Contracts.Strategys;
+ 
 
 namespace HyBe.Application.Features.Strategies.Queries;
 

@@ -31,7 +31,7 @@ namespace HyBe.WebAPI.Controllers.v1
         #region Methods
 
         [HttpGet]
-        public async Task<IActionResult> GetList([FromQuery]GetListStrategyRequest request)
+        public async Task<IActionResult> GetList([FromQuery] GetListStrategyRequest request)
         {
             try
             {

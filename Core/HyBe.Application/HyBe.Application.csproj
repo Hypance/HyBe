@@ -5,11 +5,6 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-
-
-  <ItemGroup>
-    <ProjectReference Include="..\HyBe.Domain\HyBe.Domain.csproj" />
-  </ItemGroup>
   <ItemGroup>
     <None Remove="Services\" />
     <None Remove="Services\Repositories\" />
@@ -102,5 +97,8 @@
     <Folder Include="Features\Backtests\Queries\GetByIdBacktest\" />
     <Folder Include="Features\Backtests\Commands\CreateBacktest\" />
     <Folder Include="Features\Backtests\Commands\DeleteBacktest\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HyBe.Domain\HyBe.Domain.csproj" />
   </ItemGroup>
 </Project>
