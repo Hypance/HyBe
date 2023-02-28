@@ -28,7 +28,7 @@ namespace HyBe.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<DateTime>("Finish")
+                    b.Property<DateTimeOffset>("Finish")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<int[]>("Formation")
@@ -47,7 +47,7 @@ namespace HyBe.Persistence.Migrations
                     b.Property<int>("PositionType")
                         .HasColumnType("integer");
 
-                    b.Property<DateTime>("Start")
+                    b.Property<DateTimeOffset>("Start")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<int[]>("Strategy")
@@ -279,7 +279,7 @@ namespace HyBe.Persistence.Migrations
                     b.Property<decimal>("ClosePrice")
                         .HasColumnType("numeric");
 
-                    b.Property<DateTime>("CloseTime")
+                    b.Property<DateTimeOffset>("CloseTime")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<decimal>("HighPrice")
@@ -301,7 +301,7 @@ namespace HyBe.Persistence.Migrations
                     b.Property<decimal>("OpenPrice")
                         .HasColumnType("numeric");
 
-                    b.Property<DateTime>("OpenTime")
+                    b.Property<DateTimeOffset>("OpenTime")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Symbol")
@@ -338,6 +338,20 @@ namespace HyBe.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Symbols");
+                });
+
+            modelBuilder.Entity("HyBe.Domain.Entities.Wallets.Wallet", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<decimal>("Balance")
+                        .HasColumnType("numeric");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Wallets");
                 });
 
             modelBuilder.Entity("HyBe.Domain.Entities.Strategies.Signal", b =>
