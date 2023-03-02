@@ -1,12 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using MediatR;
 
 namespace HyBe.Application.Features.Role.Queries.GetRoleById
 {
-    public class GetRoleByIdQueryRequest
+    public class GetRoleByIdQueryRequest : IRequest<GetRoleByIdQueryResponse>
     {
-        
+        public string Id { get; set; }
     }
 }

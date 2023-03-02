@@ -1,12 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using HyBe.Application.Features.AuthorizationEndpoint.Commands.AssignRoleEndpoint;
+using HyBe.Application.Features.AuthorizationEndpoint.Queries.GetRolesToEndpoint;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
 
 namespace HyBe.WebAPI.Controllers
 {
-    public class AuthorizationEndpointsController
-    {
     [Route("api/[controller]")]
     [ApiController]
     public class AuthorizationEndpointsController : ControllerBase
@@ -32,6 +30,5 @@ namespace HyBe.WebAPI.Controllers
             AssignRoleEndpointCommandResponse response = await _mediator.Send(assignRoleEndpointCommandRequest);
             return Ok(response);
         }
-    }
     }
 }

@@ -1,12 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using MediatR;
 
 namespace HyBe.Application.Features.Role.Commands.UpdateRole
 {
-    public class UpdateRoleCommandRequest
+    public class UpdateRoleCommandRequest : IRequest<UpdateRoleCommandResponse>
     {
-        
+        public string Id { get; set; }
+        public string Name { get; set; }
     }
 }

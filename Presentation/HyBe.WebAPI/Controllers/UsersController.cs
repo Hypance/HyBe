@@ -2,12 +2,22 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HyBe.Application.Abstractions.Services;
+using HyBe.Application.CustomAttributes;
+using HyBe.Application.Features.AppUser.Commands.AssignRoleToUser;
+using HyBe.Application.Features.AppUser.Commands.CreateUser;
+using HyBe.Application.Features.AppUser.Commands.UpdatePassword;
+using HyBe.Application.Features.AppUser.Queries.GetAllUsers;
+using HyBe.Application.Features.AppUser.Queries.GetRolesToUser;
+using HyBe.Domain.Enums;
+using MediatR;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Mvc;
 
 namespace HyBe.WebAPI.Controllers
 {
-    public class UsersController
-    {
-    [Route("api/[controller]")]
+    [Microsoft.AspNetCore.Mvc.Route("api/[Controller]")]
     [ApiController]
     public class UsersController : ControllerBase
     {
@@ -59,6 +69,5 @@ namespace HyBe.WebAPI.Controllers
             AssignRoleToUserCommandResponse response = await _mediator.Send(assignRoleToUserCommandRequest);
             return Ok(response);
         }
-    }
     }
 }

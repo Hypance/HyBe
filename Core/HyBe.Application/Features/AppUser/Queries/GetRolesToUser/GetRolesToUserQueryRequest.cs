@@ -1,12 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using MediatR;
 
 namespace HyBe.Application.Features.AppUser.Queries.GetRolesToUser
 {
-    public class GetRolesToUserQueryRequest
+    public class GetRolesToUserQueryRequest : IRequest<GetRolesToUserQueryResponse>
     {
-        
+        public string UserId { get; set; }
     }
 }

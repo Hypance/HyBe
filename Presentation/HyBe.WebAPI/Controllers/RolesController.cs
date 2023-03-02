@@ -2,12 +2,20 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HyBe.Application.CustomAttributes;
+using HyBe.Application.Features.Role.Commands.CreateRole;
+using HyBe.Application.Features.Role.Commands.DeleteRole;
+using HyBe.Application.Features.Role.Commands.UpdateRole;
+using HyBe.Application.Features.Role.Queries.GetRoleById;
+using HyBe.Application.Features.Role.Queries.GetRoles;
+using HyBe.Domain.Enums;
+using MediatR;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace HyBe.WebAPI.Controllers
 {
-    public class RolesController
-    {
-         [Route("api/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     [Authorize(AuthenticationSchemes = "Admin")]
     public class RolesController : ControllerBase
@@ -58,6 +66,5 @@ namespace HyBe.WebAPI.Controllers
             DeleteRoleCommandResponse response = await _mediator.Send(deleteRoleCommandRequest);
             return Ok(response);
         }
-    }
     }
 }

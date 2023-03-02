@@ -1,12 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using MediatR;
 
 namespace HyBe.Application.Features.AuthorizationEndpoint.Commands.AssignRoleEndpoint
 {
-    public class AssignRoleEndpointCommandRequest
+    public class AssignRoleEndpointCommandRequest: IRequest<AssignRoleEndpointCommandResponse>
     {
-        
+        public string[] Roles { get; set; }
+        public string Code { get; set; }
+        public string Menu { get; set; }
+        public Type? Type { get; set; }
     }
 }

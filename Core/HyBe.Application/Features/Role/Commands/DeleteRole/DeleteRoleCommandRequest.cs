@@ -1,12 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using MediatR;
 
 namespace HyBe.Application.Features.Role.Commands.DeleteRole
 {
-    public class DeleteRoleCommandRequest
+    public class DeleteRoleCommandRequest : IRequest<DeleteRoleCommandResponse>
     {
-        
+        public string Id { get; set; }
     }
 }

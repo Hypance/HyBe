@@ -2,12 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HyBe.Application.Abstractions.Services.Configurations;
+using HyBe.Application.CustomAttributes;
+using HyBe.Domain.Enums;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Mvc;
 
 namespace HyBe.WebAPI.Controllers
-{
-    public class ApplicationServicesController
-    {
-    [Route("api/[controller]")]
+{   
+    [Microsoft.AspNetCore.Mvc.Route("api/[Controller]")]
     [ApiController]
     [Authorize(AuthenticationSchemes = "Admin")]
     public class ApplicationServicesController : ControllerBase
@@ -26,6 +30,5 @@ namespace HyBe.WebAPI.Controllers
             var datas = _applicationService.GetAuthorizeDefinitionEndpoints(typeof(Program));
             return Ok(datas);
         }
-    }
     }
 }

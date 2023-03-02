@@ -1,13 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using MediatR;
 
 namespace HyBe.Application.Features.AuthorizationEndpoint.Queries.GetRolesToEndpoint
 {
-    public class GetRolesToEndpointQueryRequest
+    public class GetRolesToEndpointQueryRequest: IRequest<GetRolesToEndpointQueryResponse>
     {
-        
-        
+        public string Code { get; set; }
+        public string Menu { get; set; }
     }
 }
