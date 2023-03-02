@@ -13,7 +13,7 @@ public class CreateBacktestRequest
     public int[]? Symbols { get; set; }
     public int[]? Strategy { get; set; }
     public int[]? Formation { get; set; }
-    public string? Start { get; set; }
-    public string? Finish { get; set; }
+    public DateTimeOffset Start { get; set; }
+    public DateTimeOffset Finish { get; set; }
 }
 

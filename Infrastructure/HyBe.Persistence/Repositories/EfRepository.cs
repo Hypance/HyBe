@@ -35,11 +35,9 @@ public class EfRepository<T> : IRepository<T> where T : BaseEntity
         try
         {
             var query = _hypanceDbContext.Set<T>().FirstOrDefault(filter);
-            if (query!=null)
-            {
-                return new SuccessDataResult<T>(query);
-            }
-            return new ErrorDataResult<T>("Data is not found!..");
+            if (query==null)
+                throw new NullReferenceException("Data is not found!..");
+            return new SuccessDataResult<T>(query);
         }
         catch (System.Exception ex)
         {
@@ -76,11 +74,15 @@ public class EfRepository<T> : IRepository<T> where T : BaseEntity
         }
     }
 
-    public IResult Delete(T entity)
+    public IResult Delete(Guid entityId)
     {
         try
         {
-            _hypanceDbContext.Remove<T>(entity);
+            var entity = Get(s => s.Id == entityId);
+            if (!entity.Success)
+                throw new NullReferenceException(entity.Message);
+
+            _hypanceDbContext.Remove<T>(entity.Data);
             _hypanceDbContext.SaveChanges();
             return new SuccessResult();
         }
@@ -88,11 +90,6 @@ public class EfRepository<T> : IRepository<T> where T : BaseEntity
         {
             return new ErrorResult(ex.Message);
         }
-    }
-
-    public IResult Delete(Guid entityId)
-    {
-        throw new NotImplementedException();
     }
 }
 

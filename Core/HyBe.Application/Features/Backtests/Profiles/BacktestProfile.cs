@@ -9,10 +9,10 @@ public class BacktestProfile : Profile
 {
 	public BacktestProfile()
 	{
-        CreateMap<Backtest, GetListBacktestResponse>();
-        CreateMap<Backtest, GetByIdBacktestResponse>();
-        CreateMap<CreateBacktestRequest, Backtest>();
-        CreateMap<UpdateBacktestRequest, Backtest>();
+        CreateMap<Backtest, GetListBacktestResponse>().ReverseMap();
+        CreateMap<Backtest, GetByIdBacktestResponse>().ReverseMap();
+        CreateMap<CreateBacktestRequest, Backtest>().ReverseMap();
+        CreateMap<UpdateBacktestRequest, Backtest>().ReverseMap();
     }
 }
 
