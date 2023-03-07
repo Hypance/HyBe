@@ -10,6 +10,7 @@ using HyBe.SharedKernel.Domain;
 using HyBe.SharedKernel.Events;
 using HyBe.Domain.Entities.Wallets;
 using Microsoft.EntityFrameworkCore;
+using HyBe.Domain.Entities.Signals;
 
 namespace HyBe.Persistence.Contexts;
 public class HypanceDbContext : DbContext

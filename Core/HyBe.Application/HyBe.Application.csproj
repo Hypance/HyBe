@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-<<<<<<< Updated upstream
+
     <Compile Remove="Features\Candlestick\**" />
     <Compile Remove="Features\Formation\**" />
     <Compile Remove="Features\Indicators\Dtos\**" />
@@ -23,11 +23,9 @@
     <None Remove="Features\Indicators\Dtos\**" />
     <None Remove="Features\Indicators\Models\**" />
     <None Remove="Features\Strategy\**" />
-=======
-    <Compile Remove="Features\Backtests - Kopya %282%29\**" />
-    <EmbeddedResource Remove="Features\Backtests - Kopya %282%29\**" />
-    <None Remove="Features\Backtests - Kopya %282%29\**" />
->>>>>>> Stashed changes
+
+    
+
   </ItemGroup>
 
   <ItemGroup>

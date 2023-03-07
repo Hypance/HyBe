@@ -1,4 +1,5 @@
 ﻿using System;
+using System;
 using HyBe.Domain.Contracts.Signals;
 using HyBe.SharedKernel.Utilities;
 using MediatR;

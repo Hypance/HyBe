@@ -20,11 +20,11 @@
     <None Remove="Controllers\v1\" />
     <None Remove="Microsoft.EntityFrameworkCore.Design" />
   </ItemGroup>
-<<<<<<< Updated upstream
+
   <ItemGroup>
     <ProjectReference Include="..\..\Core\HyBe.Application\HyBe.Application.csproj" />
     <ProjectReference Include="..\..\Infrastructure\HyBe.Persistence\HyBe.Persistence.csproj" />
   </ItemGroup>
-=======
->>>>>>> Stashed changes
+
+
 </Project>
