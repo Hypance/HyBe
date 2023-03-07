@@ -12,8 +12,8 @@ namespace HyBe.Infrastructure.Services.NotificationService
 	{
 
         #region Fields
-        const string token = "5608179374:AAFpwKxuVMbgBm2ZbCFeERufxCesblNohzM";
-        const long chatId = 1357802322;
+        const string token = "5155431848:AAEloUrGxV90epvgF31XegNmwI9oTljQYXw";
+        const long chatId = -723963123;
         private readonly BotClient _botClient;
         #endregion
 
