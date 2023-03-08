@@ -43,11 +43,17 @@
     <None Remove="Features\Indicators\" />
     <None Remove="Features\Strategy\" />
     <None Remove="Features\Symbol\" />
+	<None Remove="Features\Enum\" />
     <None Remove="Features\Candlesticks\Commands\" />
     <None Remove="Features\Candlesticks\Dtos\" />
     <None Remove="Features\Candlesticks\Models\" />
     <None Remove="Features\Candlesticks\Profiles\" />
     <None Remove="Features\Candlesticks\Queries\" />
+	<None Remove="Features\Enums\Commands\" />
+	<None Remove="Features\Enums\Dtos\" />
+	<None Remove="Features\Enums\Models\" />
+	<None Remove="Features\Enums\Profiles\" />
+	<None Remove="Features\Enums\Queries\" />
     <None Remove="Features\Bots\Commands\" />
     <None Remove="Features\Bots\Dtos\" />
     <None Remove="Features\Bots\Models\" />
@@ -73,7 +79,6 @@
     <Folder Include="Features\Backtests\Profiles\" />
     <Folder Include="Features\Backtests\Dtos\" />
     <Folder Include="Features\Backtests\Models\" />
-    <Folder Include="Features\Strategy\" />
     <Folder Include="Features\IndicatorSignals\Dtos\" />
     <Folder Include="Features\IndicatorSignals\Models\" />
     <Folder Include="Features\Indicators\" />
