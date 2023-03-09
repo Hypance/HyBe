@@ -5,6 +5,7 @@ namespace HyBe.Domain.Contracts.Signals;
 
 public class UpdateSignalRequest
 {
+    public Guid Id { get; set; }
     public string Name { get; set; }
     public int Period { get; set; }
     public int IndicatorId { get; set; }

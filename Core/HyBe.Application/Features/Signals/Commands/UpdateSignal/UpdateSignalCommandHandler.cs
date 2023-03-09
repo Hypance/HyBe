@@ -30,7 +30,8 @@ public class UpdateSignalCommandHandler : IRequestHandler<UpdateSignalCommand,IR
         var result = _signalService.Update(signalMapper);
         if (result.Success)
             return new SuccessResult();
-        return new ErrorResult();
+
+        return new ErrorResult(result.Message);
     }
     #endregion
 }

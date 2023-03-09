@@ -24,6 +24,7 @@ public static class PersistenceServiceRegistration
         services.AddScoped<IIndicatorSignalService, IndicatorSignalService>();
         services.AddScoped<IWalletService, WalletService>();
         services.AddScoped<IFormationService, FormationService>();
+        services.AddScoped<ISignalService, SignalService>();
         services.AddScoped<IDomainEventDispatcher, DomainEventDispatcher>();
         return services;
     }

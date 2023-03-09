@@ -29,7 +29,8 @@ public class DeleteSignalCommandHandler : IRequestHandler<DeleteSignalCommand,IR
         var result = _signalService.Delete(query.Request.Id);
         if (result.Success)
             return new SuccessResult();
-        return new ErrorResult();
+
+        return new ErrorResult(result.Message);
     }
     #endregion
 }

@@ -9,10 +9,10 @@ public class SignalProfile : Profile
 {
 	public SignalProfile()
 	{
-        CreateMap<GetListSignalResponse, Signal>();
-        CreateMap<GetByIdSignalResponse, Signal>();
-        CreateMap<Signal, CreateSignalRequest>();
-        CreateMap<Signal, UpdateSignalRequest>();
+        CreateMap<GetListSignalResponse, Signal>().ReverseMap();
+        CreateMap<GetByIdSignalResponse, Signal>().ReverseMap();
+        CreateMap<Signal, CreateSignalRequest>().ReverseMap();
+        CreateMap<Signal, UpdateSignalRequest>().ReverseMap();
     }
 }
 

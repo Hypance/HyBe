@@ -30,7 +30,8 @@ public class CreateSignalCommandHandler : IRequestHandler<CreateSignalCommand,IR
         var result = _signalService.Add(signalMapper);
         if (result.Success)
             return new SuccessResult();
-        return new ErrorResult();
+
+        return new ErrorResult(result.Message);
     }
     #endregion
 }

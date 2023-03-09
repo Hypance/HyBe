@@ -76,7 +76,7 @@ namespace HyBe.WebAPI.Controllers.v1
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update([FromQuery] UpdateSignalRequest request)
+        public async Task<IActionResult> Update([FromBody] UpdateSignalRequest request)
         {
             try
             {
