@@ -28,6 +28,7 @@ public class CreateStrategyCommandHandler : IRequestHandler<CreateStrategyComman
     public async Task<IResult> Handle(CreateStrategyCommand query, CancellationToken cancellationToken)
     {
         var strategyMapper = _mapper.Map<Strategy>(query.Request);
+
         var result = _strategyService.Add(strategyMapper);
         if (result.Success)
             return new SuccessResult();
