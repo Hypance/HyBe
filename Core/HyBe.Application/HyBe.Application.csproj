@@ -22,6 +22,10 @@
     <None Remove="Features\Indicators\Dtos\**" />
     <None Remove="Features\Indicators\Models\**" />
     <None Remove="Features\Strategy\**" />
+    <None Remove="Abstractions\Infrastructure\" />
+    <None Remove="Features\Notifications\" />
+    <None Remove="Features\Notifications\Commands\" />
+    <None Remove="Features\Notifications\Commands\SendNotification\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -87,5 +91,9 @@
     <Folder Include="Features\Backtests\Queries\GetByIdBacktest\" />
     <Folder Include="Features\Backtests\Commands\CreateBacktest\" />
     <Folder Include="Features\Backtests\Commands\DeleteBacktest\" />
+    <Folder Include="Abstractions\Infrastructure\" />
+    <Folder Include="Features\Notifications\" />
+    <Folder Include="Features\Notifications\Commands\" />
+    <Folder Include="Features\Notifications\Commands\SendNotification\" />
   </ItemGroup>
 </Project>
