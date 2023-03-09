@@ -10,16 +10,13 @@
 
     <Compile Remove="Features\Candlestick\**" />
     <Compile Remove="Features\Formation\**" />
-    <Compile Remove="Features\Indicators\Dtos\**" />
-    <Compile Remove="Features\Indicators\Models\**" />
-    <Compile Remove="Features\Strategy\**" />
+    <Compile Remove="Features\Indicator\**" />
     <EmbeddedResource Remove="Features\Candlestick\**" />
     <EmbeddedResource Remove="Features\Formation\**" />
-    <EmbeddedResource Remove="Features\Indicators\Dtos\**" />
-    <EmbeddedResource Remove="Features\Indicators\Models\**" />
-    <EmbeddedResource Remove="Features\Strategy\**" />
+    <EmbeddedResource Remove="Features\Indicator\**" />
     <None Remove="Features\Candlestick\**" />
     <None Remove="Features\Formation\**" />
+    <None Remove="Features\Indicator\**" />
     <None Remove="Features\Indicators\Dtos\**" />
     <None Remove="Features\Indicators\Models\**" />
     <None Remove="Features\Strategy\**" />
@@ -74,6 +71,7 @@
   <ItemGroup>
     <Folder Include="Features\Backtests\" />
     <Folder Include="Features\Backtests\Commands\" />
+    <Folder Include="Abstractions\" />
     <Folder Include="Features\Backtests\Queries\" />
     <Folder Include="Features\Backtests\Profiles\" />
     <Folder Include="Features\Backtests\Dtos\" />
@@ -86,6 +84,13 @@
     <Folder Include="Features\Candlesticks\Models\" />
     <Folder Include="Features\Bots\Dtos\" />
     <Folder Include="Features\Bots\Models\" />
+    <Folder Include="Features\Strategy\Dtos\" />
+    <Folder Include="Features\Strategy\Models\" />
+    <Folder Include="Features\Symbol\Commands\" />
+    <Folder Include="Features\Symbol\Dtos\" />
+    <Folder Include="Features\Symbol\Models\" />
+    <Folder Include="Features\Symbol\Profiles\" />
+    <Folder Include="Features\Symbol\Queries\" />
     <Folder Include="Common\" />
     <Folder Include="Common\Behaviors\" />
     <Folder Include="Features\Backtests\Queries\GetListBacktest\" />
@@ -96,5 +101,8 @@
     <Folder Include="Features\Notifications\" />
     <Folder Include="Features\Notifications\Commands\" />
     <Folder Include="Features\Notifications\Commands\SendNotification\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HyBe.Domain\HyBe.Domain.csproj" />
   </ItemGroup>
 </Project>
