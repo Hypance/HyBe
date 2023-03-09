@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+
     <Compile Remove="Features\Candlestick\**" />
     <Compile Remove="Features\Formation\**" />
     <Compile Remove="Features\Indicators\Dtos\**" />
