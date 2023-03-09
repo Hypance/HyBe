@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+
     <Compile Remove="Features\Candlestick\**" />
     <Compile Remove="Features\Formation\**" />
     <Compile Remove="Features\Indicator\**" />
@@ -16,6 +17,17 @@
     <None Remove="Features\Candlestick\**" />
     <None Remove="Features\Formation\**" />
     <None Remove="Features\Indicator\**" />
+    <None Remove="Features\Indicators\Dtos\**" />
+    <None Remove="Features\Indicators\Models\**" />
+    <None Remove="Features\Strategy\**" />
+    <None Remove="Abstractions\Infrastructure\" />
+    <None Remove="Features\Notifications\" />
+    <None Remove="Features\Notifications\Commands\" />
+    <None Remove="Features\Notifications\Commands\SendNotification\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HyBe.Domain\HyBe.Domain.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Services\" />
@@ -48,11 +60,6 @@
     <None Remove="Features\Indicators\Models\" />
     <None Remove="Features\Indicators\Profiles\" />
     <None Remove="Features\Indicators\Queries\" />
-    <None Remove="Features\Symbol\Commands\" />
-    <None Remove="Features\Symbol\Dtos\" />
-    <None Remove="Features\Symbol\Models\" />
-    <None Remove="Features\Symbol\Profiles\" />
-    <None Remove="Features\Symbol\Queries\" />
     <None Remove="Common\" />
     <None Remove="Common\Behaviors\" />
     <None Remove="Features\Backtest\Queries\GetListBacktest\" />
@@ -73,7 +80,6 @@
     <Folder Include="Features\IndicatorSignals\Dtos\" />
     <Folder Include="Features\IndicatorSignals\Models\" />
     <Folder Include="Features\Indicators\" />
-    <Folder Include="Features\Symbol\" />
     <Folder Include="Features\Candlesticks\Dtos\" />
     <Folder Include="Features\Candlesticks\Models\" />
     <Folder Include="Features\Bots\Dtos\" />
@@ -91,6 +97,10 @@
     <Folder Include="Features\Backtests\Queries\GetByIdBacktest\" />
     <Folder Include="Features\Backtests\Commands\CreateBacktest\" />
     <Folder Include="Features\Backtests\Commands\DeleteBacktest\" />
+    <Folder Include="Abstractions\Infrastructure\" />
+    <Folder Include="Features\Notifications\" />
+    <Folder Include="Features\Notifications\Commands\" />
+    <Folder Include="Features\Notifications\Commands\SendNotification\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HyBe.Domain\HyBe.Domain.csproj" />
