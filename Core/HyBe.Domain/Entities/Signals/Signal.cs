@@ -1,7 +1,7 @@
 ﻿using HyBe.Domain.Enums;
 using HyBe.SharedKernel.Domain;
 
-namespace HyBe.Domain.Entities.Strategies;
+namespace HyBe.Domain.Entities.Signals;
 public class Signal : BaseEntity
 {
     public string Name { get; set; }

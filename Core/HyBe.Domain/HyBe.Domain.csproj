@@ -17,6 +17,7 @@
     <None Remove="Entities\Symbols\" />
 	<None Remove="Entities\Enums\" />
     <None Remove="Contracts\Backtests\" />
+    <None Remove="Contracts\Notifications\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Entities\Backtests\" />
@@ -27,6 +28,7 @@
     <Folder Include="Entities\Symbols\" />
     <Folder Include="Contracts\Backtests\" />
 	<Folder Include="Contracts\Backtests\" />
+  <Folder Include="Contracts\Notifications\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\.editorconfig" Link=".editorconfig" />
