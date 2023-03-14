@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Core\HyBe.Application\HyBe.Application.csproj" />
+    <ProjectReference Include="..\..\Core\HyBe.Domain\HyBe.Domain.csproj" />
     <ProjectReference Include="..\..\Infrastructure\HyBe.Persistence\HyBe.Persistence.csproj" />
     <ProjectReference Include="..\..\Infrastructure\HyBe.Infrastructure\HyBe.Infrastructure.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>

@@ -2,110 +2,67 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using AutoMapper;
-using HyBe.Application.Features.Enums.Commands;
-using HyBe.Application.Features.Enums.Queries;
 using HyBe.Domain.Contracts.Enums;
-using HyBe.SharedKernel.Utilities;
-using MediatR;
+using HyBe.Domain.Enums;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace HyBe.WebAPI.Controllers.v1
 {
     [Route("api/v1.0/[controller]/[action]")]
     [ApiController]
-    public class EnumController : ControllerBase
+    public class EnumsController : ControllerBase
     {
-        #region Fileds
-        private readonly IMapper _mapper;
-        private readonly ISender _mediatr;
-        #endregion
-
-        #region Constructor
-        public EnumController(IMapper mapper, ISender mediatr)
-        {
-            _mapper = mapper;
-            _mediatr = mediatr;
-        }
-        #endregion
-
-        #region Methods
-
         [HttpGet]
-        public async Task<IActionResult> GetList([FromQuery] GetListEnumRequest request)
+        public IActionResult GetIntervals()
         {
-            try
-            {
-                var query = _mapper.Map<GetListEnumQuery>(request);
-                var result = await _mediatr.Send(query);
-                return Ok(result);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            var list = new List<SelectListItem>();
+            Enum.GetNames(typeof(Interval)).ToList().ForEach(x => list.Add(new SelectListItem { Text = x, Value = ((int)Enum.Parse(typeof(Interval), x)).ToString() }));
+            return Ok(list);
         }
-
         [HttpGet]
-        public async Task<IActionResult> Get([FromQuery] GetByIdEnumRequest request)
+        public IActionResult GetMarkets()
         {
-            try
-            {
-                var query = _mapper.Map<GetByIdEnumQuery>(request);
-                var result = await _mediatr.Send(query);
-                return Ok(result);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            var list = new List<SelectListItem>();
+            Enum.GetNames(typeof(Market)).ToList().ForEach(x => list.Add(new SelectListItem { Text = x, Value = ((int)Enum.Parse(typeof(Market), x)).ToString() }));
+            return Ok(list);
+        }
+        [HttpGet]
+        public IActionResult GetMessageChannels()
+        {
+            var list = new List<SelectListItem>();
+            Enum.GetNames(typeof(MessageChannel)).ToList().ForEach(x => list.Add(new SelectListItem { Text = x, Value = ((int)Enum.Parse(typeof(MessageChannel), x)).ToString() }));
+            return Ok(list);
+        }
+        [HttpGet]
+        public IActionResult GetOrderTypes()
+        {
+            var list = new List<SelectListItem>();
+            Enum.GetNames(typeof(OrderType)).ToList().ForEach(x => list.Add(new SelectListItem { Text = x, Value = ((int)Enum.Parse(typeof(OrderType), x)).ToString() }));
+            return Ok(list);
+        }
+        [HttpGet]
+        public IActionResult GetPositionTypes()
+        {
+            var list = new List<SelectListItem>();
+            Enum.GetNames(typeof(PositionType)).ToList().ForEach(x => list.Add(new SelectListItem { Text = x, Value = ((int)Enum.Parse(typeof(PositionType), x)).ToString() }));
+            return Ok(list);
+        }
+        [HttpGet]
+        public IActionResult GetSignalResults()
+        {
+            var list = new List<SelectListItem>();
+            Enum.GetNames(typeof(SignalResult)).ToList().ForEach(x => list.Add(new SelectListItem { Text = x, Value = ((int)Enum.Parse(typeof(SignalResult), x)).ToString() }));
+            return Ok(list);
+        }
+        [HttpGet]
+        public IActionResult GetTrendStrategies()
+        {
+            var list = new List<SelectListItem>();
+            Enum.GetNames(typeof(TrendStrategy)).ToList().ForEach(x => list.Add(new SelectListItem { Text = x, Value = ((int)Enum.Parse(typeof(TrendStrategy), x)).ToString() }));
+            return Ok(list);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Create([FromBody] CreateEnumRequest request)
-        {
-            try
-            {
-                var query = _mapper.Map<CreateEnumCommand>(request);
-                var result = await _mediatr.Send(query);
-                return Ok(result);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
-
-        [HttpPut]
-        public async Task<IActionResult> Update([FromBody] UpdateEnumRequest request)
-        {
-            try
-            {
-                var query = _mapper.Map<UpdateEnumCommand>(request);
-                var result = await _mediatr.Send(query);
-                return Ok(result);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
-
-        [HttpDelete]
-        public async Task<IActionResult> Delete([FromBody] DeleteEnumRequest request)
-        {
-            try
-            {
-                var query = _mapper.Map<DeleteEnumCommand>(request);
-                var result = await _mediatr.Send(query);
-                return Ok(result);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
-        #endregion
     }
 }
 
