@@ -1,4 +1,5 @@
 using HyBe.Application.Abstractions.Services;
+using HyBe.Application.Abstractions.Services.Authentications;
 using HyBe.Persistence.Contexts;
 using HyBe.Persistence.Repositories;
 using HyBe.Persistence.Services;
@@ -28,7 +29,16 @@ public static class PersistenceServiceRegistration
         services.AddScoped<ISignalService, SignalService>();
         services.AddScoped<ISymbolService, SymbolService>();
         services.AddScoped<IDomainEventDispatcher, DomainEventDispatcher>();
-        return services;
+
+
+		services.AddScoped<IUserService, UserService>();
+		services.AddScoped<IAuthService, AuthService>();
+		services.AddScoped<IInternalAuthentication, AuthService>();
+		services.AddScoped<IRoleService, RoleService>();
+		services.AddScoped<IAuthorizationEndpointService, AuthorizationEndpointService>();
+
+
+		return services;
     }
 
 }

@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 namespace HyBe.Application.Abstractions.Services
 {
     public interface IAuthService : IInternalAuthentication
-    {
-        Task PasswordResetAsnyc(string email);
+	{
         Task PasswordResetAsync(string email);
         Task<bool> VerifyResetTokenAsync(string resetToken, string userId);
     }

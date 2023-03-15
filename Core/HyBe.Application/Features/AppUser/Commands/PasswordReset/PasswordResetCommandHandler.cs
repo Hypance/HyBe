@@ -18,7 +18,7 @@ namespace HyBe.Application.Features.AppUser.Commands.PasswordReset
 
         public async Task<PasswordResetCommandResponse> Handle(PasswordResetCommandRequest request, CancellationToken cancellationToken)
         {
-            await _authService.PasswordResetAsnyc(request.Email);
+            await _authService.PasswordResetAsync(request.Email);
             return new();
         }
     }
