@@ -7,13 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MediatR" Version="12.0.1" />
+    <!--<PackageReference Include="MediatR" Version="12.0.1" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
     <PackageReference Include="FluentValidation" Version="11.4.0" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.4.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.2" />
-    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
-    <ProjectReference Include="..\HyBe.Domain\HyBe.Domain.csproj" />
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />-->
+	  
     <Compile Remove="Features\Candlestick\**" />
     <Compile Remove="Features\Formation\**" />
     <Compile Remove="Features\Indicator\**" />
@@ -31,10 +31,7 @@
     <None Remove="Features\Notifications\Commands\" />
     <None Remove="Features\Notifications\Commands\SendNotification\" />
   </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\HyBe.Domain\HyBe.Domain.csproj" />
-  </ItemGroup>
+	
   <ItemGroup>
     <None Remove="Services\" />
     <None Remove="Services\Repositories\" />
