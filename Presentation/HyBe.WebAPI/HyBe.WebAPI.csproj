@@ -12,9 +12,9 @@
     <PackageReference Include="MediatR" Version="12.0.1" />
     <!-- <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" /> -->
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.2" />
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.3" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.2">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.3">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
@@ -23,8 +23,14 @@
     <None Remove="Controllers\v1\" />
     <None Remove="Microsoft.EntityFrameworkCore.Design" />
   </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\..\Core\HyBe.Application\HyBe.Application.csproj" />
     <ProjectReference Include="..\..\Infrastructure\HyBe.Persistence\HyBe.Persistence.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\HyBe.Infrastructure\HyBe.Infrastructure.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
   </ItemGroup>
+
+
 </Project>
