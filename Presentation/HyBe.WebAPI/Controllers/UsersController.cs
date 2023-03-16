@@ -29,8 +29,8 @@ namespace HyBe.WebAPI.Controllers
             _mailService = mailService;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> CreateUser(CreateUserCommandRequest createUserCommandRequest)
+        [HttpPost("create-user")]
+		public async Task<IActionResult> CreateUser(CreateUserCommandRequest createUserCommandRequest)
         {
             CreateUserCommandResponse response = await _mediator.Send(createUserCommandRequest);
             return Ok(response);
@@ -43,7 +43,7 @@ namespace HyBe.WebAPI.Controllers
             return Ok(response);
         }
 
-        [HttpGet]
+        [HttpGet("get-user")]
         [Authorize(AuthenticationSchemes = "Admin")]
         [AuthorizeDefinition(ActionType = ActionType.Reading, Definition = "Get All Users", Menu = "Users")]
         public async Task<IActionResult> GetAllUsers([FromQuery] GetAllUsersQueryRequest getAllUsersQueryRequest)

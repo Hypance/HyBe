@@ -28,17 +28,20 @@ public static class PersistenceServiceRegistration
         services.AddScoped<IStrategyService, StrategyService>();
         services.AddScoped<ISignalService, SignalService>();
         services.AddScoped<ISymbolService, SymbolService>();
-        services.AddScoped<IDomainEventDispatcher, DomainEventDispatcher>();
-
 
 		services.AddScoped<IUserService, UserService>();
 		services.AddScoped<IAuthService, AuthService>();
 		services.AddScoped<IInternalAuthentication, AuthService>();
 		services.AddScoped<IRoleService, RoleService>();
-		services.AddScoped<IAuthorizationEndpointService, AuthorizationEndpointService>();
+
+		services.AddScoped<IDomainEventDispatcher, DomainEventDispatcher>();
 
 
-		return services;
+		
+        //services.AddScoped<IAuthorizationEndpointService, AuthorizationEndpointService>();
+
+
+        return services;
     }
 
 }

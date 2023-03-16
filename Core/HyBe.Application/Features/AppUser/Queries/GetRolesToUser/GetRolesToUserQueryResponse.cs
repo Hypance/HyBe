@@ -7,6 +7,6 @@ namespace HyBe.Application.Features.AppUser.Queries.GetRolesToUser
 {
     public class GetRolesToUserQueryResponse
     {
-        
+        public string[] UserRoles { get; set; }
     }
 }

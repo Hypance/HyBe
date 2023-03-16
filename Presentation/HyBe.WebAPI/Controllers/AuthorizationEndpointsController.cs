@@ -1,5 +1,5 @@
-using HyBe.Application.Features.AuthorizationEndpoint.Commands.AssignRoleEndpoint;
-using HyBe.Application.Features.AuthorizationEndpoint.Queries.GetRolesToEndpoint;
+/* using HyBe.Application.Features.AuthorizationEndpoint.Commands.AssignRoleEndpoint;
+using HyBe.Application.Features.AuthorizationEndpoint.Queries.GetRolesToEndpoint; */
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,7 +16,7 @@ namespace HyBe.WebAPI.Controllers
             _mediator = mediator;
         }
 
-        [HttpPost("[action]")]
+       /*  [HttpPost("[action]")]
         public async Task<IActionResult> GetRolesToEndpoint(GetRolesToEndpointQueryRequest rolesToEndpointQueryRequest)
         {
             GetRolesToEndpointQueryResponse response = await _mediator.Send(rolesToEndpointQueryRequest);
@@ -29,6 +29,6 @@ namespace HyBe.WebAPI.Controllers
             assignRoleEndpointCommandRequest.Type = typeof(Program);
             AssignRoleEndpointCommandResponse response = await _mediator.Send(assignRoleEndpointCommandRequest);
             return Ok(response);
-        }
+        } */
     }
 }

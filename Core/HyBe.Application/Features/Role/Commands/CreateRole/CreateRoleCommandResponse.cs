@@ -7,6 +7,6 @@ namespace HyBe.Application.Features.Role.Commands.CreateRole
 {
     public class CreateRoleCommandResponse
     {
-        
+        public bool Succeeded { get; set; }
     }
 }
