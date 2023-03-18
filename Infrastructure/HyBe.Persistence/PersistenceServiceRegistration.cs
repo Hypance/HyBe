@@ -1,4 +1,5 @@
 using HyBe.Application.Abstractions.Services;
+using HyBe.Application.Abstractions.Services.Authentications;
 using HyBe.Domain.Entities.Identity;
 // using HyBe.Application.Abstractions.Services.Authentications;
 using HyBe.Persistence.Contexts;
@@ -43,8 +44,8 @@ public static class PersistenceServiceRegistration
         services.AddScoped<ISymbolService, SymbolService>();
 
 		services.AddScoped<IUserService, UserService>();
-		// services.AddScoped<IAuthService, AuthService>();
-		// services.AddScoped<IInternalAuthentication, AuthService>();
+		services.AddScoped<IAuthService, AuthService>();
+		services.AddScoped<IInternalAuthentication, AuthService>();
 		// services.AddScoped<IRoleService, RoleService>();
         // services.AddScoped<IAuthorizationEndpointService, AuthorizationEndpointService>();
         

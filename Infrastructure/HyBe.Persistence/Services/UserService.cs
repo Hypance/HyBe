@@ -1,5 +1,6 @@
 using HyBe.Application.Abstractions.Services;
 using HyBe.Application.DTOs.User;
+using HyBe.Application.Exceptions;
 using HyBe.Domain.Entities.Identity;
 using Microsoft.AspNetCore.Identity;
 using System;
@@ -37,5 +38,16 @@ namespace HyBe.Persistence.Services
             return response;
         }
 
+        public async Task UpdateRefreshTokenAsync(string refreshToken, AppUser user, DateTime accessTokenDate, int addOnAccessTokenDate)
+        {
+            if (user != null)
+            {
+                user.RefreshToken = refreshToken;
+                user.RefreshTokenEndDate = accessTokenDate.AddSeconds(addOnAccessTokenDate);
+                await _userManager.UpdateAsync(user);
+            }
+            else
+                throw new NotFoundUserException();
+        }
     }
 }

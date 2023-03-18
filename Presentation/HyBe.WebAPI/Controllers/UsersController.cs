@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Mvc;
 
-namespace HyBe.WebAPI.Controllers
+namespace HyBe.WebAPI.Controllers.v1
 {
     [Microsoft.AspNetCore.Mvc.Route("api/[Controller]")]
     [ApiController]
