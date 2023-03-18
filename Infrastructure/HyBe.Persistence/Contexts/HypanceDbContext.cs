@@ -11,9 +11,11 @@ using HyBe.SharedKernel.Events;
 using HyBe.Domain.Entities.Wallets;
 using Microsoft.EntityFrameworkCore;
 using HyBe.Domain.Entities.Signals;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using HyBe.Domain.Entities.Identity;
 
 namespace HyBe.Persistence.Contexts;
-public class HypanceDbContext : DbContext
+public class HypanceDbContext : IdentityDbContext<AppUser,AppRole,string>
 {
     #region Fields
     private readonly IDomainEventDispatcher _dispatcher;

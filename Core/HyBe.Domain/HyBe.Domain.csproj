@@ -30,12 +30,13 @@
     <Folder Include="Contracts\Notifications\" />
   </ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+	    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.3" />
 		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.3" />
-		<PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
-	    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
+		<!--<PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />-->
 	</ItemGroup>
+	
   <ItemGroup>
     <None Include="..\..\.editorconfig" Link=".editorconfig" />
   </ItemGroup>

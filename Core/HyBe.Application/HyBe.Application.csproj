@@ -7,12 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <!--<PackageReference Include="MediatR" Version="12.0.1" />
-    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
-    <PackageReference Include="FluentValidation" Version="11.4.0" />
-    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.4.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.2" />
-    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />-->
 	  
     <Compile Remove="Features\Candlestick\**" />
     <Compile Remove="Features\Formation\**" />
@@ -74,7 +68,6 @@
   <ItemGroup>
     <Folder Include="Features\Backtests\" />
     <Folder Include="Features\Backtests\Commands\" />
-    <Folder Include="Abstractions\" />
     <Folder Include="Features\Backtests\Queries\" />
     <Folder Include="Features\Backtests\Profiles\" />
     <Folder Include="Features\Backtests\Dtos\" />
