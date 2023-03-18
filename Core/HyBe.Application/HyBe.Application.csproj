@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-
+	  
     <Compile Remove="Features\Candlestick\**" />
     <Compile Remove="Features\Formation\**" />
     <Compile Remove="Features\Indicator\**" />
@@ -25,10 +25,7 @@
     <None Remove="Features\Notifications\Commands\" />
     <None Remove="Features\Notifications\Commands\SendNotification\" />
   </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\HyBe.Domain\HyBe.Domain.csproj" />
-  </ItemGroup>
+	
   <ItemGroup>
     <None Remove="Services\" />
     <None Remove="Services\Repositories\" />
@@ -71,7 +68,6 @@
   <ItemGroup>
     <Folder Include="Features\Backtests\" />
     <Folder Include="Features\Backtests\Commands\" />
-    <Folder Include="Abstractions\" />
     <Folder Include="Features\Backtests\Queries\" />
     <Folder Include="Features\Backtests\Profiles\" />
     <Folder Include="Features\Backtests\Dtos\" />
