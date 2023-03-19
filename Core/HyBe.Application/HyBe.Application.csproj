@@ -7,19 +7,20 @@
   </PropertyGroup>
 
   <ItemGroup>
-
     <Compile Remove="Features\Candlestick\**" />
     <Compile Remove="Features\Formation\**" />
     <Compile Remove="Features\Indicator\**" />
+    <Compile Remove="Features\Symbol\**" />
     <EmbeddedResource Remove="Features\Candlestick\**" />
     <EmbeddedResource Remove="Features\Formation\**" />
     <EmbeddedResource Remove="Features\Indicator\**" />
+    <EmbeddedResource Remove="Features\Symbol\**" />
     <None Remove="Features\Candlestick\**" />
     <None Remove="Features\Formation\**" />
-    <None Remove="Features\Indicator\**" />
     <None Remove="Features\Indicators\Dtos\**" />
     <None Remove="Features\Indicators\Models\**" />
     <None Remove="Features\Strategy\**" />
+    <None Remove="Features\Symbol\**" />
     <None Remove="Abstractions\Infrastructure\" />
     <None Remove="Features\Notifications\" />
     <None Remove="Features\Notifications\Commands\" />
@@ -45,6 +46,7 @@
     <None Remove="Features\Indicators\" />
     <None Remove="Features\Strategy\" />
     <None Remove="Features\Symbol\" />
+	<None Remove="Features\Enum\" />
     <None Remove="Features\Candlesticks\Commands\" />
     <None Remove="Features\Candlesticks\Dtos\" />
     <None Remove="Features\Candlesticks\Models\" />
@@ -71,12 +73,10 @@
   <ItemGroup>
     <Folder Include="Features\Backtests\" />
     <Folder Include="Features\Backtests\Commands\" />
-    <Folder Include="Abstractions\" />
     <Folder Include="Features\Backtests\Queries\" />
     <Folder Include="Features\Backtests\Profiles\" />
     <Folder Include="Features\Backtests\Dtos\" />
     <Folder Include="Features\Backtests\Models\" />
-    <Folder Include="Features\Strategy\" />
     <Folder Include="Features\IndicatorSignals\Dtos\" />
     <Folder Include="Features\IndicatorSignals\Models\" />
     <Folder Include="Features\Indicators\" />
@@ -86,23 +86,11 @@
     <Folder Include="Features\Bots\Models\" />
     <Folder Include="Features\Strategy\Dtos\" />
     <Folder Include="Features\Strategy\Models\" />
-    <Folder Include="Features\Symbol\Commands\" />
-    <Folder Include="Features\Symbol\Dtos\" />
-    <Folder Include="Features\Symbol\Models\" />
-    <Folder Include="Features\Symbol\Profiles\" />
-    <Folder Include="Features\Symbol\Queries\" />
     <Folder Include="Common\" />
     <Folder Include="Common\Behaviors\" />
     <Folder Include="Features\Backtests\Queries\GetListBacktest\" />
     <Folder Include="Features\Backtests\Queries\GetByIdBacktest\" />
     <Folder Include="Features\Backtests\Commands\CreateBacktest\" />
     <Folder Include="Features\Backtests\Commands\DeleteBacktest\" />
-    <Folder Include="Abstractions\Infrastructure\" />
-    <Folder Include="Features\Notifications\" />
-    <Folder Include="Features\Notifications\Commands\" />
-    <Folder Include="Features\Notifications\Commands\SendNotification\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\HyBe.Domain\HyBe.Domain.csproj" />
   </ItemGroup>
 </Project>
