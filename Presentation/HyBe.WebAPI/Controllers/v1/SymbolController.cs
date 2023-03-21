@@ -6,12 +6,14 @@ using HyBe.Application.Features.Symbols.Queries.GetByIdSymbol;
 using HyBe.Application.Features.Symbols.Queries.GetListSymbol;
 using HyBe.Domain.Contracts.Symbols;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HyBe.WebAPI.Controllers.v1
 {
     [Route("api/v1.0/[controller]/[action]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = "Admin")]
     public class SymbolController : ControllerBase
     {
         #region Fileds

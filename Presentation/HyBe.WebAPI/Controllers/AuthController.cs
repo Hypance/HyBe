@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HyBe.WebAPI.Controllers.v1
 {
-    [Route("api/[controller]")]
+    [Route("api/v1.0/[controller]/[action]")]
     [ApiController]
     public class AuthController : ControllerBase
     {
@@ -14,13 +14,13 @@ namespace HyBe.WebAPI.Controllers.v1
         {
             _mediator = mediator;
         }
-        [HttpPost("[action]")]
+        [HttpPost]
         public async Task<IActionResult> Login(LoginUserCommandRequest loginUserCommandRequest)
         {
             LoginUserCommandResponse response = await _mediator.Send(loginUserCommandRequest);
             return Ok(response);
         }
-        [HttpPost("[action]")]
+        [HttpPost]
         public async Task<IActionResult> RefreshTokenLogin([FromBody] RefreshTokenLoginCommandRequest refreshTokenLoginCommandRequest)
         {
             RefreshTokenLoginCommandResponse response = await _mediator.Send(refreshTokenLoginCommandRequest);

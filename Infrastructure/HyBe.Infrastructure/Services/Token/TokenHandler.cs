@@ -21,7 +21,7 @@ namespace HyBe.Infrastructure.Services.Token
         {
             _configuration = configuration;
         }
-        public Application.DTOs.Token CreateAccessToken(int second, AppUser user)
+        public Application.DTOs.Token CreateAccessToken(AppUser user)
         {
              Application.DTOs.Token token = new();
 
@@ -32,14 +32,17 @@ namespace HyBe.Infrastructure.Services.Token
             SigningCredentials signingCredentials = new(securityKey, SecurityAlgorithms.HmacSha256);
 
             //Oluşturulacak token ayarlarını veriyoruz.
-            token.Expiration = DateTime.UtcNow.AddSeconds(second);
+            if (!int.TryParse(_configuration["Token:AccessTokenLifeTime"], out int accessTokenLifeTime))
+                return null;
+
+            token.Expiration = DateTime.UtcNow.AddMinutes(accessTokenLifeTime);
             JwtSecurityToken securityToken = new(
                 audience: _configuration["Token:Audience"],
                 issuer: _configuration["Token:Issuer"],
                 expires: token.Expiration,
                 notBefore: DateTime.UtcNow,
                 signingCredentials: signingCredentials,
-                claims: new List<Claim> { new(ClaimTypes.Name, user.UserName) }
+                claims: new List<Claim> { new(ClaimTypes.Name, user?.UserName) }
                 );
 
             //Token oluşturucu sınıfından bir örnek alalım.

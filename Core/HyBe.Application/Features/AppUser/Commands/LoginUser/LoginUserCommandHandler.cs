@@ -13,7 +13,7 @@ namespace HyBe.Application.Features.AppUser.Commands.LoginUser
 
         public async Task<LoginUserCommandResponse> Handle(LoginUserCommandRequest request, CancellationToken cancellationToken)
         {
-            var token = await _authService.LoginAsync(request.UsernameOrEmail, request.Password, 900);
+            var token = await _authService.LoginAsync(request.UsernameOrEmail, request.Password);
             return new LoginUserSuccessCommandResponse()
             {
                 Token = token
