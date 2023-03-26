@@ -8,7 +8,9 @@ using HyBe.Domain.Entities.Strategies;
 using HyBe.Domain.Entities.Symbols;
 using HyBe.SharedKernel.Domain;
 using HyBe.SharedKernel.Events;
+using HyBe.Domain.Entities.Wallets;
 using Microsoft.EntityFrameworkCore;
+using HyBe.Domain.Entities.Signals;
 
 namespace HyBe.Persistence.Contexts;
 public class HypanceDbContext : DbContext
@@ -37,6 +39,7 @@ public class HypanceDbContext : DbContext
     public DbSet<Strategy> Strategies { get; set; }
     public DbSet<Symbol> Symbols { get; set; }
     public DbSet<Candlestick> Candlesticks { get; set; }
+    public DbSet<Wallet> Wallets { get; set; }
     #endregion
 
     #region ModelCreating

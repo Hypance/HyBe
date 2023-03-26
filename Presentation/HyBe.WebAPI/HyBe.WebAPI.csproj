@@ -9,27 +9,26 @@
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.3" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.2">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.3">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\Core\HyBe.Application\HyBe.Application.csproj">
-      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Infrastructure\HyBe.Persistence\HyBe.Persistence.csproj">
-      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Remove="Controllers\v1\" />
     <None Remove="Microsoft.EntityFrameworkCore.Design" />
   </ItemGroup>
+
   <ItemGroup>
-    <Folder Include="Controllers\v1\" />
+    <ProjectReference Include="..\..\Core\HyBe.Application\HyBe.Application.csproj" />
+    <ProjectReference Include="..\..\Core\HyBe.Domain\HyBe.Domain.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\HyBe.Persistence\HyBe.Persistence.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\HyBe.Infrastructure\HyBe.Infrastructure.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
   </ItemGroup>
+
+
 </Project>

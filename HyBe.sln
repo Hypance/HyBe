@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 25.0.1704.2
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{A5B3FA46-2B56-4BF1-979B-4D59DE6CA2ED}"
 EndProject
@@ -9,17 +9,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{FF4E11C4-C486-483A-822E-5827E1721018}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HyBe.Domain", "Core\HyBe.Domain\HyBe.Domain.csproj", "{98FD6D6F-03E5-43A5-9933-8771AEA8A39E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HyBe.Domain", "Core\HyBe.Domain\HyBe.Domain.csproj", "{98FD6D6F-03E5-43A5-9933-8771AEA8A39E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HyBe.Application", "Core\HyBe.Application\HyBe.Application.csproj", "{81891250-B9C1-463C-85B6-CBEB463D665E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HyBe.Application", "Core\HyBe.Application\HyBe.Application.csproj", "{81891250-B9C1-463C-85B6-CBEB463D665E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HyBe.SharedKernel", "Core\HyBe.SharedKernel\HyBe.SharedKernel.csproj", "{C5BD55E9-58E5-461D-A11F-F8B69DAC310B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HyBe.SharedKernel", "Core\HyBe.SharedKernel\HyBe.SharedKernel.csproj", "{C5BD55E9-58E5-461D-A11F-F8B69DAC310B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HyBe.Infrastructure", "Infrastructure\HyBe.Infrastructure\HyBe.Infrastructure.csproj", "{B500D1B6-0898-4434-9179-B46C88AA11D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HyBe.Infrastructure", "Infrastructure\HyBe.Infrastructure\HyBe.Infrastructure.csproj", "{B500D1B6-0898-4434-9179-B46C88AA11D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HyBe.Persistence", "Infrastructure\HyBe.Persistence\HyBe.Persistence.csproj", "{BDD4948C-537B-486D-8595-A74F779588F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HyBe.Persistence", "Infrastructure\HyBe.Persistence\HyBe.Persistence.csproj", "{BDD4948C-537B-486D-8595-A74F779588F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HyBe.WebAPI", "Presentation\HyBe.WebAPI\HyBe.WebAPI.csproj", "{45614ACF-CDA1-4F0F-B91E-36586D013ED3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HyBe.WebAPI", "Presentation\HyBe.WebAPI\HyBe.WebAPI.csproj", "{45614ACF-CDA1-4F0F-B91E-36586D013ED3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,9 +55,6 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {7E3A055E-1106-4CAA-9280-8C314EADFFAF}
-	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{98FD6D6F-03E5-43A5-9933-8771AEA8A39E} = {A5B3FA46-2B56-4BF1-979B-4D59DE6CA2ED}
 		{81891250-B9C1-463C-85B6-CBEB463D665E} = {A5B3FA46-2B56-4BF1-979B-4D59DE6CA2ED}
@@ -65,5 +62,8 @@ Global
 		{B500D1B6-0898-4434-9179-B46C88AA11D8} = {A39483E7-67C9-41F2-87CD-1AB4CE5DCF4D}
 		{BDD4948C-537B-486D-8595-A74F779588F1} = {A39483E7-67C9-41F2-87CD-1AB4CE5DCF4D}
 		{45614ACF-CDA1-4F0F-B91E-36586D013ED3} = {FF4E11C4-C486-483A-822E-5827E1721018}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7E3A055E-1106-4CAA-9280-8C314EADFFAF}
 	EndGlobalSection
 EndGlobal
