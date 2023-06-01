@@ -11,6 +11,7 @@ using HyBe.SharedKernel.Events;
 using HyBe.Domain.Entities.Wallets;
 using Microsoft.EntityFrameworkCore;
 using HyBe.Domain.Entities.Signals;
+using HyBe.Domain.Entities.Members;
 
 namespace HyBe.Persistence.Contexts;
 public class HypanceDbContext : DbContext
@@ -40,6 +41,7 @@ public class HypanceDbContext : DbContext
     public DbSet<Symbol> Symbols { get; set; }
     public DbSet<Candlestick> Candlesticks { get; set; }
     public DbSet<Wallet> Wallets { get; set; }
+    public DbSet<Member> Members { get; set; }
     #endregion
 
     #region ModelCreating

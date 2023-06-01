@@ -10,7 +10,7 @@ using HyBe.Application.Features.IndicatorSignals.Queries.GetListIndicatorSignal;
 
 namespace HyBe.WebAPI.Controllers.v1
 {
-    [Route("api/v1.0/[controller]/[action]")]
+    [Route("api/v1.0/[controller]/[action]"), Authorize]
     [ApiController]
     public class IndicatorSignalController : ControllerBase
     {

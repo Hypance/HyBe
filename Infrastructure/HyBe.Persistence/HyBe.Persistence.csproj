@@ -16,6 +16,9 @@
     <Folder Include="Repositories\" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.5" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\..\Core\HyBe.Application\HyBe.Application.csproj" />
   </ItemGroup>
 </Project>

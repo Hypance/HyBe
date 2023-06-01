@@ -6,11 +6,12 @@ using HyBe.Application.Features.Wallets.Queries.GetByIdWallet;
 using HyBe.Application.Features.Wallets.Queries.GetListWallet;
 using HyBe.Domain.Contracts.Wallets;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HyBe.WebAPI.Controllers.v1
 {
-    [Route("api/v1.0/[controller]/[action]")]
+    [Route("api/v1.0/[controller]/[action]"), Authorize]
     [ApiController]
     public class WalletController : ControllerBase
     {
