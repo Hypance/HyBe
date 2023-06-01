@@ -6,13 +6,14 @@ using AutoMapper;
 using HyBe.Application.Features.Notifications.Commands.SendNotification;
 using HyBe.Domain.Contracts.Notifications;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace HyBe.WebAPI.Controllers.v1
 {
-    [Route("api/v1.0/[controller]/[action]")]
+    [Route("api/v1.0/[controller]/[action]"), Authorize]
     public class NotificationController : ControllerBase
     {
 

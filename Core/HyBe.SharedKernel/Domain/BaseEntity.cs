@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using HyBe.SharedKernel.Events;
 
 namespace HyBe.SharedKernel.Domain;
-public class BaseEntity
+public abstract partial class BaseEntity
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

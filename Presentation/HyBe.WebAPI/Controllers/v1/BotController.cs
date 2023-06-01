@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HyBe.WebAPI.Controllers.v1
 {
-    [Route("api/v1.0/[controller]/[action]")]
+    [Route("api/v1.0/[controller]/[action]"), Authorize]
     [ApiController]
     public class BotController : ControllerBase
     {

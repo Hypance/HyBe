@@ -28,6 +28,8 @@ public static class PersistenceServiceRegistration
         services.AddScoped<ISignalService, SignalService>();
         services.AddScoped<ISymbolService, SymbolService>();
         services.AddScoped<IDomainEventDispatcher, DomainEventDispatcher>();
+        services.AddScoped<TokenService, TokenService>();
+        services.AddScoped<IMemberService, MemberService>();
         return services;
     }
 
