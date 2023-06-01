@@ -7,6 +7,7 @@ using HyBe.Application.Features.IndicatorSignals.Commands.DeleteIndicatorSignal;
 using HyBe.Application.Features.IndicatorSignals.Commands.UpdateIndicatorSignal;
 using HyBe.Application.Features.IndicatorSignals.Queries.GetByIdIndicatorSignal;
 using HyBe.Application.Features.IndicatorSignals.Queries.GetListIndicatorSignal;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HyBe.WebAPI.Controllers.v1
 {

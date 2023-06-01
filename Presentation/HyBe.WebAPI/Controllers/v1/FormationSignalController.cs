@@ -5,6 +5,7 @@ using HyBe.Application.Features.FormationSignals.Queries;
 using HyBe.Application.Features.FormationSignals.Queries.GetByIdFormationSignal;
 using HyBe.Domain.Contracts.FormationSignals;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HyBe.WebAPI.Controllers.v1

@@ -6,6 +6,7 @@ using HyBe.Application.Features.Bots.Queries.GetByIdBot;
 using HyBe.Application.Features.Bots.Queries.GetListBot;
 using HyBe.Domain.Contracts.Bots;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HyBe.WebAPI.Controllers.v1
