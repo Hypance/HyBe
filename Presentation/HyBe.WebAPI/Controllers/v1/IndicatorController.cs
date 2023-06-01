@@ -8,6 +8,7 @@ using HyBe.Application.Features.Indicators.Queries;
 using HyBe.Domain.Contracts.Indicators;
 using HyBe.SharedKernel.Utilities;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 namespace HyBe.WebAPI.Controllers.v1
 {

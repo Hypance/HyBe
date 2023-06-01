@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using HyBe.Domain.Contracts.Enums;
 using HyBe.Domain.Enums;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 

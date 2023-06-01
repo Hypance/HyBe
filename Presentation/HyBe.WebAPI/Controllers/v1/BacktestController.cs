@@ -7,6 +7,7 @@ using HyBe.Application.Features.Backtests.Queries;
 using HyBe.Domain.Contracts.Backtests;
 using HyBe.SharedKernel.Utilities;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HyBe.WebAPI.Controllers.v1

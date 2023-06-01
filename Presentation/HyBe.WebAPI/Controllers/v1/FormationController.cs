@@ -6,6 +6,7 @@ using HyBe.Application.Features.Formations.Queries.GetByIdFormation;
 using HyBe.Application.Features.Formations.Queries.GetListFormation;
 using HyBe.Domain.Contracts.Formations;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HyBe.WebAPI.Controllers.v1
