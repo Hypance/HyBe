@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HyBe.WebAPI.Controllers.v1
 {
-    [Route("api/[controller]"), Authorize]
+    [Route("api/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase
     {

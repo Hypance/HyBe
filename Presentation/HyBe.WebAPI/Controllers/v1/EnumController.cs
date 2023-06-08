@@ -43,10 +43,10 @@ namespace HyBe.WebAPI.Controllers.v1
             return Ok(list);
         }
         [HttpGet]
-        public IActionResult GetPositionTypes()
+        public IActionResult GetSides()
         {
             var list = new List<SelectListItem>();
-            Enum.GetNames(typeof(PositionType)).ToList().ForEach(x => list.Add(new SelectListItem { Text = x, Value = ((int)Enum.Parse(typeof(PositionType), x)).ToString() }));
+            Enum.GetNames(typeof(Side)).ToList().ForEach(x => list.Add(new SelectListItem { Text = x, Value = ((int)Enum.Parse(typeof(Side), x)).ToString() }));
             return Ok(list);
         }
         [HttpGet]

@@ -30,6 +30,7 @@ public static class PersistenceServiceRegistration
         services.AddScoped<IDomainEventDispatcher, DomainEventDispatcher>();
         services.AddScoped<TokenService, TokenService>();
         services.AddScoped<IMemberService, MemberService>();
+        services.AddScoped<ITransactionService, TransactionService>();
         return services;
     }
 

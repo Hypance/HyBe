@@ -9,6 +9,10 @@ namespace HyBe.Domain.Entities.Members
 {
     public class Member : IdentityUser
     {
-        
+        public decimal TotalAssetsValue { get; set; }
+        public decimal AllTimeProfit { get; set; }
+        public decimal MonthlyProfit { get; set; }
+        public decimal WeeklyProfit { get; set; }
+        public decimal DailyProfit { get; set; }
     }
 }

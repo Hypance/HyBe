@@ -12,6 +12,7 @@ using HyBe.Domain.Entities.Wallets;
 using Microsoft.EntityFrameworkCore;
 using HyBe.Domain.Entities.Signals;
 using HyBe.Domain.Entities.Members;
+using HyBe.Domain.Entities.Transactions;
 
 namespace HyBe.Persistence.Contexts;
 public class HypanceDbContext : DbContext
@@ -42,6 +43,8 @@ public class HypanceDbContext : DbContext
     public DbSet<Candlestick> Candlesticks { get; set; }
     public DbSet<Wallet> Wallets { get; set; }
     public DbSet<Member> Members { get; set; }
+    public DbSet<Transaction> Transactions { get; set; }
+    public DbSet<MemberTransactionRelationship> MemberTransactionRelationships { get; set; }
     #endregion
 
     #region ModelCreating
