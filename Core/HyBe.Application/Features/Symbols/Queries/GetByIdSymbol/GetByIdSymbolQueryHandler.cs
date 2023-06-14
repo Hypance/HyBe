@@ -35,8 +35,8 @@ namespace HyBe.Application.Features.Symbols.Queries.GetByIdSymbol
             var result = _symbolService.Get(b => b.Id == query.Request.Id);
             if (result.Success)
             {
-                var backtestMapper = _mapper.Map<GetByIdSymbolResponse>(result.Data);
-                return new SuccessDataResult<GetByIdSymbolResponse>(backtestMapper);
+                var symbolMapper = _mapper.Map<GetByIdSymbolResponse>(result.Data);
+                return new SuccessDataResult<GetByIdSymbolResponse>(symbolMapper);
             }
             return new ErrorDataResult<GetByIdSymbolResponse>(result.Message);
         }

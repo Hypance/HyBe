@@ -8,5 +8,6 @@ namespace HyBe.Domain.Contracts.Transactions
 {
     public class GetByIdTransactionRequest
     {
+        public Guid Id { get; set; }
     }
 }
