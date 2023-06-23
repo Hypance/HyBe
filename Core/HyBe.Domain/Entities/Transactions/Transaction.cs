@@ -21,5 +21,15 @@ namespace HyBe.Domain.Entities.Transactions
         public decimal EntryPrice { get; set; }
         public decimal? ExitPrice { get; set; }
         public bool IsDeleted { get; set; } = false;
+        private decimal profit;
+        public decimal Profit { get { return profit; } set 
+            {
+                if (ExitPrice.HasValue)
+                    profit = Side == Side.LONG
+                        ? ((decimal)ExitPrice - EntryPrice) * (Amount * Size)
+                        : (EntryPrice - (decimal)ExitPrice) * (Amount * Size);
+                profit = 0;
+            } 
+        }
     }
 }

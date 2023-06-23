@@ -17,6 +17,7 @@ namespace HyBe.Domain.Contracts.Transactions
         public DateTimeOffset? EndTime { get; set; }
         public Side Side { get; set; }
         public decimal EntryPrice { get; set; }
-        public decimal ExitPrice { get; set; }
+        public decimal? ExitPrice { get; set; }
+        public decimal Profit { get; set; }
     }
 }
