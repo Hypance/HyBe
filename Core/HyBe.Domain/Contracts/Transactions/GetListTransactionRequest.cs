@@ -9,5 +9,6 @@ namespace HyBe.Domain.Contracts.Transactions
     public class GetListTransactionRequest
     {
         public string MemberId { get; set; }
+        public DateTimeOffset? StartDate { get; set; }
     }
 }

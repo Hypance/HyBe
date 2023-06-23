@@ -45,6 +45,61 @@ public class TransactionController : ControllerBase
         }
     }
     [HttpGet]
+    public async Task<IActionResult> GetListByLastDay()
+    { 
+        try
+        { 
+            System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+            var claims = currentUser.Claims.ToArray();
+
+            var request = new GetListTransactionRequest
+            {
+                MemberId = claims[3].Value,
+                StartDate = DateTimeOffset.UtcNow.AddDays(-1)
+            };
+     
+            var query = _mapper.Map<GetListTransactionQuery>(request);
+            var result = await _mediatr.Send(query);
+            return Ok(result);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    }
+    [HttpGet]
+    public async Task<IActionResult> GetListByLastWeek([FromQuery] GetListTransactionRequest request)
+    {
+        try
+        {
+            System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+            request.StartDate = DateTimeOffset.UtcNow.AddDays(-7);
+            var query = _mapper.Map<GetListTransactionQuery>(request);
+            var result = await _mediatr.Send(query);
+            return Ok(result);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    }
+    [HttpGet]
+    public async Task<IActionResult> GetListByLastMonth([FromQuery] GetListTransactionRequest request)
+    {
+        try
+        {
+            System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+            request.StartDate = DateTimeOffset.UtcNow.AddMonths(-1);
+            var query = _mapper.Map<GetListTransactionQuery>(request);
+            var result = await _mediatr.Send(query);
+            return Ok(result);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    }
+    [HttpGet]
     public IActionResult Get(int id)
     {
         return Ok();
