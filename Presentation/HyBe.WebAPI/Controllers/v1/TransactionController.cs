@@ -1,9 +1,12 @@
 ﻿using AutoMapper;
 using HyBe.Application.Features.Indicators.Queries;
 using HyBe.Application.Features.IndicatorSignals.Commands.CreateIndicatorSignal;
+using HyBe.Application.Features.Signals.Queries;
 using HyBe.Application.Features.Transactions.Commands.CreateTransaction;
+using HyBe.Application.Features.Transactions.Commands.UpdateTransaction;
 using HyBe.Application.Features.Transactions.Queries.GetListTransaction;
 using HyBe.Domain.Contracts.IndicatorSignals;
+using HyBe.Domain.Contracts.Signals;
 using HyBe.Domain.Contracts.Transactions;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -111,6 +114,20 @@ public class TransactionController : ControllerBase
         try
         {
             var query = _mapper.Map<CreateTransactionCommand>(request);
+            var result = await _mediatr.Send(query);
+            return Ok(result);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    }
+    [HttpPut]
+    public async Task<IActionResult> Update([FromBody] UpdateTransactionRequest request)
+    {
+        try
+        {
+            var query = _mapper.Map<UpdateTransactionCommand>(request);
             var result = await _mediatr.Send(query);
             return Ok(result);
         }

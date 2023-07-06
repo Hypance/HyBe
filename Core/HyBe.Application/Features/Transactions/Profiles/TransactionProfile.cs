@@ -16,6 +16,7 @@ namespace HyBe.Application.Features.Transactions.Profiles
             CreateMap<Transaction, GetListTransactionResponse>().ReverseMap();
             CreateMap<Transaction, GetByIdTransactionResponse>().ReverseMap();
             CreateMap<CreateTransactionRequest, Transaction>().ReverseMap();
+            CreateMap<UpdateTransactionRequest, Transaction>().ReverseMap();
         }
     }
 }
