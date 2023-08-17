@@ -1,16 +1,19 @@
 # HyBe
 Hypance Backend
 # Tüm Fonksiyonlar UserId ile ilişkili olup olmadıkları kontrol edilecek, eğer değillerse User ile ilişkilendirilecek.
-##Favorite Coin
+## Favorite Coin
+
 1- User-Coin mapping tablosu oluşturulacak.
 UserId = Guid, CoinId = Guid.
 2- Bunun için MemberController oluşturulacak. 
 İçinde yer alan fonksiyonlar: AddUserFavoriteCoin, RemoveUserFavoriteCoin, GetListFavoriteCoin
 Bunlar için application ve services katmanında ilgili classlar oluşturulacak.
-##Open Trades
+## Open Trades
+
 1- GetListOpenTrades fonksiyonu TransactionControllerına eklenecek.
 Çalışma Mantığı: Transaction tablosunda IsCompleted=false olanlar gelecek. 
-##Strategies
+## Strategies
+
 1- Sadece o kullanıcının StrategyId ve strateji ismini dönen bir fonksiyon yazılacak. 
 2- Aşağıdaki alanları döndüren bir fonksiyon yazılacak.  
 IMyStrategy{
@@ -28,7 +31,8 @@ IMyStrategy{
 }
 3- Yukarıdaki alanların güncellenmesi için bir fonksiyon yazılacak.
 4- StrategyController'da yer alan Create fonksiyonu yukarıdaki modele göre güncellenecek, şu an sadece name ve description var.
-##Bot
+## Bot
+
 1- BotController'ın Create fonksiyonu aşağıda yer alan modele göre güncellenecek.
 ICreateBot{
     name:string,
