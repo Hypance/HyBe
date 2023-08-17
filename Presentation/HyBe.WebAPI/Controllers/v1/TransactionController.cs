@@ -32,12 +32,19 @@ public class TransactionController : ControllerBase
     }
     #endregion
     #region Methods
+
     [HttpGet]
-    public async Task<IActionResult> GetList([FromQuery] GetListTransactionRequest request)
+    public async Task<IActionResult> GetList()
     {
         try
         {
             System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+            var claims = currentUser.Claims.ToArray();
+
+            var request = new GetListTransactionRequest
+            {
+                MemberId = claims[3].Value,
+            };
             var query = _mapper.Map<GetListTransactionQuery>(request);
             var result = await _mediatr.Send(query);
             return Ok(result);
@@ -71,12 +78,17 @@ public class TransactionController : ControllerBase
         }
     }
     [HttpGet]
-    public async Task<IActionResult> GetListByLastWeek([FromQuery] GetListTransactionRequest request)
+    public async Task<IActionResult> GetListByLastWeek()
     {
         try
         {
             System.Security.Claims.ClaimsPrincipal currentUser = this.User;
-            request.StartDate = DateTimeOffset.UtcNow.AddDays(-7);
+            var claims = currentUser.Claims.ToArray();
+            var request = new GetListTransactionRequest
+            {
+                MemberId = claims[3].Value,
+                StartDate = DateTimeOffset.UtcNow.AddDays(-7)
+            };
             var query = _mapper.Map<GetListTransactionQuery>(request);
             var result = await _mediatr.Send(query);
             return Ok(result);
@@ -87,12 +99,17 @@ public class TransactionController : ControllerBase
         }
     }
     [HttpGet]
-    public async Task<IActionResult> GetListByLastMonth([FromQuery] GetListTransactionRequest request)
+    public async Task<IActionResult> GetListByLastMonth()
     {
         try
         {
             System.Security.Claims.ClaimsPrincipal currentUser = this.User;
-            request.StartDate = DateTimeOffset.UtcNow.AddMonths(-1);
+            var claims = currentUser.Claims.ToArray();
+            var request = new GetListTransactionRequest
+            {
+                MemberId = claims[3].Value,
+                StartDate = DateTimeOffset.UtcNow.AddMonths(-1)
+            };
             var query = _mapper.Map<GetListTransactionQuery>(request);
             var result = await _mediatr.Send(query);
             return Ok(result);
@@ -102,12 +119,12 @@ public class TransactionController : ControllerBase
             return BadRequest(ex.Message);
         }
     }
-    [HttpGet]
-    public IActionResult Get(int id)
+   /* [HttpGet] 
+    * public IActionResult Get(Guid id)
     {
         return Ok();
     }
-
+   */
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] CreateTransactionRequest request)
     {
@@ -123,7 +140,7 @@ public class TransactionController : ControllerBase
         }
     }
     [HttpPut]
-    public async Task<IActionResult> Update([FromBody] UpdateTransactionRequest request)
+    public async Task<IActionResult> Update([FromBody] UpdateTransactionRequest request)//finalize
     {
         try
         {
