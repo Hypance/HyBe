@@ -50,4 +50,5 @@ ICreateBot{
     trendStrategy:string,
     priceVolume:number,
 }
+
 2- BotController'ın Update fonksiyonu da aynı şekilde güncellenecek.
