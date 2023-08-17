@@ -5,6 +5,7 @@ Hypance Backend
 
 1- User-Coin mapping tablosu oluşturulacak.
 UserId = Guid, CoinId = Guid.
+
 2- Bunun için MemberController oluşturulacak. 
 İçinde yer alan fonksiyonlar: AddUserFavoriteCoin, RemoveUserFavoriteCoin, GetListFavoriteCoin
 Bunlar için application ve services katmanında ilgili classlar oluşturulacak.
@@ -15,6 +16,7 @@ Bunlar için application ve services katmanında ilgili classlar oluşturulacak.
 ## Strategies
 
 1- Sadece o kullanıcının StrategyId ve strateji ismini dönen bir fonksiyon yazılacak. 
+
 2- Aşağıdaki alanları döndüren bir fonksiyon yazılacak.  
 IMyStrategy{
     id:number,
@@ -30,6 +32,7 @@ IMyStrategy{
     crossingIndicatorPeriod:number,
 }
 3- Yukarıdaki alanların güncellenmesi için bir fonksiyon yazılacak.
+
 4- StrategyController'da yer alan Create fonksiyonu yukarıdaki modele göre güncellenecek, şu an sadece name ve description var.
 ## Bot
 
