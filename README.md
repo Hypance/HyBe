@@ -31,6 +31,7 @@ IMyStrategy{
     crossingIndicator:string,
     crossingIndicatorPeriod:number,
 }
+
 3- Yukarıdaki alanların güncellenmesi için bir fonksiyon yazılacak.
 
 4- StrategyController'da yer alan Create fonksiyonu yukarıdaki modele göre güncellenecek, şu an sadece name ve description var.
