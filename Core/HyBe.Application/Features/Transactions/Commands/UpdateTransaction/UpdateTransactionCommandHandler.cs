@@ -30,8 +30,11 @@ namespace HyBe.Application.Features.Transactions.Commands.UpdateTransaction
         #region Methods
         public async Task<IResult> Handle(UpdateTransactionCommand query, CancellationToken cancellationToken)
         {
-            var transactionMapper = _mapper.Map<Transaction>(query.Request);
-            var result = _transactionService.Update(transactionMapper);
+            var transaction = _transactionService.Get(x => x.Id == query.Request.Id);
+            if (!transaction.Success)
+                return new ErrorResult();
+            transaction.Data.CloseTransaction(query.Request.ExitPrice);
+            var result = _transactionService.Update(transaction.Data);
             if (result.Success)
                 return new SuccessResult();
             return new ErrorResult();

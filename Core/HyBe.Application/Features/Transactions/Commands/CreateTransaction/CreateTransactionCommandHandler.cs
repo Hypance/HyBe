@@ -37,10 +37,11 @@ namespace HyBe.Application.Features.Transactions.Commands.CreateTransaction
         #endregion
 
         #region Methods
-        public async Task<HyBe.SharedKernel.Utilities.IResult> Handle(CreateTransactionCommand query, CancellationToken cancellationToken)
+        public async Task<SharedKernel.Utilities.IResult> Handle(CreateTransactionCommand query, CancellationToken cancellationToken)
         {
-            var transactionMapper = _mapper.Map<Transaction>(query.Request);
-            var result = _transactionService.Add(transactionMapper);
+            
+            var transaction = Transaction.Create(query.Request.TranId, query.Request.Asset,query.Request.Amount,query.Request.Side,query.Request.EntryPrice);
+            var result = _transactionService.Add(transaction);
             if (result.Success)
             {
                 var user = _userManager.GetUserAsync(_contextAccessor.HttpContext.User);
@@ -48,7 +49,7 @@ namespace HyBe.Application.Features.Transactions.Commands.CreateTransaction
 
                 return new SuccessResult(); 
             }
-                
+
             return new ErrorResult(result.Message);
         }
         #endregion
