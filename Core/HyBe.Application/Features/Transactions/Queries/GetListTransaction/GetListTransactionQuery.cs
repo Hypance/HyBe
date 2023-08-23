@@ -12,6 +12,8 @@ namespace HyBe.Application.Features.Transactions.Queries.GetListTransaction
     public class GetListTransactionQuery : IRequest<IResult>
     {
         public GetListTransactionRequest Request { get; set; }
+        public object MemberId { get; internal set; }
+
         public GetListTransactionQuery(GetListTransactionRequest request)
         {
             Request = request;

@@ -29,7 +29,7 @@ namespace HyBe.Application.Features.Transactions.Queries.GetListTransaction
         #region Methods
         public async Task<IResult> Handle(GetListTransactionQuery request, CancellationToken cancellationToken)
         {
-            var result =  _transactionService.GetAll(); 
+            var result = _transactionService.GetAll(); 
             if(request.Request.StartDate.HasValue)
             {
                 result = _transactionService.GetAll(x => x.StartTime >= request.Request.StartDate);

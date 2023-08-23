@@ -40,12 +40,13 @@ namespace HyBe.Application.Features.Transactions.Commands.CreateTransaction
         public async Task<SharedKernel.Utilities.IResult> Handle(CreateTransactionCommand query, CancellationToken cancellationToken)
         {
             
-            var transaction = Transaction.Create(query.Request.TranId, query.Request.Asset,query.Request.Amount,query.Request.Side,query.Request.EntryPrice);
+            var transaction = Transaction.Create(query.Request.MemberId, query.Request.Asset,query.Request.Amount,query.Request.Side,query.Request.EntryPrice);
             var result = _transactionService.Add(transaction);
             if (result.Success)
             {
-                var user = _userManager.GetUserAsync(_contextAccessor.HttpContext.User);
-                _transactionService.CreateMemberTransactionRelationship(new MemberTransactionRelationship {MemberId = user.Id.ToString(),TranId = query.Request.TranId});
+                System.Security.Claims.ClaimsPrincipal currentUser = _contextAccessor.HttpContext.User;
+                var claims = currentUser.Claims.ToArray();
+                _transactionService.CreateMemberTransactionRelationship(new MemberTransactionRelationship { MemberId = claims[3].Value });
 
                 return new SuccessResult(); 
             }
