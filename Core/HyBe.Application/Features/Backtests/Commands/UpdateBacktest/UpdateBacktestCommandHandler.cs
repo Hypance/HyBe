@@ -26,12 +26,18 @@ public class UpdateBacktestCommandHandler : IRequestHandler<UpdateBacktestComman
     #region Methods
     public async Task<IResult> Handle(UpdateBacktestCommand query, CancellationToken cancellationToken)
     {
-        var backtestMapper = _mapper.Map<Backtest>(query.Request);
-        var result = _backtestService.Update(backtestMapper);
+        var backtest = _backtestService.Get(x => x.Id == query.Request.Id);
+        var getBacktest = _backtestService.Get(b => b.MemberId.ToString() == query.MemberId && b.Id == query.Request.Id);
+        if (getBacktest == null) 
+        {
+            return new ErrorResult("Data Not Found!");
+        }
+        if (!backtest.Success)
+            return new ErrorResult();
+        var result = _backtestService.Update(query.Request.Id);
         if (result.Success)
             return new SuccessResult();
-        return new ErrorResult(result.Message);
+        return new ErrorResult();
     }
     #endregion
 }
-

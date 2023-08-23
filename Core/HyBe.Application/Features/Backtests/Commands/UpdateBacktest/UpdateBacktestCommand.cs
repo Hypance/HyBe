@@ -8,10 +8,9 @@ namespace HyBe.Application.Features.Backtests.Queries;
 public class UpdateBacktestCommand : IRequest<IResult>
 {
     public UpdateBacktestRequest Request { get; set; }
-
+    public string MemberId { get; set; }
     public UpdateBacktestCommand(UpdateBacktestRequest request)
     {
         Request = request;
     }
 }
-
