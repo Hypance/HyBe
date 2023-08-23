@@ -5,7 +5,7 @@ namespace HyBe.Domain.Contracts.Backtests;
 
 public class UpdateBacktestRequest
 {
-    public Guid Id { get; set; }
+    public Guid Id { get; private set; }
     public string Name { get; set; }
     public Market Market { get; set; }
     public OrderType OrderType { get; set; }
