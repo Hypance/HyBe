@@ -30,8 +30,7 @@ namespace HyBe.Application.Features.Bots.Queries.GetByIdBot
         #region Methods
         public async Task<IResult> Handle(GetByIdBotQuery query, CancellationToken cancellationToken)
         {
-
-            var result = _botService.Get(b => b.Id == query.Request.Id);
+            var result = _botService.Get(b => b.MemberId.ToString() == query.Request.MemberId);
             if (result.Success)
             {
                 var botMapper = _mapper.Map<GetByIdBotResponse>(result.Data);

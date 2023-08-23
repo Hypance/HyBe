@@ -2,7 +2,6 @@
 using HyBe.Application.Abstractions.Services;
 using HyBe.SharedKernel.Utilities;
 using MediatR;
-
 using HyBe.Domain.Entities;
 
 namespace HyBe.Application.Features.Bots.Commands.UpdateBot
@@ -25,11 +24,15 @@ namespace HyBe.Application.Features.Bots.Commands.UpdateBot
         #region Methods
         public async Task<IResult> Handle(UpdateBotCommand query, CancellationToken cancellationToken)
         {
-            var botMapper = _mapper.Map<Bot>(query.Request);
-            var result = _botService.Update(botMapper);
+            var getBot = _botService.Get(b => b.MemberId.ToString() == query.MemberId && b.Id == query.Request.Id);
+            if (getBot == null)
+            {
+                return new ErrorResult("Data Not Found!");
+            }
+            var result = _botService.Delete(query.Request.Id);
             if (result.Success)
                 return new SuccessResult();
-            return new ErrorResult();
+            return new ErrorResult(result.Message);
         }
         #endregion
     }

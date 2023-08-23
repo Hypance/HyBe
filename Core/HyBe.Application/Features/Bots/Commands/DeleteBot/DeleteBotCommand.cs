@@ -9,6 +9,7 @@ namespace HyBe.Application.Features.Bots.Commands.DeleteBot
     public class DeleteBotCommand : IRequest<IResult>
     {
         public DeleteBotRequest Request { get; set; }
+        public string MemberId { get; internal set; }
 
         public DeleteBotCommand(DeleteBotRequest request) 
         {

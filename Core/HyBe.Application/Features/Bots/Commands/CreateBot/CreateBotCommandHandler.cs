@@ -3,6 +3,7 @@ using HyBe.Application.Abstractions.Services;
 using HyBe.SharedKernel.Utilities;
 using MediatR;
 using HyBe.Domain.Entities;
+using HyBe.Application.Features.Bots.Commands.CreateBot;
 
 namespace HyBe.Application.Features.Bots.Queries;
 
