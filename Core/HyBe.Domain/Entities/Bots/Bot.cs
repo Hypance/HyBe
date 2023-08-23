@@ -4,6 +4,7 @@ using HyBe.SharedKernel.Domain;
 namespace HyBe.Domain.Entities;
 public class Bot : BaseEntity
 {
+    public Guid MemberId { get; private set; }
     public string Name { get; set; }
     public string Description { get; set; }
     public Market Market { get; set; }

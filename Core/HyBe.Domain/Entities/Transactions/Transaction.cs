@@ -6,7 +6,7 @@ namespace HyBe.Domain.Entities.Transactions
 {
     public class Transaction : BaseEntity
     {
-        public long TranId { get; private set; }
+        public Guid MemberId { get; private set; }
         public string Asset { get; private set; }
         public decimal Amount { get; private set; }
         public decimal Size { get; private set; }
@@ -18,12 +18,11 @@ namespace HyBe.Domain.Entities.Transactions
         public bool IsDeleted { get; private set; } = false;
         public decimal Profit { get; set; }
         public bool IsCompleted { get; set; }
-
-        public static Transaction Create(long tranId, string asset, decimal amount, Side side, decimal entryPrice)
+        public static Transaction Create(Guid memberId, string asset, decimal amount, Side side, decimal entryPrice)
         {
             return new Transaction
             {
-                TranId = tranId,
+                MemberId = memberId,
                 Asset = asset,
                 Amount = amount,
                 Size = amount / entryPrice,
