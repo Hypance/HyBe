@@ -3,6 +3,7 @@ using System;
 using HyBe.Persistence.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace HyBe.Persistence.Migrations
 {
     [DbContext(typeof(HypanceDbContext))]
-    partial class HypanceDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230817151638_transaction_2")]
+    partial class transaction_2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,9 +39,6 @@ namespace HyBe.Persistence.Migrations
 
                     b.Property<int>("Market")
                         .HasColumnType("integer");
-
-                    b.Property<Guid>("MemberId")
-                        .HasColumnType("uuid");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -89,9 +89,6 @@ namespace HyBe.Persistence.Migrations
 
                     b.Property<int>("Market")
                         .HasColumnType("integer");
-
-                    b.Property<Guid>("MemberId")
-                        .HasColumnType("uuid");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -251,9 +248,6 @@ namespace HyBe.Persistence.Migrations
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<Guid>("MemberId")
-                        .HasColumnType("uuid");
-
                     b.Property<decimal>("MonthlyProfit")
                         .HasColumnType("numeric");
 
@@ -304,9 +298,6 @@ namespace HyBe.Persistence.Migrations
                     b.Property<int>("Interval")
                         .HasColumnType("integer");
 
-                    b.Property<Guid>("MemberId")
-                        .HasColumnType("uuid");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
@@ -340,9 +331,6 @@ namespace HyBe.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<Guid>("MemberId")
-                        .HasColumnType("uuid");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
@@ -375,9 +363,6 @@ namespace HyBe.Persistence.Migrations
 
                     b.Property<decimal>("LowPrice")
                         .HasColumnType("numeric");
-
-                    b.Property<Guid>("MemberId")
-                        .HasColumnType("uuid");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -471,9 +456,6 @@ namespace HyBe.Persistence.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
 
-                    b.Property<Guid>("MemberId")
-                        .HasColumnType("uuid");
-
                     b.Property<decimal>("Profit")
                         .HasColumnType("numeric");
 
@@ -485,6 +467,9 @@ namespace HyBe.Persistence.Migrations
 
                     b.Property<DateTimeOffset?>("StartTime")
                         .HasColumnType("timestamp with time zone");
+
+                    b.Property<long>("TranId")
+                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
@@ -499,9 +484,6 @@ namespace HyBe.Persistence.Migrations
 
                     b.Property<decimal>("Balance")
                         .HasColumnType("numeric");
-
-                    b.Property<Guid>("MemberId")
-                        .HasColumnType("uuid");
 
                     b.HasKey("Id");
 
