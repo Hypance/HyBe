@@ -140,10 +140,16 @@ public class TransactionController : ControllerBase
         }
     }
     [HttpPut]
-    public async Task<IActionResult> Update([FromBody] UpdateTransactionRequest request)//finalize
+    public async Task<IActionResult> Update()
     {
         try
         {
+            System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+            var claims = currentUser.Claims.ToArray();
+            var request = new GetListTransactionRequest
+            {
+                MemberId = claims[3].Value
+            };
             var query = _mapper.Map<UpdateTransactionCommand>(request);
             var result = await _mediatr.Send(query);
             return Ok(result);
