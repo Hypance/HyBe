@@ -9,10 +9,9 @@ namespace HyBe.Domain.Contracts.Transactions
 {
     public class CreateTransactionRequest
     {
-        public long TranId { get; set; }
+        public Guid MemberId { get; set; }
         public string Asset { get; set; }
         public decimal Amount { get; set; }
-        public decimal Size { get; set; }
         public DateTimeOffset? StartTime { get; set; }
         public Side Side { get; set; }
         public decimal EntryPrice { get; set; }
