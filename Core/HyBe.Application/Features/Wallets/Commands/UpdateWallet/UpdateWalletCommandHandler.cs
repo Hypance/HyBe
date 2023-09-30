@@ -18,8 +18,15 @@ namespace HyBe.Application.Features.Wallets.Commands.UpdateWallet
         }
         public async Task<IResult> Handle(UpdateWalletCommand query, CancellationToken cancellationToken)
         {
-            var walletMapper = _mapper.Map<Wallet>(query.Request);
-            var result = _walletService.Update(walletMapper);
+            var bot = _walletService.Get(x => x.Id == query.Request.Id);
+            var getBacktest = _walletService.Get(b => b.MemberId.ToString() == query.MemberId && b.Id == query.Request.Id);
+            if (getBacktest == null)
+            {
+                return new ErrorResult("Data Not Found!");
+            }
+            if (!bot.Success)
+                return new ErrorResult();
+            var result = _walletService.Update(query.Request.Id);
             if (result.Success)
                 return new SuccessResult();
             return new ErrorResult();
