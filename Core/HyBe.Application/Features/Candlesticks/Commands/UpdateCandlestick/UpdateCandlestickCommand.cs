@@ -8,6 +8,7 @@ namespace HyBe.Application.Features.Candlesticks.Queries;
 public class UpdateCandlestickCommand : IRequest<IResult>
 {
     public UpdateCandlestickRequest Request { get; set; }
+    public string MemberId { get; internal set; }
 
     public UpdateCandlestickCommand(UpdateCandlestickRequest request)
     {
