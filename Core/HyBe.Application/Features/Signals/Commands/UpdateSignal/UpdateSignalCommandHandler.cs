@@ -26,12 +26,18 @@ public class UpdateSignalCommandHandler : IRequestHandler<UpdateSignalCommand,IR
     #region Methods
     public async Task<IResult> Handle(UpdateSignalCommand query, CancellationToken cancellationToken)
     {
-        var signalMapper = _mapper.Map<Signal>(query.Request);
-        var result = _signalService.Update(signalMapper);
+        var bot = _signalService.Get(x => x.Id == query.Request.Id);
+        var getBacktest = _signalService.Get(b => b.MemberId.ToString() == query.MemberId && b.Id == query.Request.Id);
+        if (getBacktest == null)
+        {
+            return new ErrorResult("Data Not Found!");
+        }
+        if (!bot.Success)
+            return new ErrorResult();
+        var result = _signalService.Update(query.Request.Id);
         if (result.Success)
             return new SuccessResult();
-
-        return new ErrorResult(result.Message);
+        return new ErrorResult();
     }
     #endregion
 }
