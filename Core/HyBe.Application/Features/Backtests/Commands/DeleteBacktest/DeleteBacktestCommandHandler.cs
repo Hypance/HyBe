@@ -27,7 +27,7 @@ public class DeleteBacktestCommandHandler : IRequestHandler<DeleteBacktestComman
     public async Task<IResult> Handle(DeleteBacktestCommand query, CancellationToken cancellationToken)
     {
         var getBacktest = _backtestService.Get(b => b.MemberId.ToString() == query.MemberId && b.Id == query.Request.Id);
-        if (getBacktest == null) 
+        if (getBacktest.Success == false) 
         {
             return new ErrorResult("Data Not Found!");
         }
