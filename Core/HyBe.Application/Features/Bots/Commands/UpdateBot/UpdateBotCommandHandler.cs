@@ -24,15 +24,18 @@ namespace HyBe.Application.Features.Bots.Commands.UpdateBot
         #region Methods
         public async Task<IResult> Handle(UpdateBotCommand query, CancellationToken cancellationToken)
         {
-            var getBot = _botService.Get(b => b.MemberId.ToString() == query.MemberId && b.Id == query.Request.Id);
-            if (getBot == null)
+            var bot = _botService.Get(x => x.Id == query.Request.Id);
+            var getBacktest = _botService.Get(b => b.MemberId.ToString() == query.MemberId && b.Id == query.Request.Id);
+            if (getBacktest == null)
             {
                 return new ErrorResult("Data Not Found!");
             }
-            var result = _botService.Delete(query.Request.Id);
+            if (!bot.Success)
+                return new ErrorResult();
+            var result = _botService.Update(query.Request.Id);
             if (result.Success)
                 return new SuccessResult();
-            return new ErrorResult(result.Message);
+            return new ErrorResult();
         }
         #endregion
     }
