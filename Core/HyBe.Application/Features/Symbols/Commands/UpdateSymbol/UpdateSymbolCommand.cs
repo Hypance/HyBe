@@ -13,6 +13,7 @@ namespace HyBe.Application.Features.Symbols.Commands.UpdateSymbol
     public class UpdateSymbolCommand : IRequest<IResult>
     {
         public UpdateSymbolRequest Request { get; set; }
+        public string MemberId { get; set; }
 
         public UpdateSymbolCommand(UpdateSymbolRequest request)
         {

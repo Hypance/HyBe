@@ -8,4 +8,5 @@ public class Symbol : BaseEntity
     public decimal MinQuantity { get; set; }
     public decimal MaxQuantity { get; set; }
     public bool IsActive { get; set; }
+    public Guid MemberId { get; set; }
 }
