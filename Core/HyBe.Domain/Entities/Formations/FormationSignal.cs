@@ -9,4 +9,5 @@ public class FormationSignal : BaseEntity
     public Interval Interval { get; set; }
     public bool Result { get; set; }
     public bool IsActive { get; set; }
+    public Guid MemberId { get; set; }
 }

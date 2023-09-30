@@ -5,6 +5,7 @@ using HyBe.SharedKernel.Domain;
 namespace HyBe.Domain.Entities.Indicators;
 public class IndicatorSignal : BaseEntity
 {
+    public Guid MemberId { get; set; }
     public string IndicatorName { get; set; }
     public string SymbolName { get; set; }
     public int Period { get; set; }
