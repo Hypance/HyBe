@@ -26,8 +26,15 @@ public class UpdateStrategyCommandHandler : IRequestHandler<UpdateStrategyComman
     #region Methods
     public async Task<IResult> Handle(UpdateStrategyCommand query, CancellationToken cancellationToken)
     {
-        var strategyMapper = _mapper.Map<Strategy>(query.Request);
-        var result = _strategyService.Update(strategyMapper);
+        var bot = _strategyService.Get(x => x.Id == query.Request.Id);
+        var getBacktest = _strategyService.Get(b => b.MemberId.ToString() == query.MemberId && b.Id == query.Request.Id);
+        if (getBacktest == null)
+        {
+            return new ErrorResult("Data Not Found!");
+        }
+        if (!bot.Success)
+            return new ErrorResult();
+        var result = _strategyService.Update(query.Request.Id);
         if (result.Success)
             return new SuccessResult();
         return new ErrorResult();
