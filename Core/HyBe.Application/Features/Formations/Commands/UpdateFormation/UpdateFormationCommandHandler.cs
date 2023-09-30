@@ -26,8 +26,15 @@ namespace HyBe.Application.Features.Formations.Commands.UpdateFormation
         #region Methods
         public async Task<IResult> Handle(UpdateFormationCommand query, CancellationToken cancellationToken)
         {
-            var formationMapper = _mapper.Map<Formation>(query.Request);
-            var result = _formationService.Update(formationMapper);
+            var bot = _formationService.Get(x => x.Id == query.Request.Id);
+            var getBacktest = _formationService.Get(b => b.MemberId.ToString() == query.MemberId && b.Id == query.Request.Id);
+            if (getBacktest == null)
+            {
+                return new ErrorResult("Data Not Found!");
+            }
+            if (!bot.Success)
+                return new ErrorResult();
+            var result = _formationService.Update(query.Request.Id);
             if (result.Success)
                 return new SuccessResult();
             return new ErrorResult();
