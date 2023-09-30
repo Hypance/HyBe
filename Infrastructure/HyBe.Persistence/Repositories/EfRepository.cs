@@ -60,11 +60,15 @@ public class EfRepository<T> : IRepository<T> where T : BaseEntity
 
     }
 
-    public IResult Update(T entity)
+    public IResult Update(Guid entityId)
     {
         try
         {
-            _hypanceDbContext.Update<T>(entity);
+            var entity = Get(s => s.Id == entityId);
+            if (!entity.Success)
+                throw new NullReferenceException(entity.Message);
+
+            _hypanceDbContext.Update<T>(entity.Data);
             _hypanceDbContext.SaveChanges();
             return new SuccessResult();
         }

@@ -32,10 +32,13 @@ namespace HyBe.WebAPI.Controllers.v1
         #region Methods
 
         [HttpGet]
-        public async Task<IActionResult> GetList([FromQuery]GetListBacktestRequest request)
+        public async Task<IActionResult> GetList()
         {
             try
             {
+                System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+                var claims = currentUser.Claims.ToArray();
+                var request = new GetListBacktestRequest { MemberId = claims[3].Value };
                 var query = _mapper.Map<GetListBacktestQuery>(request);
                 var result = await _mediatr.Send(query);
                 return Ok(result);
@@ -81,7 +84,10 @@ namespace HyBe.WebAPI.Controllers.v1
         {
             try
             {
+                System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+                var claims = currentUser.Claims.ToArray();
                 var query = _mapper.Map<UpdateBacktestCommand>(request);
+                query.MemberId = claims[3].Value;
                 var result = await _mediatr.Send(query);
                 return Ok(result);
             }
@@ -96,7 +102,10 @@ namespace HyBe.WebAPI.Controllers.v1
         {
             try
             {
+                System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+                var claims = currentUser.Claims.ToArray();
                 var query = _mapper.Map<DeleteBacktestCommand>(request);
+                query.MemberId = claims[3].Value;
                 var result = await _mediatr.Send(query);
                 return Ok(result);
             }
