@@ -26,11 +26,18 @@ public class UpdateFormationSignalCommandHandler : IRequestHandler<UpdateFormati
     #region Methods
     public async Task<IResult> Handle(UpdateFormationSignalCommand query, CancellationToken cancellationToken)
     {
-        var FormationSignalMapper = _mapper.Map<FormationSignal>(query.Request);
-        var result = _formationSignalService.Update(FormationSignalMapper);
+        var bot = _formationSignalService.Get(x => x.Id == query.Request.Id);
+        var getBacktest = _formationSignalService.Get(b => b.MemberId.ToString() == query.MemberId && b.Id == query.Request.Id);
+        if (getBacktest == null)
+        {
+            return new ErrorResult("Data Not Found!");
+        }
+        if (!bot.Success)
+            return new ErrorResult();
+        var result = _formationSignalService.Update(query.Request.Id);
         if (result.Success)
             return new SuccessResult();
-        return new ErrorResult(result.Message);
+        return new ErrorResult();
     }
     #endregion
 }

@@ -15,5 +15,6 @@ namespace HyBe.Domain.Contracts.FormationSignals
         public Interval Interval { get; set; }
         public bool Result { get; set; }
         public bool IsActive { get; set; }
+        public Guid Id { get; set; }
     }
 }
