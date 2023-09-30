@@ -30,8 +30,15 @@ public class UpdateIndicatorSignalCommandHandler : IRequestHandler<UpdateIndicat
     #region Methods
     public async Task<IResult> Handle(UpdateIndicatorSignalCommand query, CancellationToken cancellationToken)
     {
-        var indicatorSignalMapper = _mapper.Map<IndicatorSignal>(query.Request);
-        var result = _indicatorSignalService.Update(indicatorSignalMapper);
+        var bot = _indicatorSignalService.Get(x => x.Id == query.Request.Id);
+        var getBacktest = _indicatorSignalService.Get(b => b.MemberId.ToString() == query.MemberId && b.Id == query.Request.Id);
+        if (getBacktest == null)
+        {
+            return new ErrorResult("Data Not Found!");
+        }
+        if (!bot.Success)
+            return new ErrorResult();
+        var result = _indicatorSignalService.Update(query.Request.Id);
         if (result.Success)
             return new SuccessResult();
         return new ErrorResult();
