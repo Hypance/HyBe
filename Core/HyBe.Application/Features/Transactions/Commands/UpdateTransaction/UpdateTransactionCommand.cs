@@ -12,6 +12,7 @@ namespace HyBe.Application.Features.Transactions.Commands.UpdateTransaction
     public class UpdateTransactionCommand : IRequest<IResult>
     {
         public UpdateTransactionRequest Request { get; set; }
+        public string MemberId { get; internal set; }
 
         public UpdateTransactionCommand(UpdateTransactionRequest request)
         {
