@@ -27,10 +27,15 @@ public class DeleteIndicatorCommandHandler : IRequestHandler<DeleteIndicatorComm
     #region Methods
     public async Task<IResult> Handle(DeleteIndicatorCommand query, CancellationToken cancellationToken)
     {
+        var getIndicator = _indicatorService.Get(b => b.MemberId.ToString() == query.MemberId && b.Id == query.Request.Id);
+        if (getIndicator.Success == false)
+        {
+            return new ErrorResult("Data Not Found!");
+        }
         var result = _indicatorService.Delete(query.Request.Id);
         if (result.Success)
             return new SuccessResult();
-        return new ErrorResult();
+        return new ErrorResult(result.Message);
     }
     #endregion
 }

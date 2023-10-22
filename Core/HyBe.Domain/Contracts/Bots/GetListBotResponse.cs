@@ -11,14 +11,13 @@ namespace HyBe.Domain.Contracts.Bots
     {
         public string Name { get; set; }
         public string Description { get; set; }
-        public Market Market { get; set; }
-        public OrderType OrderType { get; set; }
-        public Side Side { get; set; }
-        public TrendStrategy TrendStrategy { get; set; }
-        public int[] AssetIds { get; set; }
-        public int[]? StrategyIds { get; set; }
-        public int[]? FormationIds { get; set; }
-        public decimal PriceVolume { get; set; }
-        public BotOptions BotOptions { get; set; }
+        public string predefinedMarket { get; set; }
+        public int priceStrategy { get; set; }
+        public string tradeType { get; set; }
+        public string Assets { get; set; }
+        public string Strategy { get; set; }
+        public string Formation { get; set; }
+        public string trendStrategy { get; set; }
+        public int priceVolume { get; set; }
     }
 }

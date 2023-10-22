@@ -5,6 +5,7 @@ using HyBe.SharedKernel.Utilities;
 using HyBe.Domain.Entities.Symbols;
 using MediatR;
 using HyBe.Domain.Contracts.Candlesticks;
+using HyBe.Domain.Contracts.Backtests;
 
 namespace HyBe.Application.Features.Candlesticks.Queries;
 
@@ -27,13 +28,13 @@ public class GetListCandlestickQueryHandler : IRequestHandler<GetListCandlestick
     public async Task<IResult> Handle(GetListCandlestickQuery query, CancellationToken cancellationToken)
     {
 
-        var result = _candlestickService.GetAll();
+        var result = _candlestickService.GetAll(b => b.MemberId.ToString() == query.Request.MemberId);
         if (result.Success)
         {
             var candlestickMapper = _mapper.Map<List<GetListCandlestickResponse>>(result.Data);
             return new SuccessDataResult<List<GetListCandlestickResponse>>(candlestickMapper);
         }
-        return new ErrorDataResult<List<GetListCandlestickResponse>>();
+        return new ErrorDataResult<List<GetListCandlestickResponse>>(result.Message);
     }
     #endregion
 }

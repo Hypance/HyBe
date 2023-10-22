@@ -15,4 +15,5 @@ public class CreateIndicatorRequest
     public Interval Interval { get; set; }
     public string Symbol { get; set; }
     public bool IsActive { get; set; }
+    public string MemberId { get; set; }
 }

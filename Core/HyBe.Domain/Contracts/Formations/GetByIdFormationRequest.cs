@@ -9,5 +9,6 @@ namespace HyBe.Domain.Contracts.Formations
     public class GetByIdFormationRequest
     {
         public Guid Id { get; set; }
+        public string MemberId { get; set; }
     }
 }

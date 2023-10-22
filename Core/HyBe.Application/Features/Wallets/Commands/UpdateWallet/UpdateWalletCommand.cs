@@ -8,7 +8,7 @@ namespace HyBe.Application.Features.Wallets.Commands.UpdateWallet
     public class UpdateWalletCommand : IRequest<IResult>
     {
         public UpdateWalletRequest Request { get; set; }
-        public string MemberId { get; internal set; }
+        public string MemberId { get; set; }
 
         public UpdateWalletCommand(UpdateWalletRequest request)
         {

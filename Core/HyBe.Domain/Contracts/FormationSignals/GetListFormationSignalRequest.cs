@@ -8,6 +8,6 @@ namespace HyBe.Domain.Contracts.FormationSignals
 {
     public class GetListFormationSignalRequest
     {
-
+        public string MemberId { get; set; }
     }
 }

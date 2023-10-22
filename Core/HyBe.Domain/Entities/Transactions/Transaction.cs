@@ -28,7 +28,8 @@ namespace HyBe.Domain.Entities.Transactions
                 Size = amount / entryPrice,
                 StartTime = DateTimeOffset.UtcNow,
                 Side = side,
-                EntryPrice = entryPrice
+                EntryPrice = entryPrice, 
+                IsCompleted = false
             };
         }
         public void CloseTransaction(decimal exitPrice)
@@ -39,15 +40,6 @@ namespace HyBe.Domain.Entities.Transactions
                         ? ((decimal)ExitPrice - EntryPrice) * Size
                         : (EntryPrice - (decimal)ExitPrice) * Size;
             this.IsCompleted = true;
-        }
-        public void OpenTransaction(decimal exitPrice)
-        {
-            this.ExitPrice = exitPrice;
-            this.EndTime = DateTimeOffset.UtcNow;
-            this.Profit = Side == Side.LONG
-                        ? ((decimal)ExitPrice - EntryPrice) * Size
-                        : (EntryPrice - (decimal)ExitPrice) * Size;
-            this.IsCompleted = false;
         }
     }
 }

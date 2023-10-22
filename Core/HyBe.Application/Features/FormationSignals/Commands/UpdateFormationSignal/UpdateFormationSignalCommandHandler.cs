@@ -5,6 +5,7 @@ using HyBe.SharedKernel.Utilities;
 using MediatR;
 using HyBe.Domain.Entities.Formations;
 using HyBe.Application.Features.FormationSignals.Commands.UpdateFormationSignal;
+using HyBe.Domain.Entities.Backtests;
 
 namespace HyBe.Application.Features.FormationSignals.Queries;
 
@@ -26,15 +27,13 @@ public class UpdateFormationSignalCommandHandler : IRequestHandler<UpdateFormati
     #region Methods
     public async Task<IResult> Handle(UpdateFormationSignalCommand query, CancellationToken cancellationToken)
     {
-        var bot = _formationSignalService.Get(x => x.Id == query.Request.Id);
-        var getBacktest = _formationSignalService.Get(b => b.MemberId.ToString() == query.MemberId && b.Id == query.Request.Id);
-        if (getBacktest == null)
+        var getFormationSignal = _formationSignalService.Get(b => b.MemberId.ToString() == query.MemberId && b.Id == query.Request.Id);
+        if (getFormationSignal == null)
         {
             return new ErrorResult("Data Not Found!");
         }
-        if (!bot.Success)
-            return new ErrorResult();
-        var result = _formationSignalService.Update(query.Request.Id);
+        var formationSignalMapper = _mapper.Map<FormationSignal>(query.Request);
+        var result = _formationSignalService.Update(formationSignalMapper);
         if (result.Success)
             return new SuccessResult();
         return new ErrorResult();

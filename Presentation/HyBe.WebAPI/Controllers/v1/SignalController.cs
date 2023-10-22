@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using HyBe.Application.Features.Signals;
 using HyBe.Application.Features.Signals.Queries;
 using HyBe.Domain.Contracts.Signals;
 using HyBe.SharedKernel.Utilities;
@@ -32,10 +33,13 @@ namespace HyBe.WebAPI.Controllers.v1
         #region Methods
 
         [HttpGet]
-        public async Task<IActionResult> GetList([FromQuery] GetListSignalRequest request)
+        public async Task<IActionResult> GetList()
         {
             try
             {
+                System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+                var claims = currentUser.Claims.ToArray();
+                var request = new GetListSignalRequest { MemberId = claims[3].Value };
                 var query = _mapper.Map<GetListSignalQuery>(request);
                 var result = await _mediatr.Send(query);
                 return Ok(result);
@@ -66,7 +70,10 @@ namespace HyBe.WebAPI.Controllers.v1
         {
             try
             {
+                System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+                var claims = currentUser.Claims.ToArray();
                 var query = _mapper.Map<CreateSignalCommand>(request);
+                query.Request.MemberId = claims[3].Value;
                 var result = await _mediatr.Send(query);
                 return Ok(result);
             }
@@ -81,7 +88,10 @@ namespace HyBe.WebAPI.Controllers.v1
         {
             try
             {
+                System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+                var claims = currentUser.Claims.ToArray();
                 var query = _mapper.Map<UpdateSignalCommand>(request);
+                query.MemberId = claims[3].Value;
                 var result = await _mediatr.Send(query);
                 return Ok(result);
             }
@@ -92,11 +102,14 @@ namespace HyBe.WebAPI.Controllers.v1
         }
 
         [HttpDelete]
-        public async Task<IActionResult> Delete([FromQuery] DeleteSignalRequest request)
+        public async Task<IActionResult> Delete([FromBody] DeleteSignalRequest request)
         {
             try
             {
+                System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+                var claims = currentUser.Claims.ToArray();
                 var query = _mapper.Map<DeleteSignalCommand>(request);
+                query.MemberId = claims[3].Value;
                 var result = await _mediatr.Send(query);
                 return Ok(result);
             }

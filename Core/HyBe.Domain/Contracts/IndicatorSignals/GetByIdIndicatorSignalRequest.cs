@@ -9,4 +9,5 @@ namespace HyBe.Domain.Contracts.IndicatorSignals;
 public class GetByIdIndicatorSignalRequest
 {
     public Guid Id { get; set; }
+    public string MemberId { get; set; }
 }

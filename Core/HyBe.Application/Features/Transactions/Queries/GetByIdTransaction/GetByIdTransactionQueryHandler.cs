@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using HyBe.Application.Abstractions.Services;
+using HyBe.Domain.Contracts.Backtests;
 using HyBe.Domain.Contracts.Transactions;
 using HyBe.SharedKernel.Utilities;
 using MediatR;
@@ -30,7 +31,7 @@ namespace HyBe.Application.Features.Transactions.Queries.GetByIdTransaction
         public async Task<IResult> Handle(GetByIdTransactionQuery query, CancellationToken cancellationToken)
         {
 
-            var result = _transactionService.Get(b => b.Id == query.Request.Id);
+            var result = _transactionService.Get(b => b.MemberId.ToString() == query.Request.MemberId && b.Id == query.Request.Id);
             if (result.Success)
             {
                 var transactionMapper = _mapper.Map<GetByIdTransactionResponse>(result.Data);

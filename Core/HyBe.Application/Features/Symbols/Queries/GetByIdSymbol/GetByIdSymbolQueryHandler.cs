@@ -32,7 +32,7 @@ namespace HyBe.Application.Features.Symbols.Queries.GetByIdSymbol
         public async Task<IResult> Handle(GetByIdSymbolQuery query, CancellationToken cancellationToken)
         {
 
-            var result = _symbolService.Get(b => b.Id == query.Request.Id);
+            var result = _symbolService.Get(b => b.MemberId.ToString() == query.Request.MemberId && b.Id == query.Request.Id);
             if (result.Success)
             {
                 var symbolMapper = _mapper.Map<GetByIdSymbolResponse>(result.Data);

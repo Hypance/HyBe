@@ -9,6 +9,6 @@ namespace HyBe.Domain.Contracts.Wallets
     public class GetByIdWalletRequest
     {
         public Guid Id { get; set; }
-
+        public string MemberId { get; set; }
     }
 }

@@ -2,7 +2,6 @@ using HyBe.Application.Abstractions.Services;
 using HyBe.Persistence.Contexts;
 using HyBe.Persistence.Repositories;
 using HyBe.Persistence.Services;
-using HyBe.SharedKernel.Events;
 using HyBe.SharedKernel.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -27,10 +26,10 @@ public static class PersistenceServiceRegistration
         services.AddScoped<IStrategyService, StrategyService>();
         services.AddScoped<ISignalService, SignalService>();
         services.AddScoped<ISymbolService, SymbolService>();
-        services.AddScoped<IDomainEventDispatcher, DomainEventDispatcher>();
         services.AddScoped<TokenService, TokenService>();
         services.AddScoped<IMemberService, MemberService>();
         services.AddScoped<ITransactionService, TransactionService>();
+        services.AddScoped<IMemberSymbolService, MemberSymbolService>();
         return services;
     }
 

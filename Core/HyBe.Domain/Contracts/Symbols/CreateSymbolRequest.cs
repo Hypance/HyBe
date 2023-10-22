@@ -12,5 +12,6 @@ namespace HyBe.Domain.Contracts.Symbols
         public decimal MinQuantity { get; set; }
         public decimal MaxQuantity { get; set; }
         public bool IsActive { get; set; }
+        public string MemberId { get; set; }
     }
 }

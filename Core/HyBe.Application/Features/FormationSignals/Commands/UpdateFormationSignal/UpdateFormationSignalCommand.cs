@@ -11,7 +11,7 @@ namespace HyBe.Application.Features.FormationSignals.Commands.UpdateFormationSig
     public class UpdateFormationSignalCommand : IRequest<IResult>
     {
         public UpdateFormationSignalRequest Request { get; set; }
-    public string MemberId { get; internal set; }
+    public string MemberId { get; set; }
 
     public UpdateFormationSignalCommand(UpdateFormationSignalRequest request)
         {

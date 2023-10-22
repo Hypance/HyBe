@@ -1,19 +1,19 @@
 ﻿using AutoMapper;
-using HyBe.Domain.Contracts.IndicatorSignals;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using HyBe.Application.Features.IndicatorSignals.Commands.CreateIndicatorSignal;
-using HyBe.Application.Features.IndicatorSignals.Commands.DeleteIndicatorSignal;
-using HyBe.Application.Features.IndicatorSignals.Commands.UpdateIndicatorSignal;
-using HyBe.Application.Features.IndicatorSignals.Queries.GetByIdIndicatorSignal;
-using HyBe.Application.Features.IndicatorSignals.Queries.GetListIndicatorSignal;
 using Microsoft.AspNetCore.Authorization;
+using HyBe.Domain.Contracts.IndicatorSignals;
+using HyBe.Application.Features.IndicatorSignals.Queries.GetListIndicatorSignal;
+using HyBe.Application.Features.IndicatorSignals.Queries.GetByIdIndicatorSignal;
+using HyBe.Application.Features.IndicatorSignals.Commands.CreateIndicatorSignal;
+using HyBe.Application.Features.IndicatorSignals.Commands.UpdateIndicatorSignal;
+using HyBe.Application.Features.IndicatorSignals.Commands.DeleteIndicatorSignal;
 
 namespace HyBe.WebAPI.Controllers.v1
 {
     [Route("api/v1.0/[controller]/[action]"), Authorize]
     [ApiController]
-    public class IndicatorSignalController : ControllerBase
+    public class IndicatorSignalSignalController : ControllerBase
     {
         #region Fileds
         private readonly IMapper _mapper;
@@ -21,7 +21,7 @@ namespace HyBe.WebAPI.Controllers.v1
         #endregion
 
         #region Constructor
-        public IndicatorSignalController(IMapper mapper, ISender mediatr)
+        public IndicatorSignalSignalController(IMapper mapper, ISender mediatr)
         {
             _mapper = mapper;
             _mediatr = mediatr;
@@ -31,10 +31,13 @@ namespace HyBe.WebAPI.Controllers.v1
         #region Methods
 
         [HttpGet]
-        public async Task<IActionResult> GetList([FromQuery] GetListIndicatorSignalRequest request)
+        public async Task<IActionResult> GetList()
         {
             try
             {
+                System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+                var claims = currentUser.Claims.ToArray();
+                var request = new GetListIndicatorSignalRequest { MemberId = claims[3].Value };
                 var query = _mapper.Map<GetListIndicatorSignalQuery>(request);
                 var result = await _mediatr.Send(query);
                 return Ok(result);
@@ -65,7 +68,10 @@ namespace HyBe.WebAPI.Controllers.v1
         {
             try
             {
+                System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+                var claims = currentUser.Claims.ToArray();
                 var query = _mapper.Map<CreateIndicatorSignalCommand>(request);
+                query.Request.MemberId = claims[3].Value;
                 var result = await _mediatr.Send(query);
                 return Ok(result);
             }
@@ -80,7 +86,10 @@ namespace HyBe.WebAPI.Controllers.v1
         {
             try
             {
+                System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+                var claims = currentUser.Claims.ToArray();
                 var query = _mapper.Map<UpdateIndicatorSignalCommand>(request);
+                query.MemberId = claims[3].Value;
                 var result = await _mediatr.Send(query);
                 return Ok(result);
             }
@@ -95,7 +104,10 @@ namespace HyBe.WebAPI.Controllers.v1
         {
             try
             {
+                System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+                var claims = currentUser.Claims.ToArray();
                 var query = _mapper.Map<DeleteIndicatorSignalCommand>(request);
+                query.MemberId = claims[3].Value;
                 var result = await _mediatr.Send(query);
                 return Ok(result);
             }

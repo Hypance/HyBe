@@ -5,6 +5,7 @@ using HyBe.SharedKernel.Utilities;
 using HyBe.Domain.Entities.Indicators;
 using MediatR;
 using HyBe.Domain.Contracts.Indicators;
+using HyBe.Domain.Entities.Backtests;
 
 namespace HyBe.Application.Features.Indicators.Commands;
 
@@ -26,15 +27,13 @@ public class UpdateIndicatorCommandHandler : IRequestHandler<UpdateIndicatorComm
     #region Methods
     public async Task<IResult> Handle(UpdateIndicatorCommand query, CancellationToken cancellationToken)
     {
-        var bot = _indicatorService.Get(x => x.Id == query.Request.Id);
-        var getBacktest = _indicatorService.Get(b => b.MemberId.ToString() == query.MemberId && b.Id == query.Request.Id);
-        if (getBacktest == null)
+        var getIndicator = _indicatorService.Get(b => b.MemberId.ToString() == query.MemberId && b.Id == query.Request.Id);
+        if (getIndicator == null)
         {
             return new ErrorResult("Data Not Found!");
         }
-        if (!bot.Success)
-            return new ErrorResult();
-        var result = _indicatorService.Update(query.Request.Id);
+        var indicatorMapper = _mapper.Map<Indicator>(query.Request);
+        var result = _indicatorService.Update(indicatorMapper);
         if (result.Success)
             return new SuccessResult();
         return new ErrorResult();

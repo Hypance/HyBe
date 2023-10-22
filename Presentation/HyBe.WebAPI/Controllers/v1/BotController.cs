@@ -36,10 +36,7 @@ namespace HyBe.WebAPI.Controllers.v1
             {
                 System.Security.Claims.ClaimsPrincipal currentUser = this.User;
                 var claims = currentUser.Claims.ToArray();
-                var request = new GetListBotRequest
-                {
-                    MemberId = claims[3].Value,
-                };
+                var request = new GetListBotRequest { MemberId = claims[3].Value };
                 var query = _mapper.Map<GetListBotQuery>(request);
                 var result = await _mediatr.Send(query);
                 return Ok(result);
@@ -49,17 +46,12 @@ namespace HyBe.WebAPI.Controllers.v1
                 return BadRequest(ex.Message);
             }
         }
+
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> Get([FromQuery] GetByIdBotRequest request)
         {
             try
             {
-                System.Security.Claims.ClaimsPrincipal currentUser = this.User;
-                var claims = currentUser.Claims.ToArray();
-                var request = new GetListBotRequest
-                {
-                    MemberId = claims[3].Value,
-                };
                 var query = _mapper.Map<GetByIdBotQuery>(request);
                 var result = await _mediatr.Send(query);
                 return Ok(result);
@@ -69,12 +61,16 @@ namespace HyBe.WebAPI.Controllers.v1
                 return BadRequest(ex.Message);
             }
         }
+
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreateBotRequest request)
         {
             try
             {
+                System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+                var claims = currentUser.Claims.ToArray();
                 var query = _mapper.Map<CreateBotCommand>(request);
+                query.Request.MemberId = claims[3].Value;
                 var result = await _mediatr.Send(query);
                 return Ok(result);
             }
@@ -83,12 +79,16 @@ namespace HyBe.WebAPI.Controllers.v1
                 return BadRequest(ex.Message);
             }
         }
+
         [HttpPut]
         public async Task<IActionResult> Update([FromBody] UpdateBotRequest request)
         {
             try
             {
+                System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+                var claims = currentUser.Claims.ToArray();
                 var query = _mapper.Map<UpdateBotCommand>(request);
+                query.MemberId = claims[3].Value;
                 var result = await _mediatr.Send(query);
                 return Ok(result);
             }
@@ -97,12 +97,16 @@ namespace HyBe.WebAPI.Controllers.v1
                 return BadRequest(ex.Message);
             }
         }
+
         [HttpDelete]
         public async Task<IActionResult> Delete([FromBody] DeleteBotRequest request)
         {
             try
             {
+                System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+                var claims = currentUser.Claims.ToArray();
                 var query = _mapper.Map<DeleteBotCommand>(request);
+                query.MemberId = claims[3].Value;
                 var result = await _mediatr.Send(query);
                 return Ok(result);
             }

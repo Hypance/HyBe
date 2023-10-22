@@ -27,13 +27,13 @@ public class GetByIdSignalQueryHandler : IRequestHandler<GetByIdSignalQuery,IRes
     public async Task<IResult> Handle(GetByIdSignalQuery query, CancellationToken cancellationToken)
     {
 
-        var result = _signalService.Get(b=>b.Id == query.Request.Id);
+        var result = _signalService.Get(b => b.MemberId.ToString() == query.Request.MemberId && b.Id == query.Request.Id);
         if (result.Success)
         {
             var signalMapper = _mapper.Map<GetByIdSignalResponse>(result.Data);
             return new SuccessDataResult<GetByIdSignalResponse>(signalMapper);
         }
-        return new ErrorDataResult<GetByIdSignalResponse>();
+        return new ErrorDataResult<GetByIdSignalResponse>(result.Message);
     }
     #endregion
 }

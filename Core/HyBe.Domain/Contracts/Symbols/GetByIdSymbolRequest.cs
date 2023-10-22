@@ -9,5 +9,6 @@ namespace HyBe.Domain.Contracts.Symbols
     public class GetByIdSymbolRequest
     {
         public Guid Id { get; set; }
+        public string MemberId { get; set; }
     }
 }

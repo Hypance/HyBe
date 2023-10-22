@@ -29,6 +29,11 @@ namespace HyBe.Application.Features.Symbols.Commands.DeleteSymbol
         #region Methods
         public async Task<IResult> Handle(DeleteSymbolCommand query, CancellationToken cancellationToken)
         {
+            var getSymbol = _symbolService.Get(b => b.MemberId.ToString() == query.MemberId && b.Id == query.Request.Id);
+            if (getSymbol.Success == false)
+            {
+                return new ErrorResult("Data Not Found!");
+            }
             var result = _symbolService.Delete(query.Request.Id);
             if (result.Success)
                 return new SuccessResult();

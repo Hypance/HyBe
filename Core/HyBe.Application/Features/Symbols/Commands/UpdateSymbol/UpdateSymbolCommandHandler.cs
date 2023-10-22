@@ -31,15 +31,13 @@ namespace HyBe.Application.Features.Symbols.Commands.UpdateSymbol
         #region Methods
         public async Task<IResult> Handle(UpdateSymbolCommand query, CancellationToken cancellationToken)
         {
-            var bot = _symbolService.Get(x => x.Id == query.Request.Id);
-            var getBacktest = _symbolService.Get(b => b.MemberId.ToString() == query.MemberId && b.Id == query.Request.Id);
-            if (getBacktest == null)
+            var getSymbol = _symbolService.Get(b => b.MemberId.ToString() == query.MemberId && b.Id == query.Request.Id);
+            if (getSymbol == null)
             {
                 return new ErrorResult("Data Not Found!");
             }
-            if (!bot.Success)
-                return new ErrorResult();
-            var result = _symbolService.Update(query.Request.Id);
+            var symbolMapper = _mapper.Map<Symbol>(query.Request);
+            var result = _symbolService.Update(symbolMapper);
             if (result.Success)
                 return new SuccessResult();
             return new ErrorResult();

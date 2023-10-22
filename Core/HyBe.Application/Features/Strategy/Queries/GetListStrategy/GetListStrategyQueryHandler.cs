@@ -27,13 +27,13 @@ public class GetListStrategyQueryHandler : IRequestHandler<GetListStrategyQuery,
     public async Task<IResult> Handle(GetListStrategyQuery query, CancellationToken cancellationToken)
     {
 
-        var result = _strategyService.GetAll();
+        var result = _strategyService.GetAll(b => b.MemberId.ToString() == query.Request.MemberId);
         if (result.Success)
         {
             var strategyMapper = _mapper.Map<List<GetListStrategyResponse>>(result.Data);
             return new SuccessDataResult<List<GetListStrategyResponse>>(strategyMapper);
         }
-        return new ErrorDataResult<List<GetListStrategyResponse>>();
+        return new ErrorDataResult<List<GetListStrategyResponse>>(result.Message);
     }
     #endregion
 }

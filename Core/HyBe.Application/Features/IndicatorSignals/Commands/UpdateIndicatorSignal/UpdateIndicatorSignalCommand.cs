@@ -13,7 +13,7 @@ public class UpdateIndicatorSignalCommand : IRequest<IResult>
 {
     public UpdateIndicatorSignalRequest Request { get; set; }
     public string MemberId { get; set; }
-    public UpdateIndicatorSignalCommand (UpdateIndicatorSignalRequest request)
+    public UpdateIndicatorSignalCommand(UpdateIndicatorSignalRequest request)
     {
         Request = request;
     }

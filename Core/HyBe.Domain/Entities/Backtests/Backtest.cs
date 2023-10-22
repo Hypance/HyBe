@@ -3,7 +3,7 @@ using HyBe.SharedKernel.Domain;
 namespace HyBe.Domain.Entities.Backtests;
 public class Backtest : BaseEntity
 {
-    public Guid MemberId { get; private set; }
+    public Guid MemberId { get; set; }
     public string Name { get; set; }
     public Market Market { get; set; }
     public OrderType OrderType { get; set; }

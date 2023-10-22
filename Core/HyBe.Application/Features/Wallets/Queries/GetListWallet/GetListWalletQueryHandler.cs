@@ -27,13 +27,13 @@ namespace HyBe.Application.Features.Wallets.Queries.GetListWallet
         public async Task<IResult> Handle(GetListWalletQuery query, CancellationToken cancellationToken)
         {
 
-            var result = _walletService.GetAll();
+            var result = _walletService.GetAll(b => b.MemberId.ToString() == query.Request.MemberId);
             if (result.Success)
             {
                 var walletMapper = _mapper.Map<List<GetListWalletResponse>>(result.Data);
                 return new SuccessDataResult<List<GetListWalletResponse>>(walletMapper);
             }
-            return new ErrorDataResult<List<GetListWalletResponse>>();
+            return new ErrorDataResult<List<GetListWalletResponse>>(result.Message);
         }
     }
 }

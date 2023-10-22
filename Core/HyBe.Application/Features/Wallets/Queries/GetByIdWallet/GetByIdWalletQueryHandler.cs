@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using HyBe.Application.Abstractions.Services;
 using HyBe.Application.Features.Wallets.Commands.DeleteWallet;
+using HyBe.Domain.Contracts.Transactions;
 using HyBe.Domain.Contracts.Wallets;
 using HyBe.SharedKernel.Utilities;
 using MediatR;
@@ -24,13 +25,13 @@ namespace HyBe.Application.Features.Wallets.Queries.GetByIdWallet
         public async Task<IResult> Handle(GetByIdWalletQuery query, CancellationToken cancellationToken)
         {
 
-            var result = _walletService.Get(b => b.Id == query.Request.Id);
+            var result = _walletService.Get(b => b.MemberId.ToString() == query.Request.MemberId && b.Id == query.Request.Id);
             if (result.Success)
             {
                 var walletMapper = _mapper.Map<GetByIdWalletResponse>(result.Data);
                 return new SuccessDataResult<GetByIdWalletResponse>(walletMapper);
             }
-            return new ErrorDataResult<GetByIdWalletResponse>();
+            return new ErrorDataResult<GetByIdWalletResponse>(result.Message);
         }
     }
 }

@@ -26,15 +26,13 @@ public class UpdateCandlestickCommandHandler : IRequestHandler<UpdateCandlestick
     #region Methods
     public async Task<IResult> Handle(UpdateCandlestickCommand query, CancellationToken cancellationToken)
     {
-        var backtest = _candlestickService.Get(x => x.Id == query.Request.Id);
-        var getBacktest = _candlestickService.Get(b => b.MemberId.ToString() == query.MemberId && b.Id == query.Request.Id);
-        if (getBacktest == null)
+        var getCandlestick = _candlestickService.Get(b => b.MemberId.ToString() == query.MemberId && b.Id == query.Request.Id);
+        if (getCandlestick == null)
         {
             return new ErrorResult("Data Not Found!");
         }
-        if (!backtest.Success)
-            return new ErrorResult();
-        var result = _candlestickService.Update(query.Request.Id);
+        var candlestickMapper = _mapper.Map<Candlestick>(query.Request);
+        var result = _candlestickService.Update(candlestickMapper);
         if (result.Success)
             return new SuccessResult();
         return new ErrorResult();

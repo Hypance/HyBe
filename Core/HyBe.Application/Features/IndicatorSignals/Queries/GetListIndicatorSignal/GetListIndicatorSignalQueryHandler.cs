@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using HyBe.Application.Abstractions.Services;
+using HyBe.Domain.Contracts.Indicators;
 using HyBe.Domain.Contracts.IndicatorSignals;
 using HyBe.SharedKernel.Utilities;
 using MediatR;
@@ -29,13 +30,13 @@ public class GetListIndicatorSignalQueryHandler : IRequestHandler<GetListIndicat
     public async Task<IResult> Handle(GetListIndicatorSignalQuery query, CancellationToken cancellationToken)
     {
 
-        var result = _indicatorSignalService.GetAll();
+        var result = _indicatorSignalService.GetAll(b => b.MemberId.ToString() == query.Request.MemberId);
         if (result.Success)
         {
             var indicatorSignalMapper = _mapper.Map<List<GetListIndicatorSignalResponse>>(result.Data);
             return new SuccessDataResult<List<GetListIndicatorSignalResponse>>(indicatorSignalMapper);
         }
-        return new ErrorDataResult<List<GetListIndicatorSignalResponse>>();
+        return new ErrorDataResult<List<GetListIndicatorSignalResponse>>(result.Message);
     }
     #endregion
 }

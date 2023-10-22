@@ -5,7 +5,6 @@ using HyBe.SharedKernel.Utilities;
 using HyBe.Domain.Entities.Backtests;
 using MediatR;
 using HyBe.Domain.Contracts.Backtests;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace HyBe.Application.Features.Backtests.Queries;
 
@@ -32,7 +31,8 @@ public class UpdateBacktestCommandHandler : IRequestHandler<UpdateBacktestComman
         {
             return new ErrorResult("Data Not Found!");
         }
-        var result = _backtestService.Update(query.Request.Id);
+        var backtestMapper = _mapper.Map<Backtest>(query.Request);
+        var result = _backtestService.Update(backtestMapper);
         if (result.Success)
             return new SuccessResult();
         return new ErrorResult();

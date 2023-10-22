@@ -12,6 +12,7 @@ namespace HyBe.Application.Features.FormationSignals.Commands.DeleteFormationSig
     public class DeleteFormationSignalCommand : IRequest<IResult>
     {
         public DeleteFormationSignalRequest Request { get; set; }
+        public string MemberId { get; set; }
 
         public DeleteFormationSignalCommand(DeleteFormationSignalRequest request)
         {

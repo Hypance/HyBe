@@ -5,6 +5,7 @@ using MediatR;
 
 using HyBe.Domain.Entities;
 using HyBe.Domain.Entities.Formations;
+using HyBe.Domain.Entities.Backtests;
 
 namespace HyBe.Application.Features.Formations.Commands.UpdateFormation
 {
@@ -26,15 +27,13 @@ namespace HyBe.Application.Features.Formations.Commands.UpdateFormation
         #region Methods
         public async Task<IResult> Handle(UpdateFormationCommand query, CancellationToken cancellationToken)
         {
-            var bot = _formationService.Get(x => x.Id == query.Request.Id);
-            var getBacktest = _formationService.Get(b => b.MemberId.ToString() == query.MemberId && b.Id == query.Request.Id);
-            if (getBacktest == null)
+            var getFormation = _formationService.Get(b => b.MemberId.ToString() == query.MemberId && b.Id == query.Request.Id);
+            if (getFormation == null)
             {
                 return new ErrorResult("Data Not Found!");
             }
-            if (!bot.Success)
-                return new ErrorResult();
-            var result = _formationService.Update(query.Request.Id);
+            var formationMapper = _mapper.Map<Formation>(query.Request);
+            var result = _formationService.Update(formationMapper);
             if (result.Success)
                 return new SuccessResult();
             return new ErrorResult();

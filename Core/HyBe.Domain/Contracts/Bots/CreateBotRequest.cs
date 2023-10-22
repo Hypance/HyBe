@@ -20,5 +20,6 @@ namespace HyBe.Domain.Contracts.Bots
         public int[]? FormationIds { get; set; }
         public decimal PriceVolume { get; set; }
         public BotOptions BotOptions { get; set; }
+        public string MemberId { get; set; }
     }
 }

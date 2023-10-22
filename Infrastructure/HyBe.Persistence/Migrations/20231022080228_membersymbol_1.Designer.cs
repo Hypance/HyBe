@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace HyBe.Persistence.Migrations
 {
     [DbContext(typeof(HypanceDbContext))]
-    [Migration("20230818153153_member_1")]
-    partial class member_1
+    [Migration("20231022080228_membersymbol_1")]
+    partial class membersymbol_1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -132,6 +132,9 @@ namespace HyBe.Persistence.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("boolean");
 
+                    b.Property<Guid>("MemberId")
+                        .HasColumnType("uuid");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
@@ -156,6 +159,9 @@ namespace HyBe.Persistence.Migrations
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("boolean");
+
+                    b.Property<Guid>("MemberId")
+                        .HasColumnType("uuid");
 
                     b.Property<int>("Period")
                         .HasColumnType("integer");
@@ -184,6 +190,9 @@ namespace HyBe.Persistence.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("boolean");
 
+                    b.Property<Guid>("MemberId")
+                        .HasColumnType("uuid");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
@@ -208,6 +217,9 @@ namespace HyBe.Persistence.Migrations
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("boolean");
+
+                    b.Property<Guid>("MemberId")
+                        .HasColumnType("uuid");
 
                     b.Property<int>("Period")
                         .HasColumnType("integer");
@@ -293,6 +305,23 @@ namespace HyBe.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Members");
+                });
+
+            modelBuilder.Entity("HyBe.Domain.Entities.Members.MemberSymbol", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("MemberId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("SymbolId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("MemberSymbol");
                 });
 
             modelBuilder.Entity("HyBe.Domain.Entities.Signals.Signal", b =>
@@ -415,6 +444,9 @@ namespace HyBe.Persistence.Migrations
 
                     b.Property<decimal>("MaxQuantity")
                         .HasColumnType("numeric");
+
+                    b.Property<Guid>("MemberId")
+                        .HasColumnType("uuid");
 
                     b.Property<decimal>("MinQuantity")
                         .HasColumnType("numeric");

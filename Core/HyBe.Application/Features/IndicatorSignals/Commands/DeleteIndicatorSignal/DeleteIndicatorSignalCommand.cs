@@ -7,6 +7,7 @@ namespace HyBe.Application.Features.IndicatorSignals.Commands.DeleteIndicatorSig
 public class DeleteIndicatorSignalCommand : IRequest<IResult>
 {
     public DeleteIndicatorSignalRequest Request { get; set; }
+    public string MemberId { get; set; }
 
     public DeleteIndicatorSignalCommand(DeleteIndicatorSignalRequest request)
     {

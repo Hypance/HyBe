@@ -1,18 +1,12 @@
-﻿using AutoMapper;
-using HyBe.Application.Features.Indicators.Queries;
-using HyBe.Application.Features.IndicatorSignals.Commands.CreateIndicatorSignal;
-using HyBe.Application.Features.Signals.Queries;
+﻿using System;
+using AutoMapper;
 using HyBe.Application.Features.Transactions.Commands.CreateTransaction;
 using HyBe.Application.Features.Transactions.Commands.UpdateTransaction;
 using HyBe.Application.Features.Transactions.Queries.GetListTransaction;
-using HyBe.Domain.Contracts.IndicatorSignals;
-using HyBe.Domain.Contracts.Signals;
 using HyBe.Domain.Contracts.Transactions;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
 
 namespace HyBe.WebAPI.Controllers.v1;
 

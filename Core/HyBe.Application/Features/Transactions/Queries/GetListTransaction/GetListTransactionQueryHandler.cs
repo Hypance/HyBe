@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using HyBe.Application.Abstractions.Services;
+using HyBe.Domain.Contracts.IndicatorSignals;
 using HyBe.Domain.Contracts.Symbols;
 using HyBe.Domain.Contracts.Transactions;
 using HyBe.Domain.Entities.Transactions;
@@ -27,13 +28,9 @@ namespace HyBe.Application.Features.Transactions.Queries.GetListTransaction
         }
         #endregion
         #region Methods
-        public async Task<IResult> Handle(GetListTransactionQuery request, CancellationToken cancellationToken)
+        public async Task<IResult> Handle(GetListTransactionQuery query, CancellationToken cancellationToken)
         {
-            var result = _transactionService.GetAll(); 
-            if(request.Request.StartDate.HasValue)
-            {
-                result = _transactionService.GetAll(x => x.StartTime >= request.Request.StartDate);
-            }
+            var result = _transactionService.GetAll(b => b.MemberId.ToString() == query.Request.MemberId);
             if (result.Success)
             {
                 var transactionMapper = _mapper.Map<List<GetListTransactionResponse>>(result.Data);

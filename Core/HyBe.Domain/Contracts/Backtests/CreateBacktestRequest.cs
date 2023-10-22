@@ -15,5 +15,6 @@ public class CreateBacktestRequest
     public int[]? Formation { get; set; }
     public DateTimeOffset Start { get; set; }
     public DateTimeOffset Finish { get; set; }
+    public string MemberId { get; set; }
 }
 
