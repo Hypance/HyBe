@@ -1,5 +1,4 @@
-﻿using HyBe.Domain.Contracts.Backtests;
-using HyBe.Domain.Contracts.Symbols;
+﻿using HyBe.Domain.Contracts.Symbols;
 using HyBe.SharedKernel.Utilities;
 using MediatR;
 using System;
@@ -13,7 +12,6 @@ namespace HyBe.Application.Features.Symbols.Commands.UpdateSymbol
     public class UpdateSymbolCommand : IRequest<IResult>
     {
         public UpdateSymbolRequest Request { get; set; }
-        public string MemberId { get; set; }
 
         public UpdateSymbolCommand(UpdateSymbolRequest request)
         {
