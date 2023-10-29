@@ -36,9 +36,7 @@ namespace HyBe.WebAPI.Controllers.v1
         {
             try
             {
-                System.Security.Claims.ClaimsPrincipal currentUser = this.User;
-                var claims = currentUser.Claims.ToArray();
-                var request = new GetListSymbolRequest { MemberId = claims[3].Value };
+                var request = new GetListSymbolRequest {};
                 var query = _mapper.Map<GetListSymbolQuery>(request);
                 var result = await _mediatr.Send(query);
                 return Ok(result);
@@ -69,10 +67,7 @@ namespace HyBe.WebAPI.Controllers.v1
         {
             try
             {
-                System.Security.Claims.ClaimsPrincipal currentUser = this.User;
-                var claims = currentUser.Claims.ToArray();
                 var query = _mapper.Map<CreateSymbolCommand>(request);
-                query.Request.MemberId = claims[3].Value;
                 var result = await _mediatr.Send(query);
                 return Ok(result);
             }
@@ -87,10 +82,7 @@ namespace HyBe.WebAPI.Controllers.v1
         {
             try
             {
-                System.Security.Claims.ClaimsPrincipal currentUser = this.User;
-                var claims = currentUser.Claims.ToArray();
                 var query = _mapper.Map<UpdateSymbolCommand>(request);
-                query.MemberId = claims[3].Value;
                 var result = await _mediatr.Send(query);
                 return Ok(result);
             }
@@ -105,10 +97,7 @@ namespace HyBe.WebAPI.Controllers.v1
         {
             try
             {
-                System.Security.Claims.ClaimsPrincipal currentUser = this.User;
-                var claims = currentUser.Claims.ToArray();
                 var query = _mapper.Map<DeleteSymbolCommand>(request);
-                query.MemberId = claims[3].Value;
                 var result = await _mediatr.Send(query);
                 return Ok(result);
             }

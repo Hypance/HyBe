@@ -13,7 +13,6 @@ namespace HyBe.Application.Features.Symbols.Commands.DeleteSymbol
     public class DeleteSymbolCommand : IRequest<IResult>
     {
         public DeleteSymbolRequest Request { get; set; }
-        public string MemberId { get; set; }
 
         public DeleteSymbolCommand(DeleteSymbolRequest request)
         {

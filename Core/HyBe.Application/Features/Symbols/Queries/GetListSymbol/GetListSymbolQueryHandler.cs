@@ -33,7 +33,7 @@ namespace HyBe.Application.Features.Symbols.Queries.GetListSymbol
         public async Task<IResult> Handle(GetListSymbolQuery query, CancellationToken cancellationToken)
         {
 
-            var result = _symbolService.GetAll(b => b.MemberId.ToString() == query.Request.MemberId);
+            var result = _symbolService.GetAll();
             if (result.Success)
             {
                 var symbolMapper = _mapper.Map<List<GetListSymbolResponse>>(result.Data);

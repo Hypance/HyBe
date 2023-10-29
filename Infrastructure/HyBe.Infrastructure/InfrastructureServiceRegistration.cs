@@ -11,6 +11,7 @@ namespace HyBe.Infrastructure
 		public static IServiceCollection AddInfrastructureServices(this IServiceCollection services)
 		{
 			services.AddScoped<INotificationService, TelegramNotificationService>();
+			services.AddScoped<IBinanceFutureService, IBinanceFutureService>();
 			return services;
 		}
 	}
