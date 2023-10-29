@@ -7,25 +7,23 @@ using HyBe.Domain.Entities.Indicators;
 using HyBe.Domain.Entities.Strategies;
 using HyBe.Domain.Entities.Symbols;
 using HyBe.SharedKernel.Domain;
-using HyBe.SharedKernel.Events;
 using HyBe.Domain.Entities.Wallets;
 using Microsoft.EntityFrameworkCore;
 using HyBe.Domain.Entities.Signals;
 using HyBe.Domain.Entities.Members;
+using HyBe.Domain.Entities.Transactions;
 
 namespace HyBe.Persistence.Contexts;
 public class HypanceDbContext : DbContext
 {
-    #region Fields
-    private readonly IDomainEventDispatcher _dispatcher;
-    #endregion
+
 
     #region Constructor
     public HypanceDbContext(
-        DbContextOptions<HypanceDbContext> options,
-        IDomainEventDispatcher dispatcher):base(options)
+        DbContextOptions<HypanceDbContext> options
+        ):base(options)
     {
-        _dispatcher = dispatcher;
+       
     }
     #endregion
 
@@ -42,6 +40,9 @@ public class HypanceDbContext : DbContext
     public DbSet<Candlestick> Candlesticks { get; set; }
     public DbSet<Wallet> Wallets { get; set; }
     public DbSet<Member> Members { get; set; }
+    public DbSet<Transaction> Transactions { get; set; }
+    public DbSet<MemberTransactionRelationship> MemberTransactionRelationships { get; set; }
+    public DbSet<MemberSymbol> MemberSymbol { get; set; }
     #endregion
 
     #region ModelCreating
@@ -53,30 +54,6 @@ public class HypanceDbContext : DbContext
     #endregion
 
     #region Methods
-    public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
-    {
-        int result = await base.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
 
-        // ignore events if no dispatcher provided
-        if (_dispatcher == null)
-        {
-            return result;
-        }
-
-        // dispatch events only if save was successful
-        var entitiesWithEvents = this.ChangeTracker.Entries<BaseEntity>()
-            .Select(e => e.Entity)
-            .Where(e => e.DomainEvents.Any())
-            .ToArray();
-
-        await _dispatcher.DispatchAndClearEvents(entitiesWithEvents);
-
-        return result;
-    }
-
-    public override int SaveChanges()
-    {
-        return this.SaveChangesAsync().GetAwaiter().GetResult();
-    }
     #endregion
 }

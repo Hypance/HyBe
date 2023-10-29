@@ -19,10 +19,15 @@ namespace HyBe.Application.Features.Bots.Commands.DeleteBot
         }
         public async Task<IResult> Handle(DeleteBotCommand query, CancellationToken cancellationToken)
         {
+            var getBot = _botService.Get(b => b.MemberId.ToString() == query.MemberId && b.Id == query.Request.Id);
+            if (getBot.Success == false)
+            {
+                return new ErrorResult("Data Not Found!");
+            }
             var result = _botService.Delete(query.Request.Id);
             if (result.Success)
                 return new SuccessResult();
-            return new ErrorResult();
+            return new ErrorResult(result.Message);
         }
     }
 }

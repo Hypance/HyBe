@@ -27,7 +27,7 @@ public class GetByIdBacktestQueryHandler : IRequestHandler<GetByIdBacktestQuery,
     public async Task<IResult> Handle(GetByIdBacktestQuery query, CancellationToken cancellationToken)
     {
 
-        var result = _backtestService.Get(b=>b.Id == query.Request.Id);
+        var result = _backtestService.Get(b => b.MemberId.ToString() == query.Request.MemberId && b.Id == query.Request.Id);
         if (result.Success)
         {
             var backtestMapper = _mapper.Map<GetByIdBacktestResponse>(result.Data);

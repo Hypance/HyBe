@@ -4,6 +4,7 @@ using HyBe.SharedKernel.Domain;
 namespace HyBe.Domain.Entities.Symbols;
 public class Candlestick : BaseEntity
 {
+    public Guid MemberId { get; private set; }
     public string Name { get; set; }
     public DateTimeOffset OpenTime { get; set; }
     public decimal OpenPrice { get; set; }

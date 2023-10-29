@@ -14,5 +14,6 @@ namespace HyBe.Domain.Contracts.Formations
         public bool IsActive { get; set; }
 
         public int DefaultPeriod { get; set; }
+        public string MemberId { get; set; }
     }
 }

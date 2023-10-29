@@ -8,5 +8,6 @@ namespace HyBe.Domain.Contracts.Wallets
 {
     public class GetListWalletRequest
     {
+        public string MemberId { get; set; }
     }
 }

@@ -34,13 +34,13 @@ namespace HyBe.Application.Features.Bots.Queries.GetListBot
         public async Task<IResult> Handle(GetListBotQuery query, CancellationToken cancellationToken)
         {
 
-            var result = _botService.GetAll();
+            var result = _botService.GetAll(b => b.MemberId.ToString() == query.Request.MemberId);
             if (result.Success)
             {
                 var botMapper = _mapper.Map<List<GetListBotResponse>>(result.Data);
                 return new SuccessDataResult<List<GetListBotResponse>>(botMapper);
             }
-            return new ErrorDataResult<List<GetListBotResponse>>();
+            return new ErrorDataResult<List<GetListBotResponse>>(result.Message);
         }
         #endregion
     }

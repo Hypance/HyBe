@@ -19,10 +19,15 @@ namespace HyBe.Application.Features.Formations.Commands.DeleteFormation
         }
         public async Task<IResult> Handle(DeleteFormationCommand query, CancellationToken cancellationToken)
         {
+            var getFormation = _formationService.Get(b => b.MemberId.ToString() == query.MemberId && b.Id == query.Request.Id);
+            if (getFormation.Success == false)
+            {
+                return new ErrorResult("Data Not Found!");
+            }
             var result = _formationService.Delete(query.Request.Id);
             if (result.Success)
                 return new SuccessResult();
-            return new ErrorResult();
+            return new ErrorResult(result.Message);
         }
     }
 }

@@ -7,4 +7,5 @@ public class Formation : BaseEntity
     public bool IsActive { get; set; }
 
     public int DefaultPeriod { get; set; }
+    public Guid MemberId { get; set; }
 }

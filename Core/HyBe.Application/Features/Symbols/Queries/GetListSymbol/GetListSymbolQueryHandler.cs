@@ -2,6 +2,7 @@
 using HyBe.Application.Abstractions.Services;
 using HyBe.Application.Features.Backtests.Queries;
 using HyBe.Domain.Contracts.Backtests;
+using HyBe.Domain.Contracts.IndicatorSignals;
 using HyBe.Domain.Contracts.Symbols;
 using HyBe.SharedKernel.Utilities;
 using MediatR;
@@ -32,7 +33,7 @@ namespace HyBe.Application.Features.Symbols.Queries.GetListSymbol
         public async Task<IResult> Handle(GetListSymbolQuery query, CancellationToken cancellationToken)
         {
 
-            var result = _symbolService.GetAll();
+            var result = _symbolService.GetAll(b => b.MemberId.ToString() == query.Request.MemberId);
             if (result.Success)
             {
                 var symbolMapper = _mapper.Map<List<GetListSymbolResponse>>(result.Data);

@@ -27,7 +27,7 @@ public class GetListBacktestQueryHandler : IRequestHandler<GetListBacktestQuery,
     public async Task<IResult> Handle(GetListBacktestQuery query, CancellationToken cancellationToken)
     {
 
-        var result = _backtestService.GetAll();
+        var result = _backtestService.GetAll(b=>b.MemberId.ToString()==query.Request.MemberId);
         if (result.Success)
         {
             var backtestMapper = _mapper.Map<List<GetListBacktestResponse>>(result.Data);

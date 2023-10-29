@@ -26,6 +26,11 @@ public class DeleteBacktestCommandHandler : IRequestHandler<DeleteBacktestComman
     #region Methods
     public async Task<IResult> Handle(DeleteBacktestCommand query, CancellationToken cancellationToken)
     {
+        var getBacktest = _backtestService.Get(b => b.MemberId.ToString() == query.MemberId && b.Id == query.Request.Id);
+        if (getBacktest.Success == false) 
+        {
+            return new ErrorResult("Data Not Found!");
+        }
         var result = _backtestService.Delete(query.Request.Id);
         if (result.Success)
             return new SuccessResult();
@@ -33,4 +38,3 @@ public class DeleteBacktestCommandHandler : IRequestHandler<DeleteBacktestComman
     }
     #endregion
 }
-

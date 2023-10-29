@@ -27,13 +27,13 @@ public class GetByIdIndicatorQueryHandler : IRequestHandler<GetByIdIndicatorQuer
     public async Task<IResult> Handle(GetByIdIndicatorQuery query, CancellationToken cancellationToken)
     {
 
-        var result = _indicatorService.Get(b => b.Id == query.Request.Id);
+        var result = _indicatorService.Get(b => b.MemberId.ToString() == query.Request.MemberId && b.Id == query.Request.Id);
         if (result.Success)
         {
             var indicatorMapper = _mapper.Map<GetByIdIndicatorResponse>(result.Data);
             return new SuccessDataResult<GetByIdIndicatorResponse>(indicatorMapper);
         }
-        return new ErrorDataResult<GetByIdIndicatorResponse>();
+        return new ErrorDataResult<GetByIdIndicatorResponse>(result.Message);
     }
     #endregion
 }

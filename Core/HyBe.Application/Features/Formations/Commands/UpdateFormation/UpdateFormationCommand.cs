@@ -8,6 +8,7 @@ namespace HyBe.Application.Features.Formations.Commands.UpdateFormation
     public class UpdateFormationCommand : IRequest<IResult>
     {
         public UpdateFormationRequest Request { get; set; }
+        public string MemberId { get; set; }
 
         public UpdateFormationCommand(UpdateFormationRequest request)
         {

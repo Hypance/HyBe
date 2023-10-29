@@ -32,10 +32,13 @@ namespace HyBe.WebAPI.Controllers.v1
         #region Methods
 
         [HttpGet]
-        public async Task<IActionResult> GetList([FromQuery] GetListStrategyRequest request)
+        public async Task<IActionResult> GetList()
         {
             try
             {
+                System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+                var claims = currentUser.Claims.ToArray();
+                var request = new GetListStrategyRequest { MemberId = claims[3].Value };
                 var query = _mapper.Map<GetListStrategyQuery>(request);
                 var result = await _mediatr.Send(query);
                 return Ok(result);
@@ -66,7 +69,10 @@ namespace HyBe.WebAPI.Controllers.v1
         {
             try
             {
+                System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+                var claims = currentUser.Claims.ToArray();
                 var query = _mapper.Map<CreateStrategyCommand>(request);
+                query.Request.MemberId = claims[3].Value;
                 var result = await _mediatr.Send(query);
                 return Ok(result);
             }
@@ -81,7 +87,10 @@ namespace HyBe.WebAPI.Controllers.v1
         {
             try
             {
+                System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+                var claims = currentUser.Claims.ToArray();
                 var query = _mapper.Map<UpdateStrategyCommand>(request);
+                query.MemberId = claims[3].Value;
                 var result = await _mediatr.Send(query);
                 return Ok(result);
             }
@@ -92,11 +101,14 @@ namespace HyBe.WebAPI.Controllers.v1
         }
 
         [HttpDelete]
-        public async Task<IActionResult> Delete([FromQuery] DeleteStrategyRequest request)
+        public async Task<IActionResult> Delete([FromBody] DeleteStrategyRequest request)
         {
             try
             {
+                System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+                var claims = currentUser.Claims.ToArray();
                 var query = _mapper.Map<DeleteStrategyCommand>(request);
+                query.MemberId = claims[3].Value;
                 var result = await _mediatr.Send(query);
                 return Ok(result);
             }

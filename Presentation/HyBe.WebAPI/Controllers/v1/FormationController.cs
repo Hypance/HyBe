@@ -23,10 +23,13 @@ namespace HyBe.WebAPI.Controllers.v1
             _mediatr = mediatr;
         }
         [HttpGet]
-        public async Task<IActionResult> GetList([FromQuery] GetListFormationRequest request)
+        public async Task<IActionResult> GetList()
         {
             try
             {
+                System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+                var claims = currentUser.Claims.ToArray();
+                var request = new GetListFormationRequest { MemberId = claims[3].Value };
                 var query = _mapper.Map<GetListFormationQuery>(request);
                 var result = await _mediatr.Send(query);
                 return Ok(result);
@@ -36,6 +39,7 @@ namespace HyBe.WebAPI.Controllers.v1
                 return BadRequest(ex.Message);
             }
         }
+
         [HttpGet]
         public async Task<IActionResult> Get([FromQuery] GetByIdFormationRequest request)
         {
@@ -50,12 +54,16 @@ namespace HyBe.WebAPI.Controllers.v1
                 return BadRequest(ex.Message);
             }
         }
+
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreateFormationRequest request)
         {
             try
             {
+                System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+                var claims = currentUser.Claims.ToArray();
                 var query = _mapper.Map<CreateFormationCommand>(request);
+                query.Request.MemberId = claims[3].Value;
                 var result = await _mediatr.Send(query);
                 return Ok(result);
             }
@@ -64,12 +72,16 @@ namespace HyBe.WebAPI.Controllers.v1
                 return BadRequest(ex.Message);
             }
         }
+
         [HttpPut]
         public async Task<IActionResult> Update([FromBody] UpdateFormationRequest request)
         {
             try
             {
+                System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+                var claims = currentUser.Claims.ToArray();
                 var query = _mapper.Map<UpdateFormationCommand>(request);
+                query.MemberId = claims[3].Value;
                 var result = await _mediatr.Send(query);
                 return Ok(result);
             }
@@ -78,12 +90,16 @@ namespace HyBe.WebAPI.Controllers.v1
                 return BadRequest(ex.Message);
             }
         }
+
         [HttpDelete]
         public async Task<IActionResult> Delete([FromBody] DeleteFormationRequest request)
         {
             try
             {
+                System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+                var claims = currentUser.Claims.ToArray();
                 var query = _mapper.Map<DeleteFormationCommand>(request);
+                query.MemberId = claims[3].Value;
                 var result = await _mediatr.Send(query);
                 return Ok(result);
             }

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using HyBe.Application.Features.Wallets.Commands;
+using HyBe.Application.Features.Wallets.Queries;
 using HyBe.Application.Features.Wallets.Commands.DeleteWallet;
 using HyBe.Application.Features.Wallets.Commands.UpdateWallet;
 using HyBe.Application.Features.Wallets.Queries.GetByIdWallet;
@@ -23,10 +24,13 @@ namespace HyBe.WebAPI.Controllers.v1
             _mediatr = mediatr;
         }
         [HttpGet]
-        public async Task<IActionResult> GetList([FromQuery] GetListWalletRequest request)
+        public async Task<IActionResult> GetList()
         {
             try
             {
+                System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+                var claims = currentUser.Claims.ToArray();
+                var request = new GetListWalletRequest { MemberId = claims[3].Value };
                 var query = _mapper.Map<GetListWalletQuery>(request);
                 var result = await _mediatr.Send(query);
                 return Ok(result);
@@ -36,6 +40,7 @@ namespace HyBe.WebAPI.Controllers.v1
                 return BadRequest(ex.Message);
             }
         }
+
         [HttpGet]
         public async Task<IActionResult> Get([FromQuery] GetByIdWalletRequest request)
         {
@@ -50,12 +55,16 @@ namespace HyBe.WebAPI.Controllers.v1
                 return BadRequest(ex.Message);
             }
         }
+
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreateWalletRequest request)
         {
             try
             {
+                System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+                var claims = currentUser.Claims.ToArray();
                 var query = _mapper.Map<CreateWalletCommand>(request);
+                query.Request.MemberId = claims[3].Value;
                 var result = await _mediatr.Send(query);
                 return Ok(result);
             }
@@ -64,12 +73,16 @@ namespace HyBe.WebAPI.Controllers.v1
                 return BadRequest(ex.Message);
             }
         }
+
         [HttpPut]
         public async Task<IActionResult> Update([FromBody] UpdateWalletRequest request)
         {
             try
             {
+                System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+                var claims = currentUser.Claims.ToArray();
                 var query = _mapper.Map<UpdateWalletCommand>(request);
+                query.MemberId = claims[3].Value;
                 var result = await _mediatr.Send(query);
                 return Ok(result);
             }
@@ -78,12 +91,16 @@ namespace HyBe.WebAPI.Controllers.v1
                 return BadRequest(ex.Message);
             }
         }
+
         [HttpDelete]
         public async Task<IActionResult> Delete([FromBody] DeleteWalletRequest request)
         {
             try
             {
+                System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+                var claims = currentUser.Claims.ToArray();
                 var query = _mapper.Map<DeleteWalletCommand>(request);
+                query.MemberId = claims[3].Value;
                 var result = await _mediatr.Send(query);
                 return Ok(result);
             }

@@ -26,10 +26,15 @@ public class DeleteCandlestickCommandHandler : IRequestHandler<DeleteCandlestick
     #region Methods
     public async Task<IResult> Handle(DeleteCandlestickCommand query, CancellationToken cancellationToken)
     {
+        var getCandlestick = _candlestickService.Get(b => b.MemberId.ToString() == query.MemberId && b.Id == query.Request.Id);
+        if (getCandlestick.Success == false)
+        {
+            return new ErrorResult("Data Not Found!");
+        }
         var result = _candlestickService.Delete(query.Request.Id);
         if (result.Success)
             return new SuccessResult();
-        return new ErrorResult();
+        return new ErrorResult(result.Message);
     }
     #endregion
 }

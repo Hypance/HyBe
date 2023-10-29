@@ -8,7 +8,7 @@ namespace HyBe.Application.Features.Candlesticks.Queries;
 public class DeleteCandlestickCommand : IRequest<IResult>
 {
     public DeleteCandlestickRequest Request { get; set; }
-
+    public string MemberId { get; set; }
     public DeleteCandlestickCommand(DeleteCandlestickRequest request)
     {
         Request = request;

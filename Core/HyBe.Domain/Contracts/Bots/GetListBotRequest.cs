@@ -8,6 +8,6 @@ namespace HyBe.Domain.Contracts.Bots
 {
     public class GetListBotRequest
     {
-
+        public string MemberId { get; set; }
     }
 }

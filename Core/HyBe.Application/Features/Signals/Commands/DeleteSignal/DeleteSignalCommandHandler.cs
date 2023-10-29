@@ -26,10 +26,14 @@ public class DeleteSignalCommandHandler : IRequestHandler<DeleteSignalCommand,IR
     #region Methods
     public async Task<IResult> Handle(DeleteSignalCommand query, CancellationToken cancellationToken)
     {
+        var getSignal = _signalService.Get(b => b.MemberId.ToString() == query.MemberId && b.Id == query.Request.Id);
+        if (getSignal.Success == false)
+        {
+            return new ErrorResult("Data Not Found!");
+        }
         var result = _signalService.Delete(query.Request.Id);
         if (result.Success)
             return new SuccessResult();
-
         return new ErrorResult(result.Message);
     }
     #endregion

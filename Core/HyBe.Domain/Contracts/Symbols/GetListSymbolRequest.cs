@@ -8,6 +8,6 @@ namespace HyBe.Domain.Contracts.Symbols
 {
     public class GetListSymbolRequest
     {
-
+        public string MemberId { get; set; }
     }
 }

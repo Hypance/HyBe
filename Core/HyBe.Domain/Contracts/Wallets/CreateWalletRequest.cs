@@ -9,5 +9,6 @@ namespace HyBe.Domain.Contracts.Wallets
     public class CreateWalletRequest
     {
         public decimal Balance { get; set; }
+        public string MemberId { get; set; }
     }
 }

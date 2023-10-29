@@ -15,4 +15,5 @@ public class UpdateIndicatorRequest
     public Interval Interval { get; set; }
     public string Symbol { get; set; }
     public bool IsActive { get; set; }
+    public Guid Id { get; set; }
 }

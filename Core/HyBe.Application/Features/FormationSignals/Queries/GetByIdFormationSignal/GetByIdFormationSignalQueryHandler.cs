@@ -14,14 +14,14 @@ namespace HyBe.Application.Features.FormationSignals.Queries.GetByIdFormationSig
     public class GetByIdFormationSignalQueryHandler : IRequestHandler<GetByIdFormationSignalQuery, IResult>
     {
         #region Fields
-        private readonly IFormationSignalService _FormationSignalService;
+        private readonly IFormationSignalService _formationSignalService;
         private readonly IMapper _mapper;
         #endregion
 
         #region Constructor
-        public GetByIdFormationSignalQueryHandler(IFormationSignalService FormationSignalService, IMapper mapper)
+        public GetByIdFormationSignalQueryHandler(IFormationSignalService formationSignalService, IMapper mapper)
         {
-            _FormationSignalService = FormationSignalService;
+            _formationSignalService = formationSignalService;
             _mapper = mapper;
         }
         #endregion
@@ -30,11 +30,11 @@ namespace HyBe.Application.Features.FormationSignals.Queries.GetByIdFormationSig
         public async Task<IResult> Handle(GetByIdFormationSignalQuery query, CancellationToken cancellationToken)
         {
 
-            var result = _FormationSignalService.Get(b => b.Id == query.Request.Id);
+            var result = _formationSignalService.Get(b => b.MemberId.ToString() == query.Request.MemberId && b.Id == query.Request.Id);
             if (result.Success)
             {
-                var FormationSignalMapper = _mapper.Map<GetByIdFormationSignalResponse>(result.Data);
-                return new SuccessDataResult<GetByIdFormationSignalResponse>(FormationSignalMapper);
+                var formationSignalMapper = _mapper.Map<GetByIdFormationSignalResponse>(result.Data);
+                return new SuccessDataResult<GetByIdFormationSignalResponse>(formationSignalMapper);
             }
             return new ErrorDataResult<GetByIdFormationSignalResponse>(result.Message);
         }

@@ -28,6 +28,11 @@ namespace HyBe.Application.Features.FormationSignals.Commands.DeleteFormationSig
         #region Methods
         public async Task<IResult> Handle(DeleteFormationSignalCommand query, CancellationToken cancellationToken)
         {
+            var getFormationSignal = _formationSignalService.Get(b => b.MemberId.ToString() == query.MemberId && b.Id == query.Request.Id);
+            if (getFormationSignal.Success == false)
+            {
+                return new ErrorResult("Data Not Found!");
+            }
             var result = _formationSignalService.Delete(query.Request.Id);
             if (result.Success)
                 return new SuccessResult();

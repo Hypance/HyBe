@@ -8,7 +8,7 @@ namespace HyBe.Application.Features.Backtests.Queries;
 public class DeleteBacktestCommand : IRequest<IResult>
 {
     public DeleteBacktestRequest Request { get; set; }
-
+    public string MemberId { get; set; }
     public DeleteBacktestCommand(DeleteBacktestRequest request)
     {
         Request = request;

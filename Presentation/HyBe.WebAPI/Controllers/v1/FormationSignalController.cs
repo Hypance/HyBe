@@ -26,79 +26,95 @@ namespace HyBe.WebAPI.Controllers.v1
                 _mapper = mapper;
                 _mediatr = mediatr;
             }
-            #endregion
+        #endregion
 
-            #region Methods
-            [HttpGet]
-            public async Task<IActionResult> GetList([FromQuery] GetListFormationSignalRequest request)
+        #region Methods
+        [HttpGet]
+        public async Task<IActionResult> GetList()
+        {
+            try
             {
-                try
-                {
-                    var query = _mapper.Map<GetListFormationSignalQuery>(request);
-                    var result = await _mediatr.Send(query);
-                    return Ok(result);
-                }
-                catch (Exception ex)
-                {
-                    return BadRequest(ex.Message);
-                }
+                System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+                var claims = currentUser.Claims.ToArray();
+                var request = new GetListFormationSignalRequest { MemberId = claims[3].Value };
+                var query = _mapper.Map<GetListFormationSignalQuery>(request);
+                var result = await _mediatr.Send(query);
+                return Ok(result);
             }
-            [HttpGet]
-            public async Task<IActionResult> Get([FromQuery] GetByIdFormationSignalRequest request)
+            catch (Exception ex)
             {
-                try
-                {
-                    var query = _mapper.Map<GetByIdFormationSignalQuery>(request);
-                    var result = await _mediatr.Send(query);
-                    return Ok(result);
-                }
-                catch (Exception ex)
-                {
-                    return BadRequest(ex.Message);
-                }
+                return BadRequest(ex.Message);
             }
-            [HttpPost]
-            public async Task<IActionResult> Create([FromBody] CreateFormationSignalRequest request)
-            {
-                try
-                {
-                    var query = _mapper.Map<CreateFormationSignalCommand>(request);
-                    var result = await _mediatr.Send(query);
-                    return Ok(result);
-                }
-                catch (Exception ex)
-                {
-                    return BadRequest(ex.Message);
-                }
-            }
-            [HttpPut]
-            public async Task<IActionResult> Update([FromBody] UpdateFormationSignalRequest request)
-            {
-                try
-                {
-                    var query = _mapper.Map<UpdateFormationSignalCommand>(request);
-                    var result = await _mediatr.Send(query);
-                    return Ok(result);
-                }
-                catch (Exception ex)
-                {
-                    return BadRequest(ex.Message);
-                }
-            }
-            [HttpDelete]
-            public async Task<IActionResult> Delete([FromBody] DeleteFormationSignalRequest request)
-            {
-                try
-                {
-                    var query = _mapper.Map<DeleteFormationSignalCommand>(request);
-                    var result = await _mediatr.Send(query);
-                    return Ok(result);
-                }
-                catch (Exception ex)
-                {
-                    return BadRequest(ex.Message);
-                }
-            }
-            #endregion
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Get([FromQuery] GetByIdFormationSignalRequest request)
+        {
+            try
+            {
+                var query = _mapper.Map<GetByIdFormationSignalQuery>(request);
+                var result = await _mediatr.Send(query);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create([FromBody] CreateFormationSignalRequest request)
+        {
+            try
+            {
+                System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+                var claims = currentUser.Claims.ToArray();
+                var query = _mapper.Map<CreateFormationSignalCommand>(request);
+                query.Request.MemberId = claims[3].Value;
+                var result = await _mediatr.Send(query);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Update([FromBody] UpdateFormationSignalRequest request)
+        {
+            try
+            {
+                System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+                var claims = currentUser.Claims.ToArray();
+                var query = _mapper.Map<UpdateFormationSignalCommand>(request);
+                query.MemberId = claims[3].Value;
+                var result = await _mediatr.Send(query);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete([FromBody] DeleteFormationSignalRequest request)
+        {
+            try
+            {
+                System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+                var claims = currentUser.Claims.ToArray();
+                var query = _mapper.Map<DeleteFormationSignalCommand>(request);
+                query.MemberId = claims[3].Value;
+                var result = await _mediatr.Send(query);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        #endregion
+    }
     }

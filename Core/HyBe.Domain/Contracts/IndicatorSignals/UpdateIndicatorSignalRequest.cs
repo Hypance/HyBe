@@ -15,4 +15,5 @@ public class UpdateIndicatorSignalRequest
     public Interval Interval { get; set; }
     public int[] Signals { get; set; }
     public bool IsActive { get; set; }
+    public Guid Id { get; set; }
 }

@@ -4,6 +4,7 @@ using HyBe.SharedKernel.Utilities;
 using MediatR;
 using HyBe.Domain.Entities;
 using HyBe.Domain.Entities.Wallets;
+using HyBe.Domain.Entities.Backtests;
 
 namespace HyBe.Application.Features.Wallets.Commands.UpdateWallet
 {
@@ -18,6 +19,11 @@ namespace HyBe.Application.Features.Wallets.Commands.UpdateWallet
         }
         public async Task<IResult> Handle(UpdateWalletCommand query, CancellationToken cancellationToken)
         {
+            var getWallet = _walletService.Get(b => b.MemberId.ToString() == query.MemberId && b.Id == query.Request.Id);
+            if (getWallet == null)
+            {
+                return new ErrorResult("Data Not Found!");
+            }
             var walletMapper = _mapper.Map<Wallet>(query.Request);
             var result = _walletService.Update(walletMapper);
             if (result.Success)

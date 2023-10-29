@@ -19,10 +19,15 @@ namespace HyBe.Application.Features.Wallets.Commands.DeleteWallet
         }
         public async Task<IResult> Handle(DeleteWalletCommand query, CancellationToken cancellationToken)
         {
+            var getWallet = _walletService.Get(b => b.MemberId.ToString() == query.MemberId && b.Id == query.Request.Id);
+            if (getWallet.Success == false)
+            {
+                return new ErrorResult("Data Not Found!");
+            }
             var result = _walletService.Delete(query.Request.Id);
             if (result.Success)
                 return new SuccessResult();
-            return new ErrorResult();
+            return new ErrorResult(result.Message);
         }
     }
 }

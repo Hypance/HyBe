@@ -8,4 +8,5 @@ namespace HyBe.Domain.Contracts.IndicatorSignals;
 
 public class GetListIndicatorSignalRequest
 {
+    public string MemberId { get; set; }
 }

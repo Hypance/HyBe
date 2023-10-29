@@ -5,6 +5,7 @@ using HyBe.SharedKernel.Utilities;
 using HyBe.Domain.Entities.Signals;
 using MediatR;
 using HyBe.Domain.Contracts.Signals;
+using HyBe.Domain.Contracts.IndicatorSignals;
 
 namespace HyBe.Application.Features.Signals.Queries;
 
@@ -27,13 +28,13 @@ public class GetListSignalQueryHandler : IRequestHandler<GetListSignalQuery,IRes
     public async Task<IResult> Handle(GetListSignalQuery query, CancellationToken cancellationToken)
     {
 
-        var result = _signalService.GetAll();
+        var result = _signalService.GetAll(b => b.MemberId.ToString() == query.Request.MemberId);
         if (result.Success)
         {
             var signalMapper = _mapper.Map<List<GetListSignalResponse>>(result.Data);
             return new SuccessDataResult<List<GetListSignalResponse>>(signalMapper);
         }
-        return new ErrorDataResult<List<GetListSignalResponse>>();
+        return new ErrorDataResult<List<GetListSignalResponse>>(result.Message);
     }
     #endregion
 }

@@ -26,10 +26,15 @@ public class DeleteStrategyCommandHandler : IRequestHandler<DeleteStrategyComman
     #region Methods
     public async Task<IResult> Handle(DeleteStrategyCommand query, CancellationToken cancellationToken)
     {
+        var getStrategy = _strategyService.Get(b => b.MemberId.ToString() == query.MemberId && b.Id == query.Request.Id);
+        if (getStrategy.Success == false)
+        {
+            return new ErrorResult("Data Not Found!");
+        }
         var result = _strategyService.Delete(query.Request.Id);
         if (result.Success)
             return new SuccessResult();
-        return new ErrorResult();
+        return new ErrorResult(result.Message);
     }
     #endregion
 }

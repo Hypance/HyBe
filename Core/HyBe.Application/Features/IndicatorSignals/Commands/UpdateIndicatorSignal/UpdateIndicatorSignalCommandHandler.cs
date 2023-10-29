@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using HyBe.Application.Abstractions.Services;
-using HyBe.Application.Features.Backtests.Queries;
 using HyBe.Domain.Entities.Indicators;
 using HyBe.SharedKernel.Utilities;
 using MediatR;
@@ -30,6 +29,11 @@ public class UpdateIndicatorSignalCommandHandler : IRequestHandler<UpdateIndicat
     #region Methods
     public async Task<IResult> Handle(UpdateIndicatorSignalCommand query, CancellationToken cancellationToken)
     {
+        var getIndicatorSignal = _indicatorSignalService.Get(b => b.MemberId.ToString() == query.MemberId && b.Id == query.Request.Id);
+        if (getIndicatorSignal == null)
+        {
+            return new ErrorResult("Data Not Found!");
+        }
         var indicatorSignalMapper = _mapper.Map<IndicatorSignal>(query.Request);
         var result = _indicatorSignalService.Update(indicatorSignalMapper);
         if (result.Success)

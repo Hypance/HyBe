@@ -27,13 +27,13 @@ public class GetByIdCandlestickQueryHandler : IRequestHandler<GetByIdCandlestick
     public async Task<IResult> Handle(GetByIdCandlestickQuery query, CancellationToken cancellationToken)
     {
 
-        var result = _candlestickService.Get(b => b.Id == query.Request.Id);
+        var result = _candlestickService.Get(b => b.MemberId.ToString() == query.Request.MemberId && b.Id == query.Request.Id);
         if (result.Success)
         {
             var candlestickMapper = _mapper.Map<GetByIdCandlestickResponse>(result.Data);
             return new SuccessDataResult<GetByIdCandlestickResponse>(candlestickMapper);
         }
-        return new ErrorDataResult<GetByIdCandlestickResponse>();
+        return new ErrorDataResult<GetByIdCandlestickResponse>(result.Message);
     }
     #endregion
 }

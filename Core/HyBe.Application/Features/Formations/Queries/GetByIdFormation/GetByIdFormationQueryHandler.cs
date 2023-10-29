@@ -24,13 +24,13 @@ namespace HyBe.Application.Features.Formations.Queries.GetByIdFormation
         public async Task<IResult> Handle(GetByIdFormationQuery query, CancellationToken cancellationToken)
         {
 
-            var result = _formationService.Get(b => b.Id == query.Request.Id);
+            var result = _formationService.Get(b => b.MemberId.ToString() == query.Request.MemberId && b.Id == query.Request.Id);
             if (result.Success)
             {
                 var formationMapper = _mapper.Map<GetByIdFormationResponse>(result.Data);
                 return new SuccessDataResult<GetByIdFormationResponse>(formationMapper);
             }
-            return new ErrorDataResult<GetByIdFormationResponse>();
+            return new ErrorDataResult<GetByIdFormationResponse>(result.Message);
         }
     }
 }

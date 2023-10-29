@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using HyBe.Application.Features.Candlesticks.Queries;
 using HyBe.Domain.Contracts.Candlesticks;
-using HyBe.SharedKernel.Utilities;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -32,10 +27,13 @@ namespace HyBe.WebAPI.Controllers.v1
         #region Methods
 
         [HttpGet]
-        public async Task<IActionResult> GetList([FromQuery] GetListCandlestickRequest request)
+        public async Task<IActionResult> GetList()
         {
             try
             {
+                System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+                var claims = currentUser.Claims.ToArray();
+                var request = new GetListCandlestickRequest { MemberId = claims[3].Value };
                 var query = _mapper.Map<GetListCandlestickQuery>(request);
                 var result = await _mediatr.Send(query);
                 return Ok(result);
@@ -66,7 +64,10 @@ namespace HyBe.WebAPI.Controllers.v1
         {
             try
             {
+                System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+                var claims = currentUser.Claims.ToArray();
                 var query = _mapper.Map<CreateCandlestickCommand>(request);
+                query.Request.MemberId = claims[3].Value;
                 var result = await _mediatr.Send(query);
                 return Ok(result);
             }
@@ -81,7 +82,10 @@ namespace HyBe.WebAPI.Controllers.v1
         {
             try
             {
+                System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+                var claims = currentUser.Claims.ToArray();
                 var query = _mapper.Map<UpdateCandlestickCommand>(request);
+                query.MemberId = claims[3].Value;
                 var result = await _mediatr.Send(query);
                 return Ok(result);
             }
@@ -92,11 +96,14 @@ namespace HyBe.WebAPI.Controllers.v1
         }
 
         [HttpDelete]
-        public async Task<IActionResult> Delete([FromQuery] DeleteCandlestickRequest request)
+        public async Task<IActionResult> Delete([FromBody] DeleteCandlestickRequest request)
         {
             try
             {
+                System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+                var claims = currentUser.Claims.ToArray();
                 var query = _mapper.Map<DeleteCandlestickCommand>(request);
+                query.MemberId = claims[3].Value;
                 var result = await _mediatr.Send(query);
                 return Ok(result);
             }

@@ -11,5 +11,6 @@ public class CreateSignalRequest
     public SignalResult SignalResult { get; set; }
     public Interval Interval { get; set; }
     public TrendStrategy TrendStrategy { get; set; }
+    public string MemberId { get; set; }
 }
 

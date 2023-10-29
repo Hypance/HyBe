@@ -8,6 +8,7 @@ namespace HyBe.Application.Features.Strategies.Queries;
 public class DeleteStrategyCommand : IRequest<IResult>
 {
     public DeleteStrategyRequest Request { get; set; }
+    public string MemberId { get; set; }
 
     public DeleteStrategyCommand(DeleteStrategyRequest request)
     {

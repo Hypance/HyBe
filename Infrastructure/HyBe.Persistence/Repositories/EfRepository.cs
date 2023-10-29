@@ -2,6 +2,7 @@
 using HyBe.SharedKernel.Domain;
 using HyBe.SharedKernel.Repositories;
 using HyBe.SharedKernel.Utilities;
+using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
 namespace HyBe.Persistence.Repositories;
@@ -20,8 +21,8 @@ public class EfRepository<T> : IRepository<T> where T : BaseEntity
         try
         {
             var data = filter == null ?
-            _hypanceDbContext.Set<T>().ToList() :
-            _hypanceDbContext.Set<T>().Where(filter).ToList();
+            _hypanceDbContext.Set<T>().AsNoTracking().ToList() :
+            _hypanceDbContext.Set<T>().AsNoTracking().Where(filter).ToList();
             return new SuccessDataResult<List<T>>(data);
         }
         catch (System.Exception ex)
@@ -34,7 +35,7 @@ public class EfRepository<T> : IRepository<T> where T : BaseEntity
     {
         try
         {
-            var query = _hypanceDbContext.Set<T>().FirstOrDefault(filter);
+            var query = _hypanceDbContext.Set<T>().AsNoTracking().FirstOrDefault(filter);
             if (query==null)
                 throw new NullReferenceException("Data is not found!..");
             return new SuccessDataResult<T>(query);

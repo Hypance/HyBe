@@ -37,6 +37,9 @@ namespace HyBe.Persistence.Migrations
                     b.Property<int>("Market")
                         .HasColumnType("integer");
 
+                    b.Property<Guid>("MemberId")
+                        .HasColumnType("uuid");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
@@ -44,7 +47,7 @@ namespace HyBe.Persistence.Migrations
                     b.Property<int>("OrderType")
                         .HasColumnType("integer");
 
-                    b.Property<int>("PositionType")
+                    b.Property<int>("Side")
                         .HasColumnType("integer");
 
                     b.Property<DateTimeOffset>("Start")
@@ -87,6 +90,9 @@ namespace HyBe.Persistence.Migrations
                     b.Property<int>("Market")
                         .HasColumnType("integer");
 
+                    b.Property<Guid>("MemberId")
+                        .HasColumnType("uuid");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
@@ -94,11 +100,11 @@ namespace HyBe.Persistence.Migrations
                     b.Property<int>("OrderType")
                         .HasColumnType("integer");
 
-                    b.Property<int>("PositionType")
-                        .HasColumnType("integer");
-
                     b.Property<decimal>("PriceVolume")
                         .HasColumnType("numeric");
+
+                    b.Property<int>("Side")
+                        .HasColumnType("integer");
 
                     b.Property<int[]>("StrategyIds")
                         .HasColumnType("integer[]");
@@ -122,6 +128,9 @@ namespace HyBe.Persistence.Migrations
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("boolean");
+
+                    b.Property<Guid>("MemberId")
+                        .HasColumnType("uuid");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -147,6 +156,9 @@ namespace HyBe.Persistence.Migrations
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("boolean");
+
+                    b.Property<Guid>("MemberId")
+                        .HasColumnType("uuid");
 
                     b.Property<int>("Period")
                         .HasColumnType("integer");
@@ -175,6 +187,9 @@ namespace HyBe.Persistence.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("boolean");
 
+                    b.Property<Guid>("MemberId")
+                        .HasColumnType("uuid");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
@@ -200,6 +215,9 @@ namespace HyBe.Persistence.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("boolean");
 
+                    b.Property<Guid>("MemberId")
+                        .HasColumnType("uuid");
+
                     b.Property<int>("Period")
                         .HasColumnType("integer");
 
@@ -224,8 +242,14 @@ namespace HyBe.Persistence.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("integer");
 
+                    b.Property<decimal>("AllTimeProfit")
+                        .HasColumnType("numeric");
+
                     b.Property<string>("ConcurrencyStamp")
                         .HasColumnType("text");
+
+                    b.Property<decimal>("DailyProfit")
+                        .HasColumnType("numeric");
 
                     b.Property<string>("Email")
                         .HasColumnType("text");
@@ -238,6 +262,12 @@ namespace HyBe.Persistence.Migrations
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("timestamp with time zone");
+
+                    b.Property<Guid>("MemberId")
+                        .HasColumnType("uuid");
+
+                    b.Property<decimal>("MonthlyProfit")
+                        .HasColumnType("numeric");
 
                     b.Property<string>("NormalizedEmail")
                         .HasColumnType("text");
@@ -257,15 +287,38 @@ namespace HyBe.Persistence.Migrations
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("text");
 
+                    b.Property<decimal>("TotalAssetsValue")
+                        .HasColumnType("numeric");
+
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("boolean");
 
                     b.Property<string>("UserName")
                         .HasColumnType("text");
 
+                    b.Property<decimal>("WeeklyProfit")
+                        .HasColumnType("numeric");
+
                     b.HasKey("Id");
 
                     b.ToTable("Members");
+                });
+
+            modelBuilder.Entity("HyBe.Domain.Entities.Members.MemberSymbol", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("MemberId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("SymbolId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("MemberSymbol");
                 });
 
             modelBuilder.Entity("HyBe.Domain.Entities.Signals.Signal", b =>
@@ -279,6 +332,9 @@ namespace HyBe.Persistence.Migrations
 
                     b.Property<int>("Interval")
                         .HasColumnType("integer");
+
+                    b.Property<Guid>("MemberId")
+                        .HasColumnType("uuid");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -313,6 +369,9 @@ namespace HyBe.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<Guid>("MemberId")
+                        .HasColumnType("uuid");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
@@ -345,6 +404,9 @@ namespace HyBe.Persistence.Migrations
 
                     b.Property<decimal>("LowPrice")
                         .HasColumnType("numeric");
+
+                    b.Property<Guid>("MemberId")
+                        .HasColumnType("uuid");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -380,6 +442,9 @@ namespace HyBe.Persistence.Migrations
                     b.Property<decimal>("MaxQuantity")
                         .HasColumnType("numeric");
 
+                    b.Property<Guid>("MemberId")
+                        .HasColumnType("uuid");
+
                     b.Property<decimal>("MinQuantity")
                         .HasColumnType("numeric");
 
@@ -392,6 +457,72 @@ namespace HyBe.Persistence.Migrations
                     b.ToTable("Symbols");
                 });
 
+            modelBuilder.Entity("HyBe.Domain.Entities.Transactions.MemberTransactionRelationship", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("MemberId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<long>("TranId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("MemberTransactionRelationships");
+                });
+
+            modelBuilder.Entity("HyBe.Domain.Entities.Transactions.Transaction", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("numeric");
+
+                    b.Property<string>("Asset")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTimeOffset?>("EndTime")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<decimal>("EntryPrice")
+                        .HasColumnType("numeric");
+
+                    b.Property<decimal?>("ExitPrice")
+                        .HasColumnType("numeric");
+
+                    b.Property<bool>("IsCompleted")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("boolean");
+
+                    b.Property<Guid>("MemberId")
+                        .HasColumnType("uuid");
+
+                    b.Property<decimal>("Profit")
+                        .HasColumnType("numeric");
+
+                    b.Property<int>("Side")
+                        .HasColumnType("integer");
+
+                    b.Property<decimal>("Size")
+                        .HasColumnType("numeric");
+
+                    b.Property<DateTimeOffset?>("StartTime")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Transactions");
+                });
+
             modelBuilder.Entity("HyBe.Domain.Entities.Wallets.Wallet", b =>
                 {
                     b.Property<Guid>("Id")
@@ -400,6 +531,9 @@ namespace HyBe.Persistence.Migrations
 
                     b.Property<decimal>("Balance")
                         .HasColumnType("numeric");
+
+                    b.Property<Guid>("MemberId")
+                        .HasColumnType("uuid");
 
                     b.HasKey("Id");
 
